@@ -5,8 +5,10 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const pageName = 'index';
+
 module.exports = {
-  entry: './source/index.tsx', // Update entry point to .tsx file
+  entry: `./source/front-end/pages/${pageName}/${pageName}.tsx`, // Update entry point to .tsx file
   module: {
     rules: [
       {
@@ -28,13 +30,13 @@ module.exports = {
   },
   devtool: 'source-map',
   output: {
-    filename: 'index.js',
+    filename: `source/front-end/pages/${pageName}/${pageName}.js`,
     path: path.resolve(__dirname, 'build'),
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'React App',
-      template: 'source/index.html',
+      template: `source/front-end/pages/${pageName}/${pageName}.html`,
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',

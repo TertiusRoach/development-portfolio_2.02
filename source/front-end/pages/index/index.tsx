@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import maakBlou from './api/toolbox/maakBlou';
-import maakGroen from './api/toolbox/maakGroen';
+import maakBlou from '../../../api/toolbox/maakBlou';
+import maakGroen from '../../../api/toolbox/maakBlou';
+
 import './index.scss';
 
 const Body = () => {
