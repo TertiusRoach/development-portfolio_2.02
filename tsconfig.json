@@ -6,11 +6,12 @@
     "moduleResolution": "NodeNext",
     "sourceMap": true,
     "skipLibCheck": true,
-    /* Linting */
+    /* linting */
     "strict": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "jsx": "react" // Add this line
   },
   "include": ["source/"],
   "exclude": ["build/", "node_modules/"]

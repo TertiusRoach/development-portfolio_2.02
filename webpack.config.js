@@ -6,11 +6,11 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './source/index.ts',
+  entry: './source/index.tsx', // Update entry point to .tsx file
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.tsx?$/, // Update regex to handle both .ts and .tsx
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -28,21 +28,17 @@ module.exports = {
   },
   devtool: 'source-map',
   output: {
-    filename: 'abes-rmmg.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
   },
   plugins: [
-    // For every HTML file you need to list here.
     new HtmlWebpackPlugin({
-      title: 'Ek het nie nou nou gesê los die title blank nie.',
+      title: 'React App',
       template: 'source/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
     }),
-    // new CopyPlugin({
-    //   patterns: [{ from: 'source/img', to: 'img' }],
-    // }),
   ],
   devServer: {
     static: path.join(__dirname, 'build'),
