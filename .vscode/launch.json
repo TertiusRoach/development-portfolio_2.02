@@ -2,19 +2,19 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Chrome Console",
+      "url": "http://localhost:4000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
       "type": "node",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "name": "Go Webpack",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "build"]
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Chrome Console",
-      "url": "http://localhost:4000",
-      "webRoot": "${workspaceFolder}"
     }
   ],
   "compounds": [
