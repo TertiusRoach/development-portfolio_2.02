@@ -2,6 +2,7 @@
 
 > 🠋 The gulpfile.js document encodes and transfers design files.
 
+    npm r -g -D gulp
     npm install --save-dev del
     npm install --save-dev gulp
     npm install --save-dev sass
