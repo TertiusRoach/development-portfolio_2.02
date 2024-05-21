@@ -3,60 +3,55 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 const pageName = 'index';
 
 module.exports = {
-  entry: `./source/front-end/pages/${pageName}/${pageName}.tsx`, // Update entry point to .tsx file
+  entry: `./source/front-end/pages/${pageName}/${pageName}.tsx`,
+  output: {
+    filename: `${pageName}.js`,
+    path: path.resolve(__dirname, 'build'),
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   module: {
     rules: [
       {
-        test: /\.tsx?$/, // Update regex to handle both .ts and .tsx
-        use: 'ts-loader',
+        test: /\.tsx?$/,
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
-    ],
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-      },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-        ],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   optimization: {
     minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
   devtool: 'source-map',
-  output: {
-    filename: `source/front-end/pages/${pageName}/${pageName}.js`,
-    path: path.resolve(__dirname, 'build'),
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Index Page',
-      template: `source/front-end/pages/${pageName}/${pageName}.html`,
+      template: `./source/front-end/pages/${pageName}/${pageName}.html`,
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
