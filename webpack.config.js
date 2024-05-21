@@ -56,14 +56,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Index Page',
-      template: `source/front-end/pages/${pageName}/index.html`,
+      template: `source/front-end/pages/${pageName}/${pageName}.html`,
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
     }),
   ],
   devServer: {
-    static: path.join(__dirname, 'source'),
+    static: path.join(__dirname, 'build'),
     compress: true,
     port: 4000,
   },

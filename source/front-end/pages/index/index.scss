@@ -1,4 +1,5 @@
 //--|🠋| Font Setup |🠋|--//
+@import '../scale-text.scss';
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
@@ -11,6 +12,22 @@
   box-sizing: border-box;
   font-family: 'Rubik', Helvetica;
 }
+
+@import 'A-body/default-body/default-body.scss';
+
+@import 'B-overlay/default-overlay/default-overlay.scss';
+
+@import 'C-header/default-header/default-header.scss';
+
+@import 'D-footer/default-footer/default-footer.scss';
+
+@import 'E-leftbar/default-leftbar/default-leftbar.scss';
+
+@import 'F-rightbar/default-rightbar/default-rightbar.scss';
+
+@import 'G-main/default-main/default-main.scss';
+
+@import 'H-data/default-data/default-data.scss';
 
 //--|🠋| Color Setup |🠋|--//
 $primary-dark: #1f3131; //--🠊 rgba(31,49,49,1) 🠈--//
@@ -66,50 +83,12 @@ $turquoise-neon: #00ffff; //--🠊 rgba(0, 255, 255, 1) 🠈--//
 $turquoise-dark: #0c343d; //--🠊 rgba(12, 52, 61, 1) 🠈--//
 $turquoise-light: #a2c4c9; //--🠊 rgba(162, 196, 201, 1) 🠈--//
 //--|🠉| Backup Colors |🠉|--//
-* {
-  background: red;
-}
-// body {
-/*
-  @mixin green-container {
-    border: 4px dashed $green-neon;
-    background: rgba($green-dark, 0.25);
-  }
-  @mixin pink-container {
-    border: 4px dashed $pink-neon;
-    background: rgba($pink-dark, 0.25);
-  }
-  @mixin yellow-container {
-    border: 4px dashed $yellow-neon;
-    background: rgba($yellow-dark, 0.25);
-  }
-  @mixin orange-container {
-    border: 4px dashed $orange-neon;
-    background: rgba($orange-dark, 0.25);
-  }
-  @mixin blue-container {
-    border: 4px dashed $blue-neon;
-    background: rgba($blue-dark, 0.25);
-  }
-  @mixin purple-container {
-    border: 4px dashed $purple-neon;
-    background: rgba($purple-dark, 0.25);
-  }
-  @mixin red-container {
-    border: 4px dashed $red-neon;
-    background: rgba($red-dark, 0.25);
-  }
-  @mixin brown-container {
-    border: 4px dashed $brown-neon;
-    background: rgba($brown-dark, 0.25);
-  }
-  @mixin grey-container {
-    border: 4px dashed $grey-neon;
-    background: rgba($grey-dark, 0.25);
-  }
-  @mixin turquoise-container {
-    border: 4px dashed $turquoise-neon;
-    background: rgba($turquoise-dark, 0.25);
-  }
-  */
-// }
+
+@import 'A-body/media-queries.scss';
+@import 'B-overlay/media-queries.scss';
+@import 'C-header/media-queries.scss';
+@import 'D-footer/media-queries.scss';
+@import 'E-leftbar/media-queries.scss';
+@import 'F-rightbar/media-queries.scss';
+@import 'G-main/media-queries.scss';
+@import 'H-data/media-queries.scss';
