@@ -35,8 +35,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React App',
-      template: `source/front-end/pages/${pageName}/${pageName}.html`,
+      title: 'Index Page',
+      template: `source/front-end/pages/${pageName}/index.html`,
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',

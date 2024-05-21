@@ -13,6 +13,6 @@
     "strictNullChecks": true,
     "jsx": "react" // Add this line
   },
-  "include": ["source/"],
+  "include": ["source/", "source/gulpfile.js"],
   "exclude": ["build/", "node_modules/"]
 }

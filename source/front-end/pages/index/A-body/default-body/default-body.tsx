@@ -1,5 +1,6 @@
 import React from 'react';
 import Overlay from '../../B-overlay/Overlay';
+// import DefaultBody from '../default-body.scss'
 // import Header from '../../C-header/Header';
 
 import DefaultOverlay from '../../B-overlay/default-overlay/default-overlay';
