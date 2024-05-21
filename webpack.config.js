@@ -22,6 +22,26 @@ module.exports = {
       },
     ],
   },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
+    ],
+  },
   optimization: {
     minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
@@ -43,7 +63,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: path.join(__dirname, 'build'),
+    static: path.join(__dirname, 'source'),
     compress: true,
     port: 4000,
   },
