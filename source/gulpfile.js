@@ -55,16 +55,16 @@ const compileSASS = (pageName) => {
       .src(
         [
           `source/front-end/pages/${pageName}/${pageName}.scss`,
-          `source/front-end/pages/${pageName}/A-body/**/*.scss`,
-          `source/front-end/pages/${pageName}/B-overlay/**/*.scss`,
-          `source/front-end/pages/${pageName}/C-header/**/*.scss`,
-          `source/front-end/pages/${pageName}/D-footer/**/*.scss`,
-          `source/front-end/pages/${pageName}/E-leftbar/**/*.scss`,
-          `source/front-end/pages/${pageName}/F-rightbar/**/*.scss`,
-          `source/front-end/pages/${pageName}/G-main/**/*.scss`,
-          `source/front-end/pages/${pageName}/H-data/**/*.scss`,
-          'source/front-end/pages/override-bootstrap.scss',
-          'source/front-end/pages/scale-text.scss',
+          // `source/front-end/pages/${pageName}/A-body/**/*.scss`,
+          // `source/front-end/pages/${pageName}/B-overlay/**/*.scss`,
+          // `source/front-end/pages/${pageName}/C-header/**/*.scss`,
+          // `source/front-end/pages/${pageName}/D-footer/**/*.scss`,
+          // `source/front-end/pages/${pageName}/E-leftbar/**/*.scss`,
+          // `source/front-end/pages/${pageName}/F-rightbar/**/*.scss`,
+          // `source/front-end/pages/${pageName}/G-main/**/*.scss`,
+          // `source/front-end/pages/${pageName}/H-data/**/*.scss`,
+          // 'source/front-end/pages/override-bootstrap.scss',
+          // 'source/front-end/pages/scale-text.scss',
         ],
         { allowEmpty: true }
       )
@@ -120,17 +120,22 @@ const compileSASS = (pageName) => {
       .pipe(replace('@charset "UTF-8";', ''))
       //--| Get Bootstrap file and add to style.css |--//
       .pipe(gap.prependFile('source/front-end/vendors/bootstrap/5.3.2/css/bootstrap.min.css'))
+      .pipe(
+        uglifycss({
+          maxLineLen: 1000,
+          uglyComments: true,
+        })
+      )
       //--| Save style.css with Bootstrap |--//
       .pipe(dest(`source/front-end/pages/${pageName}/`));
-
     console.log(`|🠊 Bootstrap added to style.css for ${pageName}.html`);
   };
 
   //--🠋 Execute functions asynchronously 🠋--//
   concatenate(pageName);
   setTimeout(compile, 5000, pageName);
-  setTimeout(remove, 15000, pageName);
-  setTimeout(prepend, 10000, pageName);
+  // setTimeout(remove, 15000, pageName);
+  // setTimeout(prepend, 10000, pageName);
 };
 const copyContent = (pageName) => {
   //--🠋 Copy content into distributable folder 🠋--//

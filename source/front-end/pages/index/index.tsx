@@ -1,6 +1,7 @@
 // index.tsx
 import React from 'react';
-import 'source/front-end/pages/index/style.css';
+// import 'source/front-end/pages/index/style.css';
+// import './style.css';
 // const path = require('path');
 import { createRoot } from 'react-dom/client';
 
