@@ -1,5 +1,8 @@
 # Gulp Tasks
 
+It's good to start with if you want to learn JavaScript with concrete outputs.
+So I've stored my old code here. Might resurrect this old tech one day, doubt it.
+
 > 🠋 The gulpfile.js document encodes and transfers design files.
 
     npm r -g -D gulp
