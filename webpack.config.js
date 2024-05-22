@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-const pageName = 'index';
+const pageName = 'react';
 
 module.exports = {
   entry: `./source/front-end/pages/${pageName}/${pageName}.tsx`,

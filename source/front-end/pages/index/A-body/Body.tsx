@@ -7,7 +7,7 @@ import Leftbar from '../E-leftbar/Leftbar';
 import Rightbar from '../F-rightbar/Rightbar';
 import Main from '../G-main/Main';
 import Data from '../H-data/Data';
-// import 'index.scss' from './'
+
 interface BodyProps {
   pageName: string;
   blockName: string;
