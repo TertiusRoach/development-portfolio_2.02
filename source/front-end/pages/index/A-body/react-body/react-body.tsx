@@ -37,6 +37,7 @@ function CoreConcept(props: string | any) {
 function reactBody(pageName: string | any, blockName: string | any) {
   const page: string = pageName;
   const block: string = blockName;
+  console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
 
   return (
     <>
@@ -58,7 +59,6 @@ function reactBody(pageName: string | any, blockName: string | any) {
 }
 
 function Header() {
-  console.log('//--|🠊 Optional: react-body.tsx loaded 🠈|--//');
   return (
     <header>
       <img src={`${projectURI}/source/front-end/pages/index/%7Econtent/png-files/react-concepts/react-core-concepts.png`} alt="Meh" />

@@ -1,15 +1,14 @@
 // Body.tsx
 import React from 'react';
-import ReactBody from '../A-body/react-body/react-body';
+import Overlay from '../b-overlay/overlay';
+import Header from '../c-header/header';
+import Footer from '../d-footer/footer';
+import Leftbar from '../e-leftbar/leftbar';
+import Rightbar from '../f-rightbar/rightbar';
+import Main from '../g-main/main';
+import Data from '../h-data/data';
 
-import Overlay from '../B-overlay/Overlay';
-import Header from '../C-header/Header';
-import Footer from '../D-footer/Footer';
-import Leftbar from '../E-leftbar/Leftbar';
-import Rightbar from '../F-rightbar/Rightbar';
-import Main from '../G-main/Main';
-import Data from '../H-data/Data';
-
+import ReactBody from '../a-body/react-body/react-body';
 interface BodyProps {
   pageName: string;
   blockName: string;
@@ -17,11 +16,11 @@ interface BodyProps {
 
 const Body: React.FC<BodyProps> = ({ pageName, blockName }) => {
   const block = blockName.split('-')[0];
-  console.log('//--|🠊 Body.tsx Detected 🠈|--//');
+  console.log('//--| body.tsx detected |--//');
   switch (blockName) {
     case 'react-body':
       return ReactBody(pageName, blockName);
-    default:
+    case 'default-body':
       return (
         <>
           <section id={`${pageName}-overlay`} className={`${block}-overlay`}>
@@ -53,6 +52,9 @@ const Body: React.FC<BodyProps> = ({ pageName, blockName }) => {
           </script>
         </>
       );
+    default:
+      console.log('//--|🠊 Add Pages to body.tsx 🠈|--//');
+      break;
   }
 };
 
