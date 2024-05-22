@@ -24,41 +24,6 @@ const CORE_CONCEPTS = [
   },
 ];
 
-function CoreConcept(props: string | any) {
-  // Props makes a function reusable
-  return (
-    <li>
-      <img src={`${props.image}`} alt="..." />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-    </li>
-  );
-}
-
-function reactBody(pageName: string | any, blockName: string | any) {
-  const page: string = pageName;
-  const block: string = blockName;
-  console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
-
-  return (
-    <>
-      <Header />
-      {/* <Heads pageName={`${pageName}-overlay`} /> */}
-      <main>
-        <section id="core-concepts">
-          <h2>Time to get started!</h2>
-          <ul>
-            <CoreConcept {...CORE_CONCEPTS[0]} />
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
-          </ul>
-        </section>
-      </main>
-    </>
-  );
-}
-
 function Header() {
   return (
     <header>
@@ -66,6 +31,39 @@ function Header() {
       <h1>React Essentials</h1>
       <p>{randomizeItem(['Fundemental', 'Crucial', 'Core'])} React concepts you will need for almost any app you are going to build.</p>
     </header>
+  );
+}
+
+function reactBody(pageName: string | any, blockName: string | any) {
+  const page: string = pageName;
+  const block: string = blockName;
+
+  console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
+  return (
+    <>
+      <Header />
+      <main>
+        <section id="core-concepts">
+          <h3>Core Concepts</h3>
+          <ul>
+            <PropsConcept {...CORE_CONCEPTS[0]} />
+            <PropsConcept {...CORE_CONCEPTS[1]} />
+            <PropsConcept {...CORE_CONCEPTS[2]} />
+            <PropsConcept {...CORE_CONCEPTS[3]} />
+          </ul>
+        </section>
+      </main>
+    </>
+  );
+}
+function PropsConcept(props: string | any) {
+  // Props makes a function reusable
+  return (
+    <li>
+      <img src={`${props.image}`} alt="..." />
+      <h6>{props.title}</h6>
+      <p>{props.description}</p>
+    </li>
   );
 }
 
