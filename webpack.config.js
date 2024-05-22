@@ -4,8 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-const pageName = 'react';
-
+const pageName = 'index';
 module.exports = {
   entry: `./source/front-end/pages/${pageName}/${pageName}.tsx`,
   output: {
@@ -54,7 +53,7 @@ module.exports = {
       template: `./source/front-end/pages/${pageName}/${pageName}.html`,
     }),
     new MiniCssExtractPlugin({
-      filename: 'bundle.css',
+      filename: 'style.css',
     }),
   ],
   devServer: {

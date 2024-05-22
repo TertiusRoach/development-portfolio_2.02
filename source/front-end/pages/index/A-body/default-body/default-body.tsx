@@ -11,3 +11,4 @@ export function DefaultBody(pageName: any, blockName: any) {
     </>
   );
 }
+export default DefaultBody;

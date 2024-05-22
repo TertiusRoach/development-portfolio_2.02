@@ -1,5 +1,7 @@
 // Body.tsx
 import React from 'react';
+import ReactBody from '../A-body/react-body/react-body';
+
 import Overlay from '../B-overlay/Overlay';
 import Header from '../C-header/Header';
 import Footer from '../D-footer/Footer';
@@ -15,15 +17,10 @@ interface BodyProps {
 
 const Body: React.FC<BodyProps> = ({ pageName, blockName }) => {
   const block = blockName.split('-')[0];
-  console.log;
   console.log('//--|🠊 Body.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'react-body':
-      return (
-        <div id={`${pageName}-body`} className={`${block}-body`}>
-          <Overlay pageName={`${pageName}-body`} blockName={`${block}-body`} />;
-        </div>
-      );
+      return ReactBody(pageName, blockName);
     default:
       return (
         <>
