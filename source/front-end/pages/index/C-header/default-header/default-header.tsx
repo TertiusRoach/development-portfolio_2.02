@@ -1,7 +1,7 @@
 // default-header.tsx
 import React from 'react';
 
-function DefaultHeader(pageName: string | any, blockName: string | any) {
+function defaultHeader(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 default-header.tsx loaded 🠈|--//');
   return (
     <>
@@ -10,4 +10,4 @@ function DefaultHeader(pageName: string | any, blockName: string | any) {
     </>
   );
 }
-export default DefaultHeader;
+export default defaultHeader;

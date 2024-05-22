@@ -1,6 +1,6 @@
 // default-overlay.tsx
 import React from 'react';
-function DefaultOverlay(pageName: string | any, blockName: string | any) {
+function defaultOverlay(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 default-overlay.tsx loaded 🠈|--//');
   return (
     <>
@@ -10,4 +10,4 @@ function DefaultOverlay(pageName: string | any, blockName: string | any) {
   );
 }
 
-export default DefaultOverlay;
+export default defaultOverlay;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ReactBody(pageName: string | any, blockName: string | any) {
+function reactBody(pageName: string | any, blockName: string | any) {
   const page: string = pageName;
   const block: string = blockName;
   console.log('//--|🠊 Optional: react-body.tsx loaded 🠈|--//');
@@ -12,4 +12,4 @@ function ReactBody(pageName: string | any, blockName: string | any) {
   );
 }
 
-export default ReactBody;
+export default reactBody;

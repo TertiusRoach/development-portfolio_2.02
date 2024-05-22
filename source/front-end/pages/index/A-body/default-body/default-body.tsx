@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function DefaultBody(pageName: any, blockName: any) {
+export function defaultBody(pageName: any, blockName: any) {
   const page: string = pageName;
   const block: string = blockName;
   console.log('//--|🠊 Optional: default-body.tsx loaded 🠈|--//');
@@ -11,4 +11,4 @@ export function DefaultBody(pageName: any, blockName: any) {
     </>
   );
 }
-export default DefaultBody;
+export default defaultBody;

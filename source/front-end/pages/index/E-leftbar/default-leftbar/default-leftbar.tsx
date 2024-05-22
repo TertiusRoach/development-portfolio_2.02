@@ -1,7 +1,7 @@
 // default-leftbar.tsx
 import React from 'react';
 
-function DefaultLeftbar(pageName: string | any, blockName: string | any) {
+function defaultLeftbar(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 default-leftbar.tsx loaded 🠈|--//');
   return (
     <>
@@ -10,4 +10,4 @@ function DefaultLeftbar(pageName: string | any, blockName: string | any) {
     </>
   );
 }
-export default DefaultLeftbar;
+export default defaultLeftbar;

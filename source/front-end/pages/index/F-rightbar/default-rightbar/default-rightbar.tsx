@@ -1,7 +1,7 @@
 // default-rightbar.tsx
 import React from 'react';
 
-function DefaultRightbar(pageName: string | any, blockName: string | any) {
+function defaultRightbar(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 default-rightbar.tsx loaded 🠈|--//');
   return (
     <>
@@ -10,4 +10,4 @@ function DefaultRightbar(pageName: string | any, blockName: string | any) {
     </>
   );
 }
-export default DefaultRightbar;
+export default defaultRightbar;

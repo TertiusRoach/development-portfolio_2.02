@@ -1,7 +1,7 @@
 // default-main.tsx
 import React from 'react';
 
-function DefaultMain(pageName: string | any, blockName: string | any) {
+function defaultMain(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 default-main.tsx loaded 🠈|--//');
   return (
     <>
@@ -10,4 +10,4 @@ function DefaultMain(pageName: string | any, blockName: string | any) {
     </>
   );
 }
-export default DefaultMain;
+export default defaultMain;

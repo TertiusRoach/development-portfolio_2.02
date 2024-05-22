@@ -1,7 +1,7 @@
 // default-footer.tsx
 import React from 'react';
 
-function DefaultFooter(pageName: string | any, blockName: string | any) {
+function defaultFooter(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 default-footer.tsx loaded 🠈|--//');
   return (
     <>
@@ -10,4 +10,4 @@ function DefaultFooter(pageName: string | any, blockName: string | any) {
     </>
   );
 }
-export default DefaultFooter;
+export default defaultFooter;
