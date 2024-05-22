@@ -1,4 +1,7 @@
-node_modules
 build
-source/back-end/security
+.vscode
 desktop.ini
+node_modules
+source/back-end/security
+
+
