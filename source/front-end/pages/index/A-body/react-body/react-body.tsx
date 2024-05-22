@@ -1,4 +1,5 @@
 import React from 'react';
+import { randomizeItem } from '../../../../utilities/A-Body/A-Body';
 const projectURI = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main';
 const CORE_CONCEPTS = [
   {
@@ -66,14 +67,6 @@ function Header() {
       <p>{randomizeItem(['Fundemental', 'Crucial', 'Core'])} React concepts you will need for almost any app you are going to build.</p>
     </header>
   );
-}
-
-function randomizeItem(array: Array<string>) {
-  const items = array;
-  const max: number = items.length;
-  const randomize = Math.floor(Math.random() * (max + 1));
-
-  return items[randomize];
 }
 
 export default reactBody;
