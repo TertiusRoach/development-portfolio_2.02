@@ -13,3 +13,4 @@ function reactBody(pageName: string | any, blockName: string | any) {
 }
 
 export default reactBody;
+// export default App;
