@@ -15,38 +15,48 @@ interface BodyProps {
 
 const Body: React.FC<BodyProps> = ({ pageName, blockName }) => {
   const block = blockName.split('-')[0];
+  console.log;
   console.log('//--|🠊 Body.tsx Detected 🠈|--//');
-  return (
-    <>
-      <section id={`${pageName}-overlay`} className={`${block}-overlay`}>
-        <Overlay pageName={`${pageName}-overlay`} blockName={`${block}-overlay`} />
-      </section>
+  switch (blockName) {
+    case 'react-body':
+      return (
+        <div id={`${pageName}-body`} className={`${block}-body`}>
+          <Overlay pageName={`${pageName}-body`} blockName={`${block}-body`} />;
+        </div>
+      );
+    default:
+      return (
+        <>
+          <section id={`${pageName}-overlay`} className={`${block}-overlay`}>
+            <Overlay pageName={`${pageName}-overlay`} blockName={`${block}-overlay`} />
+          </section>
 
-      <header id={`${pageName}-header`} className={`${block}-header`}>
-        <Header pageName={`${pageName}-header`} blockName={`${block}-header`} />
-      </header>
+          <header id={`${pageName}-header`} className={`${block}-header`}>
+            <Header pageName={`${pageName}-header`} blockName={`${block}-header`} />
+          </header>
 
-      <footer id={`${pageName}-footer`} className={`${block}-footer`}>
-        <Footer pageName={`${pageName}-footer`} blockName={`${block}-footer`} />
-      </footer>
+          <footer id={`${pageName}-footer`} className={`${block}-footer`}>
+            <Footer pageName={`${pageName}-footer`} blockName={`${block}-footer`} />
+          </footer>
 
-      <aside id={`${pageName}-leftbar`} className={`${block}-leftbar`}>
-        <Leftbar pageName={`${pageName}-leftbar`} blockName={`${block}-leftbar`} />
-      </aside>
+          <aside id={`${pageName}-leftbar`} className={`${block}-leftbar`}>
+            <Leftbar pageName={`${pageName}-leftbar`} blockName={`${block}-leftbar`} />
+          </aside>
 
-      <aside id={`${pageName}-rightbar`} className={`${block}-rightbar`}>
-        <Rightbar pageName={`${pageName}-rightbar`} blockName={`${block}-rightbar`} />
-      </aside>
+          <aside id={`${pageName}-rightbar`} className={`${block}-rightbar`}>
+            <Rightbar pageName={`${pageName}-rightbar`} blockName={`${block}-rightbar`} />
+          </aside>
 
-      <main id={`${pageName}-main`} className={`${block}-main`}>
-        <Main pageName={`${pageName}-main`} blockName={`${block}-main`} />
-      </main>
+          <main id={`${pageName}-main`} className={`${block}-main`}>
+            <Main pageName={`${pageName}-main`} blockName={`${block}-main`} />
+          </main>
 
-      <script id={`${pageName}-data`} className={`${block}-data`}>
-        <Data pageName={`${pageName}-data`} blockName={`${block}-data`} />
-      </script>
-    </>
-  );
+          <script id={`${pageName}-data`} className={`${block}-data`}>
+            <Data pageName={`${pageName}-data`} blockName={`${block}-data`} />
+          </script>
+        </>
+      );
+  }
 };
 
 export default Body;

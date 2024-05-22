@@ -3,10 +3,11 @@ import React from 'react';
 import Body from './A-body/Body';
 import { createRoot } from 'react-dom/client';
 
-const rootElement = document.getElementById('index-body');
-const index = <Body pageName="index" blockName="default-body" />;
-if (rootElement) {
-  createRoot(rootElement).render(index);
+const pageName = 'react';
+const element = document.getElementById(`${pageName}-body`);
+if (element) {
+  let body = <Body pageName={pageName} blockName={`${pageName}-body`} />;
+  createRoot(element).render(body);
 } else {
   throw new Error('Root element not found.');
 }

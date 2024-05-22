@@ -1,12 +1,13 @@
 import React from 'react';
-import Overlay from '../../B-overlay/Overlay';
-// import DefaultBody from '../default-body.scss'
-// import Header from '../../C-header/Header';
 
-import DefaultOverlay from '../../B-overlay/default-overlay/default-overlay';
-
-export function DefaultBody(pageName: any, blockName: any) {
+export function ReactBody(pageName: any, blockName: any) {
   const page: string = pageName;
   const block: string = blockName;
-  console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
+  console.log('//--|🠊 Optional: react-body.tsx loaded 🠈|--//');
+  return (
+    <>
+      <h1>{pageName}</h1>
+      <h4>{blockName}</h4>
+    </>
+  );
 }
