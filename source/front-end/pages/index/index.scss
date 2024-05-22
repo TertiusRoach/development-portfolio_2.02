@@ -1,17 +1,6 @@
 //--|🠋| React Page |🠋|--//
 @import 'A-body/react-body/react-body.scss';
 
-* {
-  margin: 0;
-  padding: 0;
-
-  border: none;
-  outline: none;
-  overflow: visible;
-  box-sizing: border-box;
-  font-family: 'Rubik', Helvetica;
-}
-
 //--|🠋| Index Page |🠋|--//
 /*
   @import 'A-body/default-body/default-body.scss';
@@ -22,6 +11,17 @@
   @import 'F-rightbar/default-rightbar/default-rightbar.scss';
   @import 'G-main/default-main/default-main.scss';
   @import 'H-data/default-data/default-data.scss';
+
+  * {
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    outline: none;
+    overflow: visible;
+    box-sizing: border-box;
+    font-family: 'Rubik', Helvetica;
+  }
 
   //--|🠋| Color Scheme (Index) |🠋|--//
   $primary-dark: #1f3131; //--🠊 rgba(31,49,49,1) 🠈--//
