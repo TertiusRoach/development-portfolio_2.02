@@ -77,15 +77,16 @@ const EXAMPLES: Object | any = {
 
 function reactBody(pageName: string | any, blockName: string | any) {
   // useState is a tool in React that helps components remember and manage information on their own.
-  const [selectedTopic, setSelectedTopic]: Array<any> = useState('components');
+  const [selectedTopic, setSelectedTopic]: Array<any> = useState('');
 
   const page: string = pageName;
   const block: string = blockName;
-  let tabContent: string = 'Please click a button';
+
   // console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
 
   const handleSelect = (selectedButton: string) => {
     setSelectedTopic(selectedButton);
+    let tabContent: string = 'Please click a button';
     const capitalizedString = selectedButton.charAt(0).toUpperCase() + selectedButton.slice(1);
 
     console.log(`//--| ${capitalizedString} Selected |--//`);
@@ -113,13 +114,17 @@ function reactBody(pageName: string | any, blockName: string | any) {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre>
-              <code>{EXAMPLES[selectedTopic].code}</code>
-            </pre>
-          </div>
+          {!selectedTopic ? (
+            <p>Please select a topic.</p>
+          ) : (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].description}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          )}
         </section>
       </main>
     </>
