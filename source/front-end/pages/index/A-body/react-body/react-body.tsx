@@ -26,19 +26,67 @@ const CORE_CONCEPTS = [
     description: 'React-managed data which, when changed, causes the component to re-render & the UI to update.',
   },
 ];
+const EXAMPLES: Object | any = {
+  components: {
+    title: 'Components',
+    description:
+      'Components are the building blocks of React applications. A component is a self-contained module (HTML + optional CSS + JS) that renders some output.',
+    code: `
+          function Welcome() {
+            return <h1>Hello, World!</h1>;
+          }`,
+  },
+  jsx: {
+    title: 'JSX',
+    description:
+      'JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript (e.g., it may output dynamic content).',
+    code: `
+          <div>
+            <h1>Welcome {userName}</h1>
+            <p>Time to learn React!</p>
+          </div>`,
+  },
+  props: {
+    title: 'Props',
+    description: 'Components accept arbitrary inputs called props. They are like function arguments.',
+    code: `
+          function Welcome(props) {
+            return <h1>Hello, {props.name}</h1>;
+          }`,
+  },
+  state: {
+    title: 'State',
+    description: 'State allows React components to change their output over time in response to user actions, network responses, and anything else.',
+    code: `
+          function Counter() {
+            const [isVisible, setIsVisible] = useState(false);
+
+            function handleClick() {
+              setIsVisible(true);
+            }
+
+            return (
+              <div>
+                <button onClick={handleClick}>Show Details</button>
+                {isVisible && <p>Amazing details!</p>}
+              </div>
+            );
+          }`,
+  },
+};
 
 function reactBody(pageName: string | any, blockName: string | any) {
   // useState is a tool in React that helps components remember and manage information on their own.
-  const [selectedTopic, setSelectedTopic]: Array<any> = useState('Please click a button');
+  const [selectedTopic, setSelectedTopic]: Array<any> = useState('components');
 
   const page: string = pageName;
   const block: string = blockName;
   let tabContent: string = 'Please click a button';
-  console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
+  // console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
 
   const handleSelect = (selectedButton: string) => {
-    const capitalizedString = selectedButton.charAt(0).toUpperCase() + selectedButton.slice(1);
     setSelectedTopic(selectedButton);
+    const capitalizedString = selectedButton.charAt(0).toUpperCase() + selectedButton.slice(1);
 
     console.log(`//--| ${capitalizedString} Selected |--//`);
     tabContent = selectedButton;
@@ -65,7 +113,13 @@ function reactBody(pageName: string | any, blockName: string | any) {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {selectedTopic}
+          <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>{EXAMPLES[selectedTopic].code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </>

@@ -16,7 +16,7 @@ interface BodyProps {
 
 const Body: React.FC<BodyProps> = ({ pageName, blockName }) => {
   const block = blockName.split('-')[0];
-  console.log('//--| body.tsx detected |--//');
+  // console.log('//--| body.tsx detected |--//');
   switch (blockName) {
     case 'react-body':
       return ReactBody(pageName, blockName);
