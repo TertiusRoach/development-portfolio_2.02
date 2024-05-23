@@ -8,14 +8,10 @@ export function randomizeItem(array: Array<string>) {
   return items[randomize];
 }
 
-export function TabButton({ children }: any) {
-  const handleClick = () => {
-    console.log('Click Handler Activated.');
-  };
-
+export function TabButton({ children, onSelect }: any) {
   return (
     <li>
-      <button onClick={handleClick}>{children}</button>
+      <button onClick={onSelect}>{children}</button>
     </li>
   );
 }

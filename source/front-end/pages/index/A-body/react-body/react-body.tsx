@@ -27,6 +27,14 @@ function reactBody(pageName: string | any, blockName: string | any) {
   const page: string = pageName;
   const block: string = blockName;
 
+  const loadSelection = (selectedButton: string) => {
+    // selectedButton => 'components'
+    // selectedButton => 'jsx'
+    // selectedButton => 'props'
+    // selectedButton => 'state'
+    console.log(selectedButton);
+  };
+
   console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
   return (
     <>
@@ -44,11 +52,12 @@ function reactBody(pageName: string | any, blockName: string | any) {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            <TabButton onSelect={() => loadSelection('components')}>Components</TabButton>
+            <TabButton onSelect={() => loadSelection('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => loadSelection('props')}>Props</TabButton>
+            <TabButton onSelect={() => loadSelection('state')}>State</TabButton>
           </menu>
+          Dynamic Content
         </section>
       </main>
     </>
