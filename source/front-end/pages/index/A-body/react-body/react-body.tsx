@@ -1,5 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
+
 import { randomizeItem, TabButton } from '../../../../utilities/A-Body/Body';
+
 const projectURI = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main';
 const CORE_CONCEPTS = [
   {
@@ -23,19 +26,24 @@ const CORE_CONCEPTS = [
     description: 'React-managed data which, when changed, causes the component to re-render & the UI to update.',
   },
 ];
+
 function reactBody(pageName: string | any, blockName: string | any) {
+  // useState is a tool in React that helps components remember and manage information on their own.
+  const [selectedTopic, setSelectedTopic]: Array<any> = useState('Please click a button');
+
   const page: string = pageName;
   const block: string = blockName;
+  let tabContent: string = 'Please click a button';
+  console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
 
-  const loadSelection = (selectedButton: string) => {
-    // selectedButton => 'components'
-    // selectedButton => 'jsx'
-    // selectedButton => 'props'
-    // selectedButton => 'state'
-    console.log(selectedButton);
+  const handleSelect = (selectedButton: string) => {
+    const capitalizedString = selectedButton.charAt(0).toUpperCase() + selectedButton.slice(1);
+    setSelectedTopic(selectedButton);
+
+    console.log(`//--| ${capitalizedString} Selected |--//`);
+    tabContent = selectedButton;
   };
 
-  console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
   return (
     <>
       <Header />
@@ -52,12 +60,12 @@ function reactBody(pageName: string | any, blockName: string | any) {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => loadSelection('components')}>Components</TabButton>
-            <TabButton onSelect={() => loadSelection('jsx')}>JSX</TabButton>
-            <TabButton onSelect={() => loadSelection('props')}>Props</TabButton>
-            <TabButton onSelect={() => loadSelection('state')}>State</TabButton>
+            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          Dynamic Content
+          {selectedTopic}
         </section>
       </main>
     </>
