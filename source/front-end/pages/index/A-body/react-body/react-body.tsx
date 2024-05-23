@@ -1,5 +1,5 @@
 import React from 'react';
-import { randomizeItem } from '../../../../utilities/A-Body/Body';
+import { randomizeItem, TabButton } from '../../../../utilities/A-Body/Body';
 const projectURI = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main';
 const CORE_CONCEPTS = [
   {
@@ -40,6 +40,15 @@ function reactBody(pageName: string | any, blockName: string | any) {
             <PropsConcept {...CORE_CONCEPTS[2]} />
             <PropsConcept {...CORE_CONCEPTS[3]} />
           </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton>Components</TabButton>
+            <TabButton>JSX</TabButton>
+            <TabButton>Props</TabButton>
+            <TabButton>State</TabButton>
+          </menu>
         </section>
       </main>
     </>
