@@ -6,9 +6,10 @@ import {
   TabButton,
 } from '../../../../utilities/A-Body/Body';
 
-let projectURI =
+const projectURI =
   'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main';
-let CORE_CONCEPTS: Array<Object> = [
+
+let CORE_CONCEPTS: Array<any> = [
   {
     image: `${projectURI}/source/front-end/pages/index/%7Econtent/png-files/react-concepts/components.png`,
     title: 'Components',
@@ -119,10 +120,9 @@ function reactBody(pageName: string | any, blockName: string | any) {
         <section id="core-concepts">
           <h3>Core Concepts</h3>
           <ul>
-            <PropsConcept {...CORE_CONCEPTS[0]} />
-            <PropsConcept {...CORE_CONCEPTS[1]} />
-            <PropsConcept {...CORE_CONCEPTS[2]} />
-            <PropsConcept {...CORE_CONCEPTS[3]} />
+            {CORE_CONCEPTS.map((conceptItem) => (
+              <CoreConcept key={conceptItem.title} {...conceptItem} />
+            ))}
           </ul>
         </section>
         <section id="examples">
@@ -176,7 +176,7 @@ function Header() {
   );
 }
 
-function PropsConcept(props: string | any) {
+function CoreConcept(props: string | any) {
   // Props makes a function reusable
   return (
     <li>
