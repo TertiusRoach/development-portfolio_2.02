@@ -1,5 +1,5 @@
 import React from 'react';
-import { randomizeItem } from '../../../../utilities/A-Body/A-Body';
+import { randomizeItem } from '../../../../utilities/A-Body/Body';
 const projectURI = 'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main';
 const CORE_CONCEPTS = [
   {
@@ -23,17 +23,6 @@ const CORE_CONCEPTS = [
     description: 'React-managed data which, when changed, causes the component to re-render & the UI to update.',
   },
 ];
-
-function Header() {
-  return (
-    <header>
-      <img src={`${projectURI}/source/front-end/pages/index/%7Econtent/png-files/react-concepts/react-core-concepts.png`} alt="Meh" />
-      <h1>React Essentials</h1>
-      <p>{randomizeItem(['Fundemental', 'Crucial', 'Core'])} React concepts you will need for almost any app you are going to build.</p>
-    </header>
-  );
-}
-
 function reactBody(pageName: string | any, blockName: string | any) {
   const page: string = pageName;
   const block: string = blockName;
@@ -56,6 +45,17 @@ function reactBody(pageName: string | any, blockName: string | any) {
     </>
   );
 }
+
+function Header() {
+  return (
+    <header>
+      <img src={`${projectURI}/source/front-end/pages/index/%7Econtent/png-files/react-concepts/react-core-concepts.png`} alt="Meh" />
+      <h1>React Essentials</h1>
+      <p>{randomizeItem(['Fundemental', 'Crucial', 'Core'])} React concepts you will need for almost any app you are going to build.</p>
+    </header>
+  );
+}
+
 function PropsConcept(props: string | any) {
   // Props makes a function reusable
   return (
