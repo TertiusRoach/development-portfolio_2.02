@@ -9,10 +9,12 @@ export function randomizeItem(array: Array<string>) {
   return items[randomize];
 }
 
-export function TabButton({ children, onSelect }: any) {
+export function TabButton({ children, onSelect, isSelected }: any) {
   return (
     <li>
-      <button onClick={onSelect}>{children}</button>
+      <button className={isSelected ? 'active' : undefined} onClick={onSelect}>
+        {children}
+      </button>
     </li>
   );
 }
