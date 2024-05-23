@@ -62,7 +62,7 @@ export function randomizeItem(array: Array<string>) {
   return items[randomize];
 }
 
-function TabButton({ children, onSelect, isSelected }: any) {
+export function TabButton({ children, onSelect, isSelected }: any) {
   return (
     <li>
       <button

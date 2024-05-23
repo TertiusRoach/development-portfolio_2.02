@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 import {
   randomizeItem,
-  TabButton,
   Container,
   TabContent,
 } from '../../../../utilities/A-Body/Body';
@@ -11,7 +10,7 @@ import {
 const projectURI =
   'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main';
 
-let CORE_CONCEPTS: Array<any> = [
+const CORE_CONCEPTS: Array<any> = [
   {
     image: `${projectURI}/source/front-end/pages/index/%7Econtent/png-files/react-concepts/components.png`,
     title: 'Components',
@@ -38,9 +37,24 @@ let CORE_CONCEPTS: Array<any> = [
   },
 ];
 
+function Header() {
+  return (
+    <header>
+      <img
+        src={`${projectURI}/source/front-end/pages/index/%7Econtent/png-files/react-concepts/react-core-concepts.png`}
+        alt="Meh"
+      />
+      <h1>React Essentials</h1>
+      <p>
+        {randomizeItem(['Fundemental', 'Crucial', 'Core'])} React concepts
+        you will need for almost any app you are going to build.
+      </p>
+    </header>
+  );
+}
 function reactBody(pageName: string | any, blockName: string | any) {
   // useState is a tool in React that helps components remember and manage information on their own.
-  const [currentTopic, setSelectedTopic]: Array<any> = useState('');
+  // const [currentTopic, setSelectedTopic]: Array<any> = useState('');
 
   const page: string = pageName;
   const block: string = blockName;
@@ -61,22 +75,6 @@ function reactBody(pageName: string | any, blockName: string | any) {
         <TabContent />
       </main>
     </>
-  );
-}
-
-function Header() {
-  return (
-    <header>
-      <img
-        src={`${projectURI}/source/front-end/pages/index/%7Econtent/png-files/react-concepts/react-core-concepts.png`}
-        alt="Meh"
-      />
-      <h1>React Essentials</h1>
-      <p>
-        {randomizeItem(['Fundemental', 'Crucial', 'Core'])} React concepts
-        you will need for almost any app you are going to build.
-      </p>
-    </header>
   );
 }
 
