@@ -3,5 +3,10 @@
 
 section[class='resume-overlay'] {
   display: none;
-  background-color: darkred;
+  grid-row-end: 4;
+  grid-row-start: 1;
+  grid-column-end: 4;
+  grid-column-start: 1;
+
+  background: $pink-dark;
 }

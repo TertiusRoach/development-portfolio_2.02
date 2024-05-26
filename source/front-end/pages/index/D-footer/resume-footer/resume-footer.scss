@@ -3,5 +3,10 @@
 
 footer[class='resume-footer'] {
   display: none;
-  background-color: darkgreen;
+  grid-row-end: 4;
+  grid-row-start: 3;
+  grid-column-end: 4;
+  grid-column-start: 1;
+
+  background: $orange-dark;
 }

@@ -2,6 +2,20 @@
 @import '../../a-body/resume-body/resume-body.scss';
 
 main[class='resume-main'] {
-  display: none;
-  background-color: purple;
+  //--🠋 Desktop (Landscape) 🠋--//
+  @media screen and (orientation: landscape) {
+  }
+  //--🠋 Mobile (Portrait) 🠋--//
+  @media screen and (orientation: portrait) {
+  }
+  background: $red-dark;
+
+  width: 100%;
+  display: grid;
+  grid-row-end: 4;
+  grid-row-start: 1;
+  grid-column-end: 4;
+  grid-column-start: 1;
+  grid-template-rows: 4rem repeat(5, 1fr) 4rem;
+  grid-template-columns: 6rem repeat(5, 1fr) 6rem;
 }

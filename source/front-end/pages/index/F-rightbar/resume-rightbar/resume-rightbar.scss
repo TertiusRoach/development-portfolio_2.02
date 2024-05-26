@@ -2,7 +2,11 @@
 @import '../../a-body/resume-body/resume-body.scss';
 
 aside[class='resume-rightbar'] {
-  display: none;
-  color: white;
-  background-color: black;
+  // display: none;
+  grid-row-end: 4;
+  grid-row-start: 1;
+  grid-column-end: 4;
+  grid-column-start: 1;
+
+  background: $purple-dark;
 }
