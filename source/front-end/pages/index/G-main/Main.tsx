@@ -1,6 +1,7 @@
 // Overlay.tsx
 import React from 'react';
-import DefaultMain from './default-main/default-main';
+import resumeMain from './resume-main/resume-main';
+import defaultMain from './default-main/default-main';
 
 interface MainProps {
   pageName: string;
@@ -12,7 +13,9 @@ const Main: React.FC<MainProps> = ({ pageName, blockName }) => {
   console.log('//--|🠊 Main.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-main':
-      return DefaultMain(pageName, blockName);
+      return defaultMain(pageName, blockName);
+    case 'resume-main':
+      return resumeMain(pageName, blockName);
   }
 };
 export default Main;

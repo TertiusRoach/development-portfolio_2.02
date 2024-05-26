@@ -1,6 +1,7 @@
 // Footer.tsx
 import React from 'react';
-import DefaultFooter from './default-footer/default-footer';
+import resumeFooter from './resume-footer/resume-footer';
+import defaultFooter from './default-footer/default-footer';
 
 interface FooterProps {
   pageName: string;
@@ -12,7 +13,9 @@ const Footer: React.FC<FooterProps> = ({ pageName, blockName }) => {
   console.log('//--|🠊 Footer.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-footer':
-      return DefaultFooter(pageName, blockName);
+      return defaultFooter(pageName, blockName);
+    case 'resume-footer':
+      return resumeFooter(pageName, blockName);
   }
 };
 export default Footer;

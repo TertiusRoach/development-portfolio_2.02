@@ -1,7 +1,7 @@
-// resume-footer.tsx
+// resume-rightbar.tsx
 import React from 'react';
 
-function resumeFooter(pageName: string | any, blockName: string | any) {
+function resumeRightbar(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 resume-footer.tsx loaded 🠈|--//');
   return (
     <>
@@ -10,4 +10,4 @@ function resumeFooter(pageName: string | any, blockName: string | any) {
     </>
   );
 }
-export default resumeFooter;
+export default resumeRightbar;

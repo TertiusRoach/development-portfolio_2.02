@@ -1,8 +1,8 @@
-// default-header.tsx
+// resume-header.tsx
 import React from 'react';
 
 function resumeHeader(pageName: string | any, blockName: string | any) {
-  console.log('//--|🠊 default-header.tsx loaded 🠈|--//');
+  console.log('//--|🠊 resume-header.tsx loaded 🠈|--//');
   return (
     <>
       <h1>{pageName}</h1>
