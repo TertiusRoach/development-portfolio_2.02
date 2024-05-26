@@ -1,6 +1,7 @@
-// @import '../media-queries.scss';
-// @import '../../a-body/resume-body/resume-body.scss';
+@import '../media-queries.scss';
+@import '../../a-body/resume-body/resume-body.scss';
 
-section {
-  background: red;
+section[class='resume-overlay'] {
+  display: none;
+  background-color: darkred;
 }

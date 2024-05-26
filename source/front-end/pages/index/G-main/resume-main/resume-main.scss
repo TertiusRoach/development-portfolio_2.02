@@ -1,2 +1,7 @@
-// @import '../media-queries.scss';
-// @import '../../a-main/resume-main/resume-main.scss';
+@import '../media-queries.scss';
+@import '../../a-body/resume-body/resume-body.scss';
+
+main[class='resume-main'] {
+  display: none;
+  background-color: purple;
+}

@@ -5,7 +5,7 @@ import {
   randomizeItem,
   Container,
   TabContent,
-} from '../../../../utilities/A-Body/Body';
+} from '../../../../assets/A-Body/Body';
 
 const projectURI =
   'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main';

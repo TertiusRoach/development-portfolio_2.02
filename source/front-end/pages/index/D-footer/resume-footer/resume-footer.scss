@@ -1,2 +1,7 @@
-// @import '../media-queries.scss';
-// @import '../../a-footer/resume-footer/resume-footer.scss';
+@import '../media-queries.scss';
+@import '../../a-body/resume-body/resume-body.scss';
+
+footer[class='resume-footer'] {
+  display: none;
+  background-color: darkgreen;
+}
