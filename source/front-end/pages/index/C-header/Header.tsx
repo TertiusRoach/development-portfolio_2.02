@@ -11,7 +11,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ pageName, blockName }) => {
   const page = pageName;
   const block = blockName;
-  console.log('//--|🠊 Header.tsx Detected 🠈|--//');
+  // console.log('//--|🠊 Header.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-header':
       return defaultHeader(pageName, blockName);

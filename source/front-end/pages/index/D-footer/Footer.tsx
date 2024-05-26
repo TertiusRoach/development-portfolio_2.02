@@ -10,7 +10,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ pageName, blockName }) => {
   const page = pageName;
   const block = blockName;
-  console.log('//--|🠊 Footer.tsx Detected 🠈|--//');
+  // console.log('//--|🠊 Footer.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-footer':
       return defaultFooter(pageName, blockName);

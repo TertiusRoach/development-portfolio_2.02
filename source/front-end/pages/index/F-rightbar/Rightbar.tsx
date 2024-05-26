@@ -10,7 +10,7 @@ interface RightbarProps {
 const Rightbar: React.FC<RightbarProps> = ({ pageName, blockName }) => {
   const page = pageName;
   const block = blockName;
-  console.log('//--|🠊 Rightbar.tsx Detected 🠈|--//');
+  // console.log('//--|🠊 Rightbar.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-rightbar':
       return defaultRightbar(pageName, blockName);

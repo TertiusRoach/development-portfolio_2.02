@@ -10,7 +10,7 @@ interface MainProps {
 const Main: React.FC<MainProps> = ({ pageName, blockName }) => {
   const page = pageName;
   const block = blockName;
-  console.log('//--|🠊 Main.tsx Detected 🠈|--//');
+  // console.log('//--|🠊 Main.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-main':
       return defaultMain(pageName, blockName);

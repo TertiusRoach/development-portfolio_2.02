@@ -10,7 +10,7 @@ interface DataProps {
 const Data: React.FC<DataProps> = ({ pageName, blockName }) => {
   const page = pageName;
   const block = blockName;
-  console.log('//--|🠊 Data.tsx Detected 🠈|--//');
+  // console.log('//--|🠊 Data.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-data':
       return defaultData(pageName, blockName);

@@ -10,11 +10,11 @@ interface LeftbarProps {
 const Leftbar: React.FC<LeftbarProps> = ({ pageName, blockName }) => {
   const page = pageName;
   const block = blockName;
-  console.log('//--|🠊 Leftbar.tsx Detected 🠈|--//');
+  // console.log('//--|🠊 Leftbar.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-leftbar':
       return defaultLeftbar(pageName, blockName);
-    case 'resume-leftbr':
+    case 'resume-leftbar':
       return resumeLeftbar(pageName, blockName);
   }
 };

@@ -2,7 +2,7 @@
 import React from 'react';
 
 function resumeRightbar(pageName: string | any, blockName: string | any) {
-  console.log('//--|🠊 resume-footer.tsx loaded 🠈|--//');
+  console.log('//--|🠊 resume-rightbar.tsx loaded 🠈|--//');
   return (
     <>
       <h1>{pageName}</h1>
