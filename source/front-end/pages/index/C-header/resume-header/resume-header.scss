@@ -8,27 +8,45 @@ header[class='resume-header'] {
   display: grid;
   grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
   grid-template-rows: 4rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   background: rgba($primary-dark, 0.5);
   aside:nth-child(1) {
-    // width: 50%;
-    grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     background: rgba($green-neon, 0.5);
+    width: 100%;
+    height: 100%;
+    img {
+      width: 75%;
+      height: 100%;
+      padding-left: 3rem;
+    }
   }
   aside:nth-child(2) {
-    // width: 50%;
-    grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-    background: rgba($pink-neon, 0.5);
-  }
-  aside {
-    // width: 100px;
-    height: 100%;
-    // grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-    button,
-    svg {
-      display: none;
-      // width: 100%;
-      height: 100%;
+    grid-area: 1 / 3 / 2 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    background: rgba($brown-dark, 0.5);
+    menu {
+      width: 100%;
+      height: 4rem;
+      background: rgba($blue-dark, 0.5);
+      button {
+        width: 33%;
+        height: 100%;
+        span {
+          width: 100%;
+          height: 100%;
+          h6 {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+        // i {
+        //   // width: 50px;
+        //   // height: 50px;
+        // }
+      }
     }
   }
 }
