@@ -1,6 +1,4 @@
 //--|🠋| React Page |🠋|--//
-@import 'A-body/react-body/react-body.scss';
-
 @import '../scale-text.scss';
 * {
   margin: 0;
@@ -13,31 +11,14 @@
   font-family: 'Rubik', Helvetica;
 }
 //--|🠋| Index Page |🠋|--//
-/*
-  @import 'A-body/default-body/default-body.scss';
-  @import 'B-overlay/default-overlay/default-overlay.scss';
-  @import 'C-header/default-header/default-header.scss';
-  @import 'D-footer/default-footer/default-footer.scss';
-  @import 'E-leftbar/default-leftbar/default-leftbar.scss';
-  @import 'F-rightbar/default-rightbar/default-rightbar.scss';
-  @import 'G-main/default-main/default-main.scss';
-  @import 'H-data/default-data/default-data.scss';
-
-
-
-  //--|🠋| Color Scheme (Index) |🠋|--//
-  $primary-dark: #1f3131; //--🠊 rgba(31,49,49,1) 🠈--//
-  $primary-medium: #3d6262; //--🠊 rgba(61,98,98,1) 🠈--//
-  $primary-light: #9eb0b0; //--🠊 rgba(158,176,176,1) 🠈--//
-
-  $secondary-dark: #230510; //--🠊 rgba(35,5,16,1) 🠈--//
-  $secondary-medium: #450920; //--🠊 rgba(69,9,32,1) 🠈--//
-  $secondary-light: #a2848f; //--🠊 rgba(162,132,143,1) 🠈--//
-
-  $tertiary-dark: #392319; //--🠊 rgba(57,35,25,1) 🠈--//
-  $tertiary-medium: #714631; //--🠊 rgba(113,70,49,1) 🠈--//
-  $tertiary-light: #b8a298; //--🠊 rgba(184,162,152,1) 🠈--//
-*/
+@import 'A-body/default-body/default-body.scss';
+@import 'B-overlay/default-overlay/default-overlay.scss';
+@import 'C-header/default-header/default-header.scss';
+@import 'D-footer/default-footer/default-footer.scss';
+@import 'E-leftbar/default-leftbar/default-leftbar.scss';
+@import 'F-rightbar/default-rightbar/default-rightbar.scss';
+@import 'G-main/default-main/default-main.scss';
+@import 'H-data/default-data/default-data.scss';
 
 //--|🠋| Résumé Page |🠋|--//
 /*
@@ -72,3 +53,6 @@
 @import '../../utilities/F-Rightbar/Rightbar.scss';
 @import '../../utilities/G-Main/Main.scss';
 @import '../../utilities/H-Data/Data.scss';
+
+// @import 'a-body/react-body/react-body.scss';
+// @import 'a-body/knots-body/knots-body.scss';

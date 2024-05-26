@@ -1,6 +1,7 @@
 // Overlay.tsx
 import React from 'react';
-import DefaultOverlay from './default-overlay/default-overlay';
+import defaultOverlay from './default-overlay/default-overlay';
+import resumeOverlay from './resume-overlay/resume-overlay';
 
 interface OverlayProps {
   pageName: string;
@@ -12,7 +13,9 @@ const Overlay: React.FC<OverlayProps> = ({ pageName, blockName }) => {
   console.log('//--|🠊 Overlay.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-overlay':
-      return DefaultOverlay(pageName, blockName);
+      return defaultOverlay(pageName, blockName);
+    case 'resume-overlay':
+      return resumeOverlay(pageName, blockName);
   }
 };
 export default Overlay;

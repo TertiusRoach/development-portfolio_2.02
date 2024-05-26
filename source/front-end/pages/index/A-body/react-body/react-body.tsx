@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-
 import {
   randomizeItem,
   Container,
@@ -9,6 +8,32 @@ import {
 
 const projectURI =
   'https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main';
+
+function reactBody(pageName: string | any, blockName: string | any) {
+  // useState is a tool in React that helps components remember and manage information on their own.
+  // const [currentTopic, setSelectedTopic]: Array<any> = useState('');
+
+  const page: string = pageName;
+  const block: string = blockName;
+
+  // console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
+  return (
+    <>
+      <Header />
+      <main>
+        <section id="core-concepts">
+          <h3>Core Concepts</h3>
+          <ul>
+            {CORE_CONCEPTS.map((conceptItem) => (
+              <Container key={conceptItem.title} {...conceptItem} />
+            ))}
+          </ul>
+        </section>
+        <TabContent />
+      </main>
+    </>
+  );
+}
 
 const CORE_CONCEPTS: Array<any> = [
   {
@@ -50,31 +75,6 @@ function Header() {
         you will need for almost any app you are going to build.
       </p>
     </header>
-  );
-}
-function reactBody(pageName: string | any, blockName: string | any) {
-  // useState is a tool in React that helps components remember and manage information on their own.
-  // const [currentTopic, setSelectedTopic]: Array<any> = useState('');
-
-  const page: string = pageName;
-  const block: string = blockName;
-
-  // console.log('//--|🠊 react-body.tsx loaded 🠈|--//');
-  return (
-    <>
-      <Header />
-      <main>
-        <section id="core-concepts">
-          <h3>Core Concepts</h3>
-          <ul>
-            {CORE_CONCEPTS.map((conceptItem) => (
-              <Container key={conceptItem.title} {...conceptItem} />
-            ))}
-          </ul>
-        </section>
-        <TabContent />
-      </main>
-    </>
   );
 }
 

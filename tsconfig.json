@@ -11,8 +11,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": true,
-    "jsx": "react" // Add this line
+    "jsx": "react"
   },
-  "include": ["source/", "source/gulpfile.js"],
+  "include": ["source/", "source/gulpfile.js", "source/front-end"],
   "exclude": ["build/", "node_modules/"]
 }

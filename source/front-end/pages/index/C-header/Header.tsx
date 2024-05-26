@@ -1,7 +1,8 @@
 // Header.tsx
 import React from 'react';
 
-import DefaultHeader from './default-header/default-header';
+import defaultHeader from './default-header/default-header';
+import resumeHeader from './resume-header/resume-header';
 
 interface HeaderProps {
   pageName: string;
@@ -13,7 +14,9 @@ const Header: React.FC<HeaderProps> = ({ pageName, blockName }) => {
   console.log('//--|🠊 Header.tsx Detected 🠈|--//');
   switch (blockName) {
     case 'default-header':
-      return DefaultHeader(pageName, blockName);
+      return defaultHeader(pageName, blockName);
+    case 'resume-header':
+      return resumeHeader(pageName, blockName);
   }
 };
 export default Header;

@@ -61,7 +61,6 @@ export function randomizeItem(array: Array<string>) {
   // console.log(`//--| Item Randomized |--//`);
   return items[randomize];
 }
-
 export function TabButton({ children, onSelect, isSelected }: any) {
   return (
     <li>

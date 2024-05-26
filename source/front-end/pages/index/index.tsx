@@ -1,10 +1,11 @@
 import './index.scss';
 import React from 'react';
-import Body from './a-body/body';
+import Body from './a-body/Body';
+
 import { createRoot } from 'react-dom/client';
 
-const blockName = 'react';
 const element = document.getElementById('index-body');
+const blockName: 'default' | 'react' | 'knots' | 'resume' = 'resume';
 if (element) {
   let load = <Body pageName="index" blockName={`${blockName}-body`} />;
   createRoot(element).render(load);
