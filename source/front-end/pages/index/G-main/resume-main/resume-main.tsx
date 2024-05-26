@@ -2,6 +2,8 @@
 import React from 'react';
 
 function resumeMain(pageName: string | any, blockName: string | any) {
+  const page = pageName;
+  const block = blockName;
   console.log('//--|🠊 resume-main.tsx loaded 🠈|--//');
   return (
     <>

@@ -11,7 +11,8 @@ main[class='resume-main'] {
   background: $red-dark;
 
   width: 100%;
-  display: grid;
+  // display: grid;
+  display: none;
   grid-row-end: 4;
   grid-row-start: 1;
   grid-column-end: 4;
