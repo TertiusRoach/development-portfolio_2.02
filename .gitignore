@@ -1,5 +1,9 @@
+source\front-end\pages\index\~content\svg-files\icon-collection\brands\*.svg
+source\front-end\pages\index\~content\svg-files\icon-collection\duotone\*.svg
+source\front-end\pages\index\~content\svg-files\icon-collection\light\*.svg
+source\front-end\pages\index\~content\svg-files\icon-collection\regular\*.svg
+source\front-end\pages\index\~content\svg-files\icon-collection\solid\*.svg
 .vscode
 desktop.ini
 node_modules
 source/back-end/security
-*.svg
