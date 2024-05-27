@@ -4,6 +4,9 @@ import React from 'react';
 function resumeHeader(pageName: string | any, blockName: string | any) {
   const logoAdjacent: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/65b0fdc15d33bc59025893b17dea07b08dc3a52c/source/front-end/pages/index/%7Econtent/svg-files/signature-adjacent/primary-light.svg`;
   const logoIcon: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/65b0fdc15d33bc59025893b17dea07b08dc3a52c/source/front-end/pages/index/%7Econtent/svg-files/signature-icon/primary-light.svg`;
+  const skillsIcon: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/c028ce2a23eafd9b5f267f74262e47621ada789b/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/lightbulb-on.svg`;
+  const projectsIcon: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/c028ce2a23eafd9b5f267f74262e47621ada789b/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/browser.svg`;
+
   console.log('//--|🠊 resume-header.tsx loaded 🠈|--//');
   return (
     <>
@@ -14,8 +17,14 @@ function resumeHeader(pageName: string | any, blockName: string | any) {
         <menu>
           <button>
             <span>
-              <img src={logoIcon} alt="Résumé Logo" />
-              <h6>Button</h6>
+              <img src={skillsIcon} alt="Résumé Logo" />
+              <h6>Skills</h6>
+            </span>
+          </button>
+          <button>
+            <span>
+              <img src={projectsIcon} alt="Résumé Logo" />
+              <h6>Projects</h6>
             </span>
           </button>
         </menu>

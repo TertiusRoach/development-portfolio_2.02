@@ -1,8 +1,4 @@
-source\front-end\pages\index\~content\svg-files\icon-collection\brands
-# source\front-end\pages\index\~content\svg-files\icon-collection\duotone
-# source\front-end\pages\index\~content\svg-files\icon-collection\light
-# source\front-end\pages\index\~content\svg-files\icon-collection\regular
-# source\front-end\pages\index\~content\svg-files\icon-collection\solid
+*.svg
 .vscode
 desktop.ini
 node_modules
