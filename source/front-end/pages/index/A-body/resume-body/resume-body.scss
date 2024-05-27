@@ -54,10 +54,9 @@ $turquoise-light: #a2c4c9; //--🠊 rgba(162, 196, 201, 1) 🠈--//
 //--|🠉| Backup Colors |🠉|--//
 
 div[class='resume-body'] {
-  width: 100%;
   height: 100vh;
   display: grid;
-  overflow-y: hidden;
+  // overflow: hidden;
   background: linear-gradient(
     140deg,
     rgba($primary-medium, 1) 0%,

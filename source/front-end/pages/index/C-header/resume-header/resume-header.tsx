@@ -2,6 +2,9 @@
 import React from 'react';
 
 function resumeHeader(pageName: string | any, blockName: string | any) {
+  const page = pageName;
+  const block = blockName;
+
   const logoAdjacent: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/65b0fdc15d33bc59025893b17dea07b08dc3a52c/source/front-end/pages/index/%7Econtent/svg-files/signature-adjacent/primary-light.svg`;
   const logoIcon: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/65b0fdc15d33bc59025893b17dea07b08dc3a52c/source/front-end/pages/index/%7Econtent/svg-files/signature-icon/primary-light.svg`;
   const skillsIcon: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/c028ce2a23eafd9b5f267f74262e47621ada789b/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/lightbulb-on.svg`;
@@ -17,13 +20,13 @@ function resumeHeader(pageName: string | any, blockName: string | any) {
         <menu>
           <button>
             <span>
-              <img src={skillsIcon} alt="Résumé Logo" />
+              <img src={skillsIcon} alt="..." />
               <h6>Skills</h6>
             </span>
           </button>
           <button>
             <span>
-              <img src={projectsIcon} alt="Résumé Logo" />
+              <img src={projectsIcon} alt="..." />
               <h6>Projects</h6>
             </span>
           </button>

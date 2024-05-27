@@ -1,12 +1,33 @@
+// resume-footer.scss
 @import '../media-queries.scss';
 @import '../../a-body/resume-body/resume-body.scss';
 
 footer[class='resume-footer'] {
-  display: none;
-  grid-row-end: 4;
-  grid-row-start: 3;
-  grid-column-end: 4;
-  grid-column-start: 1;
-
-  background: $orange-dark;
+  // display: none;
+  display: grid;
+  grid-area: 3 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+  grid-template-rows: 4rem;
+  grid-template-columns: repeat(5, 1fr);
+  menu {
+    display: flex;
+    grid-area: 1 / 1 / 2 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    justify-content: flex-end;
+    button {
+      width: 20%;
+      background: none;
+      a {
+        display: grid;
+        cursor: default;
+        grid-template: 1fr auto 1fr / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
+        img {
+          height: 3rem;
+          cursor: pointer;
+          grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+          // background: rgba($red-dark, 0.5);
+        }
+      }
+    }
+    // background: rgba($blue-dark, 0.5);
+  }
+  // background: rgba($orange-dark, 0.5);
 }
