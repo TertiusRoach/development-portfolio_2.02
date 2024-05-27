@@ -1,8 +1,18 @@
 //--|🠋| Résumé Page |🠋|--//
 @import '../index/h-data/resume-data/resume-data.scss';
+// @import 'a-body/react-body/react-body.scss';
+// @import 'a-body/knots-body/knots-body.scss';
 
-//--|🠋| Scaling Text |🠋|--//
-@import '../scale-text.scss';
+* {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  outline: none;
+  // overflow: visible;
+  box-sizing: border-box;
+  font-family: 'Rubik', Helvetica;
+}
 
 /*
 //--|🠋| Index Page |🠋|--//
@@ -25,17 +35,3 @@
 @import '../../utilities/G-Main/Main.scss';
 @import '../../utilities/H-Data/Data.scss';
 */
-
-* {
-  margin: 0;
-  padding: 0;
-
-  border: none;
-  outline: none;
-  // overflow: visible;
-  box-sizing: border-box;
-  font-family: 'Rubik', Helvetica;
-}
-
-// @import 'a-body/react-body/react-body.scss';
-// @import 'a-body/knots-body/knots-body.scss';

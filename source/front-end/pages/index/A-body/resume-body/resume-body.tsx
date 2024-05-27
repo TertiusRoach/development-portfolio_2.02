@@ -11,7 +11,7 @@ import Data from '../../h-data/Data';
 export function resumeBody(pageName: any, blockName: any) {
   const page: string = pageName;
   const block: string = blockName;
-  console.log('//--|🠊 Optional: default-body.tsx loaded 🠈|--//');
+  console.log('//--|🠊 Optional: resume-body.tsx loaded 🠈|--//');
   return (
     <>
       <section id={`${pageName}-overlay`} className={`${block}-overlay`}>
@@ -21,35 +21,55 @@ export function resumeBody(pageName: any, blockName: any) {
         />
       </section>
 
-      <header id={`${pageName}-header`} className={`${block}-header`}>
+      <header
+        style={{ zIndex: 4 }}
+        id={`${pageName}-header`}
+        className={`${block}-header`}
+      >
         <Header
           pageName={`${pageName}-header`}
           blockName={`${block}-header`}
         />
       </header>
 
-      <footer id={`${pageName}-footer`} className={`${block}-footer`}>
+      <footer
+        style={{ zIndex: 3 }}
+        id={`${pageName}-footer`}
+        className={`${block}-footer`}
+      >
         <Footer
           pageName={`${pageName}-footer`}
           blockName={`${block}-footer`}
         />
       </footer>
 
-      <aside id={`${pageName}-leftbar`} className={`${block}-leftbar`}>
+      <aside
+        style={{ zIndex: 2 }}
+        id={`${pageName}-leftbar`}
+        className={`${block}-leftbar`}
+      >
         <Leftbar
           pageName={`${pageName}-leftbar`}
           blockName={`${block}-leftbar`}
         />
       </aside>
 
-      <aside id={`${pageName}-rightbar`} className={`${block}-rightbar`}>
+      <aside
+        style={{ zIndex: 1 }}
+        id={`${pageName}-rightbar`}
+        className={`${block}-rightbar`}
+      >
         <Rightbar
           pageName={`${pageName}-rightbar`}
           blockName={`${block}-rightbar`}
         />
       </aside>
 
-      <main id={`${pageName}-main`} className={`${block}-main`}>
+      <main
+        style={{ zIndex: 0 }}
+        id={`${pageName}-main`}
+        className={`${block}-main`}
+      >
         <Main pageName={`${pageName}-main`} blockName={`${block}-main`} />
       </main>
 

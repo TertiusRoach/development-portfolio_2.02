@@ -21,13 +21,13 @@ function resumeHeader(pageName: string | any, blockName: string | any) {
           <button>
             <span>
               <img src={skillsIcon} alt="..." />
-              <h6>Skills</h6>
+              <h4>Skills</h4>
             </span>
           </button>
           <button>
             <span>
               <img src={projectsIcon} alt="..." />
-              <h6>Projects</h6>
+              <h4>Projects</h4>
             </span>
           </button>
         </menu>

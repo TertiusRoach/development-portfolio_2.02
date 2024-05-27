@@ -1,12 +1,8 @@
-@import '../media-queries.scss';
+@import '../Overlay.scss';
 @import '../../a-body/resume-body/resume-body.scss';
 
 section[class='resume-overlay'] {
   display: none;
-  grid-row-end: 4;
-  grid-row-start: 1;
-  grid-column-end: 4;
-  grid-column-start: 1;
-
-  background: $pink-dark;
+  grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+  // background: rgba($pink-dark, 0.5);
 }

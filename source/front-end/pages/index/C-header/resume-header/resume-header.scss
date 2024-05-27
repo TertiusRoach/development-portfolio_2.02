@@ -1,4 +1,4 @@
-@import '../media-queries.scss';
+@import '../Header.scss';
 @import '../../a-body/resume-body/resume-body.scss';
 
 header[class='resume-header'] {
@@ -44,11 +44,11 @@ header[class='resume-header'] {
             grid-area: 1 / 1 / 4 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           }
 
-          h6 {
+          h4 {
             color: white;
             grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           }
-          h6:hover {
+          h4:hover {
             cursor: pointer;
             color: $primary-light;
           }

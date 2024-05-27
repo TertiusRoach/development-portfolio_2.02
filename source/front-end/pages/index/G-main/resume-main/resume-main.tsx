@@ -7,8 +7,15 @@ function resumeMain(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 resume-main.tsx loaded 🠈|--//');
   return (
     <>
-      <h1>{pageName}</h1>
-      <h4>{blockName}</h4>
+      <section className="main-home">
+        <h1>Home</h1>
+      </section>
+      <section className="main-skills">
+        <h1>Skills</h1>
+      </section>
+      <section className="main-contact">
+        <h1>Contact</h1>
+      </section>
     </>
   );
 }
