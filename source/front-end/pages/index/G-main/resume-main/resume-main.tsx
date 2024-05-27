@@ -7,7 +7,7 @@ function resumeMain(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 resume-main.tsx loaded 🠈|--//');
   return (
     <>
-      <div>
+      <article className="scalable-main">
         <section className="main-home">
           <h1>Home</h1>
         </section>
@@ -17,7 +17,7 @@ function resumeMain(pageName: string | any, blockName: string | any) {
         <section className="main-contact">
           <h1>Contact</h1>
         </section>
-      </div>
+      </article>
     </>
   );
 }

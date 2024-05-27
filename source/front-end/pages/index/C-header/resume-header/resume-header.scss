@@ -1,7 +1,7 @@
 @import '../Header.scss';
 @import '../../a-body/resume-body/resume-body.scss';
 
-header[class='resume-header'] {
+header[id*='resume'] {
   width: 100%;
   height: 100%;
   // display: none;
