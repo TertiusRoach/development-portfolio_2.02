@@ -10,12 +10,8 @@ function resumeMain(pageName: string | any, blockName: string | any) {
       <article className="scalable-main">
         <section className="main-home">
           <div className="margin-main">
-            <aside id="cover-letter">
-              {/* <header></header>
-              <footer></footer> */}
-            </aside>
-            <aside id="profile-picture">{/* <footer></footer> */}</aside>
-            {/* <h1>Home</h1> */}
+            <aside id="cover-letter"></aside>
+            <aside id="profile-picture"></aside>
           </div>
         </section>
         <section className="main-skills">

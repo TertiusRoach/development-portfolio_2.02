@@ -21,7 +21,6 @@ header[id*='resume'] {
   }
   aside:nth-child(2) {
     grid-area: 1 / 3 / 2 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-    // background: rgba($brown-dark, 0.5);
     menu {
       width: 100%;
       height: 4rem;
@@ -43,13 +42,22 @@ header[id*='resume'] {
             grid-area: 1 / 1 / 4 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           }
 
-          h4 {
-            color: white;
-            grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+          //--|🠋 Desktop (Landscape) 🠋|--//
+          @media screen and (orientation: landscape) {
+            h4 {
+              color: white;
+              grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+            }
+            h4:hover {
+              cursor: pointer;
+              color: $primary-light;
+            }
           }
-          h4:hover {
-            cursor: pointer;
-            color: $primary-light;
+          //--|🠋 Mobile (Portrait) 🠋|--//
+          @media screen and (orientation: portrait) {
+            h4 {
+              display: none;
+            }
           }
         }
       }

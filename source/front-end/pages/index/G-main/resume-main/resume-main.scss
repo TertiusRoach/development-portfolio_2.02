@@ -2,28 +2,23 @@
 @import '../../a-body/resume-body/resume-body.scss';
 
 main[id*='resume'] {
-  display: block;
+  // display: block;
   grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-
   @mixin main-sections {
     .main-home {
       // width: 100%;
-      div {
+      div[class*='margin'] {
         height: 100%;
         display: grid;
-        @media only screen and (max-height: 768px) {
-          grid-template: 703px / 1270px; //~~|🠊 rows / columns 🠈|~~//
-        }
 
-        #cover-letter {
-          // display: flex;
-          grid-area: 1 / 2 / 4 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        // #cover-letter {
+        //   grid-area: 1 / 2 / 4 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
 
-          // border: 4px dashed $orange-neon;
-          background: rgba($orange-dark, 0.25);
-        }
-        #profile-picture {
-        }
+        //   // border: 4px dashed $orange-neon;
+        //   background: rgba($orange-dark, 0.25);
+        // }
+        // #profile-picture {
+        // }
       }
     }
     .main-skills {
