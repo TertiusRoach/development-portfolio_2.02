@@ -7,19 +7,19 @@ main[id*='resume'] {
   display: block;
   grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
   article:first-child {
-    section {
+    section[class*='main'] {
       //--|🠋 Desktop (Landscape) 🠋|--//
-      @media screen and (orientation: landscape) {
-        @media only screen and (max-height: 768px) {
-          height: 768px;
-        }
-      }
+      // @media screen and (orientation: landscape) {
+      //   @media only screen and (max-height: 768px) {
+      //     height: 768px;
+      //   }
+      // }
       //--|🠋 Mobile (Portrait) 🠋|--//
-      @media screen and (orientation: portrait) {
-        @media only screen and (max-width: 768px) {
-          width: 768px;
-        }
-      }
+      // @media screen and (orientation: portrait) {
+      //   @media only screen and (max-width: 768px) {
+      //     width: 768px;
+      //   }
+      // }
     }
 
     overflow-y: auto;

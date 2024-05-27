@@ -9,13 +9,19 @@ function resumeMain(pageName: string | any, blockName: string | any) {
     <>
       <article className="scalable-main">
         <section className="main-home">
-          <h1>Home</h1>
+          <div className="margin-main">
+            <h1>Home</h1>
+          </div>
         </section>
         <section className="main-skills">
-          <h1>Skills</h1>
+          <div className="margin-main">
+            <h1>Skills</h1>
+          </div>
         </section>
         <section className="main-contact">
-          <h1>Contact</h1>
+          <div className="margin-main">
+            <h1>Contact</h1>
+          </div>
         </section>
       </article>
     </>
