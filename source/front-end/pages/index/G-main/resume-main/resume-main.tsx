@@ -12,7 +12,7 @@ function resumeMain(pageName: string | any, blockName: string | any) {
   return (
     <>
       <article className="scalable-main">
-        <section className="main-home">
+        <section id="main-home">
           <div className="margin-main">
             <aside id="cover-letter">
               <header className="home-header">
@@ -24,12 +24,12 @@ function resumeMain(pageName: string | any, blockName: string | any) {
 
               <menu className="home-buttons">
                 <button className="my-career">
-                  <a href="">
+                  <a>
                     <h6>My Career</h6>
                   </a>
                 </button>
                 <button className="contact-me">
-                  <a href="">
+                  <a href="#main-contact">
                     <h6>Contact Me</h6>
                   </a>
                 </button>
@@ -65,13 +65,13 @@ function resumeMain(pageName: string | any, blockName: string | any) {
           </div>
         </section>
 
-        <section className="main-skills">
+        <section id="main-skills">
           <div className="margin-main">
             <h1>Skills</h1>
           </div>
         </section>
 
-        <section className="main-contact">
+        <section id="main-contact">
           <div className="margin-main">
             <h1>Contact</h1>
           </div>

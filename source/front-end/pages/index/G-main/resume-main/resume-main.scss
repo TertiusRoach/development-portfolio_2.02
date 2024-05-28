@@ -10,7 +10,7 @@ main[id*='resume'] {
     @mixin main-sections {
       //--|🠋 Desktop (Landscape) 🠋|--//
       @media screen and (orientation: landscape) {
-        &.main-home div[class='margin-main'] {
+        &#main-home div[class='margin-main'] {
           aside[id='cover-letter'] {
             header[class='home-header'] {
               display: flex;
@@ -51,7 +51,6 @@ main[id*='resume'] {
                 border: none;
                 cursor: default;
                 padding: 0 0.5rem;
-                // color: $primary-medium;
                 border-radius: 0.5rem;
                 transition: 0.25s ease-in-out;
                 background: rgba(black, 0.15);
@@ -143,12 +142,12 @@ main[id*='resume'] {
             }
           }
         }
-        &.main-skills div[class='margin-main'] {
+        &#main-skills div[class='margin-main'] {
           height: 100%;
           border: 4px dashed $blue-neon;
           background: rgba($blue-dark, 0.25);
         }
-        &.main-contact div[class='margin-main'] {
+        &#main-contact div[class='margin-main'] {
           height: 100%;
           border: 4px dashed $red-neon;
           background: rgba($red-dark, 0.25);

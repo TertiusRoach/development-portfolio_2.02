@@ -19,16 +19,16 @@ function resumeHeader(pageName: string | any, blockName: string | any) {
       <aside>
         <menu>
           <button>
-            <span>
+            <a className="active" href="#main-skills" id="header-home">
               <img src={skillsIcon} alt="..." />
               <h4>Skills</h4>
-            </span>
+            </a>
           </button>
           <button>
-            <span>
+            <a id="header-projects">
               <img src={projectsIcon} alt="..." />
               <h4>Projects</h4>
-            </span>
+            </a>
           </button>
         </menu>
       </aside>

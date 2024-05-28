@@ -30,9 +30,12 @@ header[id*='resume'] {
         width: 33%;
         height: 100%;
         background: none;
-        span {
+        a {
           height: 100%;
           display: grid;
+          color: inherit;
+          cursor: default;
+          text-decoration: none;
           grid-template-rows: 1fr auto 1fr;
           filter: drop-shadow(0 0 4px black);
           grid-template-columns: repeat(2, auto) 1fr;
@@ -41,17 +44,17 @@ header[id*='resume'] {
             padding: 0.5rem;
             grid-area: 1 / 1 / 4 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           }
+          h4 {
+            color: white;
+            grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+          }
+          h4:hover {
+            cursor: pointer;
+            color: $primary-light;
+          }
 
           //--|🠋 Desktop (Landscape) 🠋|--//
           @media screen and (orientation: landscape) {
-            h4 {
-              color: white;
-              grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-            }
-            h4:hover {
-              cursor: pointer;
-              color: $primary-light;
-            }
           }
           //--|🠋 Mobile (Portrait) 🠋|--//
           @media screen and (orientation: portrait) {

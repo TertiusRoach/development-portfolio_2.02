@@ -1,5 +1,5 @@
 main[id*='resume'] article:first-child {
-  section[class*='main'] {
+  section[id*='main'] {
     //--|🠋 Desktop (Landscape) 🠋|--//
     @media screen and (orientation: landscape) {
       @media only screen and (max-height: 1920px) {
