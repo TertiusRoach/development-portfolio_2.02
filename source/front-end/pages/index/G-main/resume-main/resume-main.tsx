@@ -15,9 +15,13 @@ function resumeMain(pageName: string | any, blockName: string | any) {
         <section className="main-home">
           <div className="margin-main">
             <aside id="cover-letter">
-              <h1 className="job-title" data-text={jobTitle[0]}>
-                {jobTitle[0]}
-              </h1>
+              <header className="home-header">
+                <h1 className="job-title" data-text={jobTitle[0]}>
+                  {jobTitle[0]}
+                </h1>
+                <h3>Development Portfolio</h3>
+              </header>
+
               <menu className="home-buttons">
                 <button className="my-career">
                   <a href="">
