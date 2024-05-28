@@ -6,21 +6,21 @@
 @import '../../g-main/resume-main/resume-main.scss';
 
 @import '../Data.scss';
-section[id='overlay'] {
+section[id*='overlay'] {
   z-index: 5;
 }
-header[id='header'] {
+header[id*='header'] {
   z-index: 4;
 }
-footer[id='footer'] {
+footer[id*='footer'] {
   z-index: 3;
 }
-aside[id='leftbar'] {
+aside[id*='leftbar'] {
   z-index: 2;
 }
-aside[id='rightbar'] {
+aside[id*='rightbar'] {
   z-index: 1;
 }
-main[id='main'] {
+main[id*='main'] {
   z-index: 0;
 }

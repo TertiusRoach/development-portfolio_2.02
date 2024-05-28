@@ -3,71 +3,161 @@
 
 main[id*='resume'] {
   grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-  @mixin main-sections {
-    //--|🠋 Desktop (Landscape) 🠋|--//
-    @media screen and (orientation: landscape) {
-      &.main-home {
-        div {
+  article:first-child {
+    display: grid;
+    overflow-y: auto;
+    max-height: 100vh;
+    @mixin main-sections {
+      //--|🠋 Desktop (Landscape) 🠋|--//
+      @media screen and (orientation: landscape) {
+        &.main-home div[class='margin-main'] {
           aside[id='cover-letter'] {
+            h1[class='job-title'] {
+              z-index: 3;
+              display: flex;
+              position: relative;
+              align-items: center;
+              white-space: nowrap;
+              color: $primary-dark; // Set the primary dark color
+              filter: drop-shadow(0 0 4px black);
+              -webkit-text-stroke: 2px $primary-medium;
+
+              // Create the scanning effect using a pseudo-element
+              &::before {
+                overflow: hidden;
+                position: absolute;
+                white-space: nowrap;
+                color: $primary-light; // Set the primary light color
+                border-radius: 0.25rem;
+                content: attr(data-text); // Display the text content
+                border-right: 4px solid rgba(white, 0.75);
+                filter: drop-shadow(0 0 2rem rgba(white, 0.25));
+                animation: animate 90s cubic-bezier(0.42, 0, 0.58, 1)
+                  infinite;
+              }
+            }
+            menu[class='home-buttons'] {
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+              button {
+                height: 50%;
+                border: none;
+                cursor: default;
+                padding: 0 0.5rem;
+                color: $primary-dark;
+                border-radius: 0.25rem;
+                background: $primary-light;
+                transition: 0.25s ease-in-out;
+                border: 4px solid $primary-medium;
+
+                a {
+                  color: inherit;
+                  text-decoration: none;
+                  h6 {
+                    z-index: 2;
+                    cursor: pointer;
+                    font-weight: 600;
+                    letter-spacing: 4px;
+                    color: $primary-medium;
+                    transition: 0.25s ease-in-out;
+                  }
+
+                  &:hover {
+                    h6 {
+                      color: $primary-light;
+                    }
+                  }
+                }
+              }
+              button:hover {
+                color: $primary-light;
+                background: $primary-dark;
+              }
+            }
+
+            // Define the scanning animation using keyframes
+            @keyframes animate {
+              0% {
+                width: 0;
+              }
+              50% {
+                width: 100%;
+              }
+              100% {
+                width: 0;
+              }
+            }
+
+            p {
+              z-index: 2;
+              color: white;
+              line-height: 1.75;
+              word-spacing: 2px;
+              text-align: justify;
+              margin: 0 0 2rem 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
+              grid-area: 4 / 2 / 6 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+              padding: 0.25rem 0.25rem 0.25rem 0;
+              filter: drop-shadow(0 0 4px black);
+
+              // border: 4px dashed $purple-neon;
+              // background: rgba($purple-dark, 0.25);
+            }
             h1 {
-              margin: 2rem 0 0 3rem;
+              margin: 2rem 0 0 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
               grid-area: 2 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-              border: 4px dashed $orange-neon;
-              background: rgba($orange-dark, 0.25);
+              // border: 4px dashed $orange-neon;
+              // background: rgba($orange-dark, 0.25);
             }
             menu {
-              margin: 2rem 0 0 3rem;
-              grid-area: 2 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-              border: 4px dashed $yellow-neon;
-              background: rgba($yellow-dark, 0.25);
+              z-index: 4;
+              margin-left: 3rem;
+              grid-area: 4 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+              // border: 4px dashed $yellow-neon;
+              // background: rgba($yellow-dark, 0.25);
             }
-            p {
-              margin: 0 0 2rem 3rem;
-              grid-area: 3 / 2 / 5 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-              border: 4px dashed $blue-neon;
-              background: rgba($blue-dark, 0.25);
+            div[class='mid-ground'] {
+              z-index: 1;
+              background: red;
+              grid-area: 3 / 1 / 7 / 8; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+              background: linear-gradient(
+                0deg,
+                rgba($primary-dark, 0) 0%,
+                rgba(black, 0.25) 5%,
+                rgba(black, 0.75) 50%,
+                rgba(black, 0.25) 80%,
+                rgba($primary-dark, 0) 100%
+              );
             }
-          }
-          aside[id='profile-picture'] {
+
             img {
-              margin: 2rem 3rem;
-              grid-area: 2 / 4 / 5 / 7; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-              border: 4px dashed $green-neon;
-              background: rgba($green-dark, 0.25);
+              z-index: 0;
+              grid-area: 2 / 2 / 5 / 7; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+              // border: 4px dashed $green-neon;
+              // background: rgba($green-dark, 0.25);
             }
           }
         }
-      }
-      &.main-skills {
-        div[class*='margin'] {
+        &.main-skills div[class='margin-main'] {
           height: 100%;
           border: 4px dashed $blue-neon;
           background: rgba($blue-dark, 0.25);
         }
-      }
-      &.main-contact {
-        div[class*='margin'] {
+        &.main-contact div[class='margin-main'] {
           height: 100%;
           border: 4px dashed $red-neon;
           background: rgba($red-dark, 0.25);
         }
       }
+      //--|🠋 Mobile (Portrait) 🠋|--//
+      @media screen and (orientation: portrait) {
+      }
     }
-    //--|🠋 Mobile (Portrait) 🠋|--//
-    @media screen and (orientation: portrait) {
-    }
-  }
 
-  article:first-child {
-    display: grid;
-    overflow-y: auto;
-    max-height: 100vh;
-    &::-webkit-scrollbar {
-      display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
-    }
     section {
       display: inherit;
       grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
+      @include main-sections();
       div[class*='margin'] {
         display: inherit;
         position: relative;
@@ -78,24 +168,29 @@ main[id*='resume'] {
           height: 100%;
           display: grid;
           position: absolute;
-          grid-template: 2rem repeat(3, 1fr) 2rem / 3rem repeat(5, 1fr) 3rem; //~~|🠊 rows / columns 🠈|~~//
+          grid-template:
+            2rem 1fr repeat(2, 0.5fr) 1fr 2rem / 3rem repeat(5, 1fr)
+            3rem; //~~|🠊 rows / columns 🠈|~~//
         }
       }
-      @include main-sections();
-    }
-    /*
-    section:nth-child(1) {
-      border: 4px dashed $green-neon;
-      background: rgba($green-dark, 0.25);
-    }
-    section:nth-child(2) {
-      border: 4px dashed $blue-neon;
-      background: rgba($blue-dark, 0.25);
-    }
-    section:nth-child(3) {
-      border: 4px dashed $red-neon;
-      background: rgba($red-dark, 0.25);
-    }
+
+      /*
+      &section:nth-child(1) {
+        border: 4px dashed $green-neon;
+        background: rgba($green-dark, 0.25);
+      }
+      &section:nth-child(2) {
+        border: 4px dashed $blue-neon;
+        background: rgba($blue-dark, 0.25);
+      }
+      &section:nth-child(3) {
+        border: 4px dashed $red-neon;
+        background: rgba($red-dark, 0.25);
+      }
     */
+    }
+    &::-webkit-scrollbar {
+      display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
+    }
   }
 }
