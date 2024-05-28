@@ -73,7 +73,7 @@ function resumeMain(pageName: string | any, blockName: string | any) {
                   <button className="go-left">
                     <img src="" alt="..." />
                   </button>
-                  <h3>Developing</h3>
+                  <h4>Developing</h4>
                   <button className="go-right">
                     <img src="" alt="..." />
                   </button>
@@ -81,11 +81,21 @@ function resumeMain(pageName: string | any, blockName: string | any) {
               </header>
 
               <nav></nav>
-              {/* <footer></footer> */}
             </aside>
-            {/* <aside id="producing-skills">
-              <h1>Producing</h1>
-            </aside> */}
+            <aside id="producing-skills">
+              <header>
+                <menu>
+                  <button className="go-left">
+                    <img src="" alt="..." />
+                  </button>
+                  <h4>Producing</h4>
+                  <button className="go-right">
+                    <img src="" alt="..." />
+                  </button>
+                </menu>
+              </header>
+              <nav></nav>
+            </aside>
           </div>
         </section>
 
