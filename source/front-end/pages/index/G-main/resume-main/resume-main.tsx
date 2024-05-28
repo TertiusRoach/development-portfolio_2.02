@@ -67,7 +67,25 @@ function resumeMain(pageName: string | any, blockName: string | any) {
 
         <section id="main-skills">
           <div className="margin-main">
-            <h1>Skills</h1>
+            <aside id="developing-skills">
+              <header>
+                <menu>
+                  <button className="go-left">
+                    <img src="" alt="..." />
+                  </button>
+                  <h3>Developing</h3>
+                  <button className="go-right">
+                    <img src="" alt="..." />
+                  </button>
+                </menu>
+              </header>
+
+              <nav></nav>
+              {/* <footer></footer> */}
+            </aside>
+            {/* <aside id="producing-skills">
+              <h1>Producing</h1>
+            </aside> */}
           </div>
         </section>
 
