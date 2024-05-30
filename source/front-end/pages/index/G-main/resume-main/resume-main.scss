@@ -136,9 +136,37 @@
     transition: clip-path 0.125s ease-in-out;
     &[id*='developing'] {
       nav {
+        display: inherit;
+        grid-template: 6rem / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
         grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         // border: 4px dashed $orange-neon;
-        background: rgba($orange-dark, 0.5);
+        // background: rgba($orange-dark, 0.5);
+
+        button {
+          display: flex;
+          background: none;
+          align-items: center;
+          img {
+            height: 75%;
+            cursor: pointer;
+          }
+          &:nth-child(1) {
+            padding-right: 1rem;
+            justify-content: right;
+          }
+          &:nth-child(3) {
+            padding-left: 1rem;
+            justify-content: left;
+          }
+        }
+        h4 {
+          display: flex;
+          color: white;
+          padding: 0 1rem;
+          align-items: center;
+          justify-content: center;
+          filter: drop-shadow(0 0 4px black);
+        }
       }
       menu {
         grid-area: 2 / 1 / 5 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//

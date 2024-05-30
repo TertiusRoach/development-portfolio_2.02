@@ -90,8 +90,8 @@ function MainSkills() {
     });
   });
 
-  const arrowLeft: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
-  const arrowRight: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
+  const leftImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
+  const rightImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
   const leftClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-left-click.svg`;
   const rightClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-right-click.svg`;
   const Carousel: React.FC<CarouselProps> = ({ jobTitle }) => {
@@ -99,12 +99,19 @@ function MainSkills() {
       jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1);
     return (
       <aside id={`${jobTitle}-skills`} className="collapsed">
-        <nav id={`${jobTitle}-navigation`}>
-          <button></button>
+        <nav className={`${jobTitle}-navigation`}>
+          <button>
+            <img src={leftImageURI} alt="Left" />
+          </button>
+
           <h4>{capitalizedTitle}</h4>
-          <button></button>
+
+          <button>
+            <img src={rightImageURI} alt="Right" />
+          </button>
         </nav>
-        <menu id={`${jobTitle}-carousel`}></menu>
+
+        <menu className={`${jobTitle}-carousel`}></menu>
 
         <span>
           <img src={leftClick} alt="..." />

@@ -47,6 +47,7 @@ header[id*='resume'] {
           h4 {
             color: white;
             grid-area: 2 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+            filter: drop-shadow(0 0 4px black);
           }
           h4:hover {
             cursor: pointer;
