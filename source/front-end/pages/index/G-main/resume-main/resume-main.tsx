@@ -48,18 +48,15 @@ function MainHome() {
           </menu>
 
           <p className="home-description">
-            As a full-stack developer, my focus is on building websites, animations, and
-            applications designed to captivate users from the first click. By blending creativity
-            with technical expertise, I aim to create standout projects that strive to make our
-            lives easier. There's a genuine passion within me to experiment with new tools and stay
-            updated with multimedia technologies, allowing me to bring fresh and innovative
-            solutions to each project. I'm eager to collaborate with fellow creatives, employers,
-            and enthusiasts to turn concepts into impactful, enduring applications. While lacking a
-            traditional CS degree, my unique perspective undoubtedly adds value. I thrive in
-            environments conducive to exploring new tools with clear goals, and my passion lies in
-            partnering with visionary creatives to transform concepts into digital masterpieces.
-            Through hands-on experience and a continuous learning journey, my arsenal of skills can
-            deliver exceptional results to anyone seeking my services, whether permanent or
+            As a full-stack developer, my focus is on building websites, animations, and applications designed to captivate
+            users from the first click. By blending creativity with technical expertise, I aim to create standout projects
+            that strive to make our lives easier. There's a genuine passion within me to experiment with new tools and stay
+            updated with multimedia technologies, allowing me to bring fresh and innovative solutions to each project. I'm
+            eager to collaborate with fellow creatives, employers, and enthusiasts to turn concepts into impactful, enduring
+            applications. While lacking a traditional CS degree, my unique perspective undoubtedly adds value. I thrive in
+            environments conducive to exploring new tools with clear goals, and my passion lies in partnering with visionary
+            creatives to transform concepts into digital masterpieces. Through hands-on experience and a continuous learning
+            journey, my arsenal of skills can deliver exceptional results to anyone seeking my services, whether permanent or
             contract-based.
           </p>
           <div className="mid-ground"></div>
@@ -87,16 +84,16 @@ function MainSkills() {
     return (
       <aside id={`${jobTitle}-skills`} className="collapsed">
         <nav className={`${jobTitle}-navigation`}>
-          <button className={`${jobTitle}-left`}>
+          <button className={`${jobTitle}-left hidden`}>
             <img src={leftImageURI} alt="Left" />
           </button>
           <h4>{jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1)}</h4>
-          <button className={`${jobTitle}-right`}>
+          <button className={`${jobTitle}-right visible`}>
             <img src={rightImageURI} alt="Right" />
           </button>
         </nav>
         <menu className={`${jobTitle}-carousel`}>
-          <article ref={reference}>
+          <article ref={reference} className="visible">
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -107,7 +104,7 @@ function MainSkills() {
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
           </article>
-          <article style={{ right: `-${getWidth * 1}px` }}>
+          <article style={{ right: `-${getWidth * 1}px` }} className="hidden">
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -118,7 +115,7 @@ function MainSkills() {
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
           </article>
-          <article style={{ right: `-${getWidth * 2}px` }}>
+          <article style={{ right: `-${getWidth * 2}px` }} className="hidden">
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -178,17 +175,31 @@ $(function () {
   const devRight: string = '#developing-skills .developing-navigation button[class*="right"] img';
 
   $(devRight).on('click', () => {
-    console.log('Scroll Right for Developer');
+    // const select: string = ;
+    // let tag: Object = document.querySelectorAll(`${select}`);
+
+    // let tags = document.querySelectorAll(`#developing-skills .developing-carousel article`);
+    // tags.forEach((tag) => {
+    //   if (tag.className === 'visible') {
+    //     if (tag.className === 'visible') {
+    //       sibling.className = 'visible';
+    //       // if (sibling !== null) {
+    //       //   sibling.className = 'visible';
+    //       // }
+    //     }
+    //   }
+    // });
+
     $(`${carousel}`).each(function () {
+      // console.log('Scroll Right for Developer');
       $(this).animate({ right: `+=${$(`${carousel}:first-child`).width()}px` }, 500);
     });
   });
   $(devLeft).on('click', () => {
-    console.log($(this));
     $(`${carousel}`).each(function () {
+      // console.log('Scroll Left for Developer');
       $(this).animate({ right: `-=${$(`${carousel}:first-child`).width()}px` }, 500);
     });
-    console.log('Scroll Left for Developer');
   });
   $(tutorialSpan).on('click', () => {
     $('#developing-skills menu span').css('display', 'none');
