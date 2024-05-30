@@ -111,15 +111,31 @@ function MainSkills() {
             <img src={rightImageURI} alt="Right" />
           </button>
         </nav>
-
         <menu className={`${jobTitle}-carousel`}>
           <span>
             <img src={leftClick} alt="..." />
           </span>
           <article>
-            <li>
-              <img src={leftClick} alt="..." />
-            </li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+          </article>
+          <article>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
           </article>
         </menu>
 
