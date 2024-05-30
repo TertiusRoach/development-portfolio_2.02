@@ -48,23 +48,19 @@ function MainHome() {
           </menu>
 
           <p className="home-description">
-            As a full-stack developer, my focus is on building websites,
-            animations, and applications designed to captivate users from
-            the first click. By blending creativity with technical
-            expertise, I aim to create standout projects that strive to
-            make our lives easier. There's a genuine passion within me to
-            experiment with new tools and stay updated with multimedia
-            technologies, allowing me to bring fresh and innovative
-            solutions to each project. I'm eager to collaborate with fellow
-            creatives, employers, and enthusiasts to turn concepts into
-            impactful, enduring applications. While lacking a traditional
-            CS degree, my unique perspective undoubtedly adds value. I
-            thrive in environments conducive to exploring new tools with
-            clear goals, and my passion lies in partnering with visionary
-            creatives to transform concepts into digital masterpieces.
-            Through hands-on experience and a continuous learning journey,
-            my arsenal of skills can deliver exceptional results to anyone
-            seeking my services, whether permanent or contract-based.
+            As a full-stack developer, my focus is on building websites, animations, and
+            applications designed to captivate users from the first click. By blending creativity
+            with technical expertise, I aim to create standout projects that strive to make our
+            lives easier. There's a genuine passion within me to experiment with new tools and stay
+            updated with multimedia technologies, allowing me to bring fresh and innovative
+            solutions to each project. I'm eager to collaborate with fellow creatives, employers,
+            and enthusiasts to turn concepts into impactful, enduring applications. While lacking a
+            traditional CS degree, my unique perspective undoubtedly adds value. I thrive in
+            environments conducive to exploring new tools with clear goals, and my passion lies in
+            partnering with visionary creatives to transform concepts into digital masterpieces.
+            Through hands-on experience and a continuous learning journey, my arsenal of skills can
+            deliver exceptional results to anyone seeking my services, whether permanent or
+            contract-based.
           </p>
           <div className="mid-ground"></div>
         </aside>
@@ -80,63 +76,63 @@ function MainSkills() {
     jobTitle: 'developing' | 'producing' | string;
   }
   const CarouselEvents: React.FC<CarouselProps> = ({ jobTitle }) => {
-    const articleRef = useRef<HTMLElement>(null);
-    const [articleWidth, setArticleWidth] = useState<number>(0);
-
+    const reference = useRef<HTMLElement>(null);
+    const [getWidth, setWidth] = useState<number>(0);
     useEffect(() => {
-      if (articleRef.current) {
-        setArticleWidth(articleRef.current.offsetWidth);
+      if (reference.current) {
+        setWidth(reference.current.offsetWidth);
       }
     }, []);
 
     return (
       <aside id={`${jobTitle}-skills`} className="collapsed">
         <nav className={`${jobTitle}-navigation`}>
-          <button>
+          <button className={`${jobTitle}-left`}>
             <img src={leftImageURI} alt="Left" />
           </button>
           <h4>{jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1)}</h4>
-          <button>
+          <button className={`${jobTitle}-right`}>
             <img src={rightImageURI} alt="Right" />
           </button>
         </nav>
         <menu className={`${jobTitle}-carousel`}>
+          <article ref={reference}>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+          </article>
+          <article style={{ right: `-${getWidth * 1}px` }}>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+          </article>
+          <article style={{ right: `-${getWidth * 2}px` }}>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+          </article>
+
           <span>
             <img src={leftClick} alt="..." />
           </span>
-          <article ref={articleRef}>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-          </article>
-          <article style={{ left: `${articleWidth * 1}px` }}>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-          </article>
-          <article style={{ left: `${articleWidth * 2}px` }}>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-          </article>
         </menu>
         <details>
           <h1>Title</h1>
@@ -175,11 +171,30 @@ function MainContact() {
 export default resumeMain;
 
 $(function () {
-  $('#developing-skills menu span').on('click', () => {
+  const skillDetails: string = '#developing-skills details';
+  const tutorialSpan: string = '#developing-skills menu span';
+  const carousel: string = '#developing-skills .developing-carousel article';
+  const devLeft: string = '#developing-skills .developing-navigation button[class*="left"] img';
+  const devRight: string = '#developing-skills .developing-navigation button[class*="right"] img';
+
+  $(devRight).on('click', () => {
+    console.log('Scroll Right for Developer');
+    $(`${carousel}`).each(function () {
+      $(this).animate({ right: `+=${$(`${carousel}:first-child`).width()}px` }, 500);
+    });
+  });
+  $(devLeft).on('click', () => {
+    console.log($(this));
+    $(`${carousel}`).each(function () {
+      $(this).animate({ right: `-=${$(`${carousel}:first-child`).width()}px` }, 500);
+    });
+    console.log('Scroll Left for Developer');
+  });
+  $(tutorialSpan).on('click', () => {
     $('#developing-skills menu span').css('display', 'none');
     $('#developing-skills').toggleClass('collapsed expanded');
   });
-  $('#developing-skills details').on('click', () => {
+  $(skillDetails).on('click', () => {
     $('#developing-skills menu span').css('display', 'flex');
     $('#developing-skills').toggleClass('expanded collapsed');
   });
