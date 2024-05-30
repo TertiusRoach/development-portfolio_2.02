@@ -81,12 +81,10 @@ function MainSkills() {
   }
   $(function () {
     $('#developing-skills article').on('click', () => {
-      console.log('test');
       $('#developing-skills article').css('display', 'none');
       $('#developing-skills').toggleClass('collapsed expanded');
     });
     $('#developing-skills details').on('click', () => {
-      console.log('test!!!!!');
       $('#developing-skills article').css('display', 'flex');
       $('#developing-skills').toggleClass('expanded collapsed');
     });
