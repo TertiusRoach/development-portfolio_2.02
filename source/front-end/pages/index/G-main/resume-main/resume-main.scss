@@ -1,111 +1,110 @@
 @import '../Main.scss';
 @import '../../a-body/resume-body/resume-body.scss';
-@mixin main-sections {
-  //--|🠋 Desktop (Landscape) 🠋|--//
+@mixin main-home {
+  //--|🠋 01. Home <main> 🠋|--//
   @media screen and (orientation: landscape) {
-    &#main-home div[class='margin-main'] {
-      aside[id='cover-letter'] {
-        header[class='home-header'] {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          h1[class='job-title'] {
-            z-index: 1;
-            position: relative;
-            white-space: nowrap;
-            color: $primary-dark; // Set the primary dark color
-            filter: drop-shadow(0 0 4px black);
-            -webkit-text-stroke: 2px $primary-medium;
-            &::before {
-              overflow: hidden;
-              position: absolute;
-              white-space: nowrap;
-              color: $primary-light; // Set the primary light color
-              border-radius: 0.25rem;
-              content: attr(data-text); // Display the text content
-              border-right: 4px solid rgba(white, 0.75);
-              filter: drop-shadow(0 0 2rem rgba(black, 0.25));
-              animation: animate 90s cubic-bezier(0.42, 0, 0.58, 1)
-                infinite;
-              @keyframes animate {
-                0% {
-                  width: 0;
-                }
-                50% {
-                  width: 100%;
-                }
-                100% {
-                  width: 0;
-                }
-              }
-            }
-          }
-          h3 {
-            z-index: 0;
-            color: $primary-dark;
-            filter: drop-shadow(0 0 2rem rgba(white, 0.95));
-          }
-        }
-        menu[class='home-buttons'] {
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          button {
-            height: 50%;
-            border: none;
-            cursor: default;
-            padding: 0 0.5rem;
-            border-radius: 0.5rem;
-            transition: 0.25s ease-in-out;
-            background: rgba(black, 0.15);
-            border: 4px solid $primary-medium;
+    //~~|🠊 aside[id*='home'] 🠈|~~//
+    width: 100%;
+    height: 100%;
+    display: grid;
+    position: absolute;
+    grid-template-columns: 3rem repeat(5, 1fr) 3rem;
+    grid-template-rows: 2rem 1fr repeat(2, 0.5fr) 1fr 2rem;
+    &[id*='cover'] {
+      header[class*='header'] {
+        z-index: 3;
+        margin: 2rem 0 0 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
+        grid-area: 2 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
 
-            filter: drop-shadow(0 0 0.25rem rgba(black, 0.75));
-            a {
-              color: inherit;
-              text-decoration: none;
-              h6 {
-                cursor: pointer;
-                font-weight: 600;
-                letter-spacing: 2px;
-                color: $primary-medium;
-                transition: 0.25s ease-in-out;
-              }
-              h6:hover {
-                color: $primary-dark;
-              }
-            }
-          }
-          button:hover {
-            background: $primary-light;
-            border: 4px solid $primary-dark;
-          }
-        }
-
-        p {
-          z-index: 2;
-          color: white;
-          line-height: 1.75;
-          word-spacing: 2px;
-          text-align: justify;
-          margin: 0 0 2rem 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
-          grid-area: 4 / 2 / 6 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-          padding: 0.25rem 0.25rem 0.25rem 0;
-          filter: drop-shadow(0 0 4px black);
-        }
-        menu {
-          z-index: 4;
-          margin-left: 3rem;
-          grid-area: 4 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        }
-        header {
-          z-index: 3;
-          margin: 2rem 0 0 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
-          grid-area: 2 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        }
-        div[class='mid-ground'] {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1[class='job-title'] {
           z-index: 1;
-          background: red;
+          position: relative;
+          white-space: nowrap;
+          color: $primary-dark; // Set the primary dark color
+          filter: drop-shadow(0 0 4px black);
+          -webkit-text-stroke: 2px $primary-medium;
+          &::before {
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            color: $primary-light; // Set the primary light color
+            border-radius: 0.25rem;
+            content: attr(data-text); // Display the text content
+            border-right: 4px solid rgba(white, 0.75);
+            filter: drop-shadow(0 0 2rem rgba(black, 0.25));
+            animation: animate 90s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+            @keyframes animate {
+              0% {
+                width: 0;
+              }
+              50% {
+                width: 100%;
+              }
+              100% {
+                width: 0;
+              }
+            }
+          }
+        }
+        h3 {
+          z-index: 0;
+          color: $primary-dark;
+          filter: drop-shadow(0 0 2rem rgba(white, 0.95));
+        }
+      }
+      menu[class*='buttons'] {
+        z-index: 4;
+        display: flex;
+        margin-left: 3rem;
+        align-items: center;
+        grid-area: 4 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        justify-content: space-around;
+        button {
+          height: 50%;
+          border: none;
+          cursor: default;
+          padding: 0 0.5rem;
+          border-radius: 0.5rem;
+          transition: 0.25s ease-in-out;
+          background: rgba(black, 0.15);
+          border: 4px solid $primary-medium;
+
+          filter: drop-shadow(0 0 0.25rem rgba(black, 0.75));
+          a {
+            color: inherit;
+            text-decoration: none;
+            h6 {
+              cursor: pointer;
+              font-weight: 600;
+              letter-spacing: 2px;
+              color: $primary-medium;
+              transition: 0.25s ease-in-out;
+            }
+            h6:hover {
+              color: $primary-dark;
+            }
+          }
+        }
+        button:hover {
+          background: $primary-light;
+          border: 4px solid $primary-dark;
+        }
+      }
+      p[class*='description'] {
+        z-index: 2;
+        color: white;
+        line-height: 1.75;
+        word-spacing: 2px;
+        text-align: justify;
+        margin: 0 0 2rem 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
+        grid-area: 4 / 2 / 6 / 6; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        padding: 0.25rem 0.25rem 0.25rem 0;
+        filter: drop-shadow(0 0 4px black);
+        & ~ div[class='mid-ground'] {
+          z-index: 1;
           grid-area: 3 / 1 / 7 / 8; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           background: linear-gradient(
             0deg,
@@ -117,112 +116,89 @@
           );
         }
       }
-      aside[id='profile-picture'] {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-      }
     }
-    &#main-skills div[class='margin-main'] {
-      display: grid;
-      padding: 2rem 3rem;
-
-      grid-template: 2rem 4rem 1fr 2rem / 3rem repeat(2, 1fr) 3rem; //~~|🠊 rows / columns 🠈|~~//
-      aside[id='developing-skills'] {
-        // display: none;
-        // border: 4px dashed $blue-neon;
-        header {
-          grid-area: 1 / 2 / 3 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        }
-        nav {
-          // display: none;
-          grid-area: 3 / 2 / 4 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-          background: rgba($blue-dark, 0.25);
-        }
-      }
-      aside[id='producing-skills'] {
-        // display: none;
-        // border: 4px dashed $red-neon;
-        header {
-          grid-area: 1 / 3 / 3 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        }
-        nav {
-          // display: none;
-          grid-area: 3 / 3 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-          background: rgba($red-dark, 0.25);
-        }
-      }
-
-      aside {
-        display: grid;
-        grid-area: 2 / 2 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-
-        header {
-          // display: flex;
-          // // flex-direction: row;
-          // justify-content: center;
-        }
-        nav {
-          grid-area: 1 / 1 / 3 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-
-          // border: 4px dashed $yellow-neon;
-          background: rgba($yellow-dark, 0.25);
-        }
-      }
-    }
-    &#main-contact div[class='margin-main'] {
-      border: 4px dashed $orange-neon;
-      background: rgba($orange-dark, 0.25);
+    &[id*='profile'] {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
   }
-  //--|🠋 Mobile (Portrait) 🠋|--//
+  @media screen and (orientation: portrait) {
+  }
+}
+@mixin main-skills {
+  //--|🠋 02. Skills <main> 🠋|--//
+  @media screen and (orientation: landscape) {
+    //~~|🠊 aside[id*='skills'] 🠈|~~//
+    display: grid;
+    padding: 2rem 3rem;
+    grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    grid-template: 1fr / repeat(2, 1fr); //~~|🠊 rows / columns 🠈|~~//
+    aside[id*='developing'] {
+      header {
+        display: none;
+
+        grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+
+        border: 4px dashed $orange-neon;
+        background: rgba($orange-dark, 0.25);
+      }
+      canvas {
+        display: none;
+
+        border: 4px dashed $green-neon;
+        background: rgba($green-dark, 0.25);
+      }
+      article {
+        display: none;
+
+        border: 4px dashed $turquoise-neon;
+        background: rgba($turquoise-dark, 0.25);
+      }
+      footer {
+        display: none;
+
+        border: 4px dashed $blue-neon;
+        background: rgba($blue-dark, 0.25);
+      }
+    }
+    /*
+      aside[id*='producing'] {
+      }
+      */
+  }
+  @media screen and (orientation: portrait) {
+  }
+}
+@mixin main-contact {
+  //--|🠋 03. Contact <main> 🠋|--//
+  @media screen and (orientation: landscape) {
+    //~~|🠊 aside[id*='home'] 🠈|~~//
+    border: 4px dashed $orange-neon;
+    background: rgba($orange-dark, 0.25);
+  }
   @media screen and (orientation: portrait) {
   }
 }
 
 main[id*='resume'] {
-  grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-  article:first-child {
+  section[id*='main'] {
     display: grid;
-    overflow-y: auto;
-    max-height: 100vh;
-    section {
+    grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
+    div[class*='margin'] {
       display: inherit;
+      position: relative;
       grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
-      @include main-sections();
-      div[class*='margin'] {
-        display: inherit;
-        position: relative;
-        grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
-        grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        aside {
-          width: 100%;
-          height: 100%;
-          display: grid;
-          position: absolute;
-          grid-template:
-            2rem 1fr repeat(2, 0.5fr) 1fr 2rem / 3rem repeat(5, 1fr)
-            3rem; //~~|🠊 rows / columns 🠈|~~//
-        }
+      grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+      aside[id*='home'] {
+        @include main-home;
       }
-
-      /*
-      &section:nth-child(1) {
-        border: 4px dashed $green-neon;
-        background: rgba($green-dark, 0.25);
+      aside[id*='skills'] {
+        @include main-skills;
       }
-      &section:nth-child(2) {
-        border: 4px dashed $blue-neon;
-        background: rgba($blue-dark, 0.25);
+      aside[id*='contact'] {
+        @include main-contact;
       }
-      &section:nth-child(3) {
-        border: 4px dashed $red-neon;
-        background: rgba($red-dark, 0.25);
-      }
-    */
-    }
-    &::-webkit-scrollbar {
-      display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
     }
   }
 }

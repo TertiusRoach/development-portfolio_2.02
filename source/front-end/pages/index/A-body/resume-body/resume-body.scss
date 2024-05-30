@@ -70,4 +70,15 @@ div[class='resume-body'] {
 
   grid-template-rows: 4rem 1fr 4rem;
   grid-template-columns: 6rem 1fr 6rem;
+  main[id*='resume'] {
+    grid-area: 1 / 1 / 4 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    article:first-child {
+      display: grid;
+      overflow-y: auto;
+      max-height: 100vh;
+      &::-webkit-scrollbar {
+        display: none; //~~|🠊 Hide Scrollbar 🠈|~~//
+      }
+    }
+  }
 }
