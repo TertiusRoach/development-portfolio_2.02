@@ -79,22 +79,23 @@ function MainSkills() {
   interface CarouselProps {
     jobTitle: 'developing' | 'producing' | string;
   }
-  $(function () {
-    $('#developing-skills span').on('click', () => {
-      $('#developing-skills span').css('display', 'none');
-      $('#developing-skills').toggleClass('collapsed expanded');
-    });
-    $('#developing-skills details').on('click', () => {
-      $('#developing-skills span').css('display', 'flex');
-      $('#developing-skills').toggleClass('expanded collapsed');
-    });
-  });
 
   const leftImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
   const rightImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
   const leftClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-left-click.svg`;
   const rightClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-right-click.svg`;
   const Carousel: React.FC<CarouselProps> = ({ jobTitle }) => {
+    $(function () {
+      $('#developing-skills menu span').on('click', () => {
+        $('#developing-skills menu span').css('display', 'none');
+        $('#developing-skills').toggleClass('collapsed expanded');
+      });
+      $('#developing-skills details').on('click', () => {
+        $('#developing-skills menu span').css('display', 'flex');
+        $('#developing-skills').toggleClass('expanded collapsed');
+      });
+    });
+
     let capitalizedTitle: string =
       jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1);
     return (
@@ -111,11 +112,13 @@ function MainSkills() {
           </button>
         </nav>
 
-        <menu className={`${jobTitle}-carousel`}></menu>
+        <menu className={`${jobTitle}-carousel`}>
+          <span>
+            <img src={leftClick} alt="..." />
+          </span>
+          <article>{/* Code here */}</article>
+        </menu>
 
-        <span>
-          <img src={leftClick} alt="..." />
-        </span>
         <details>
           <h1>Title</h1>
           <p>Description</p>
@@ -123,6 +126,7 @@ function MainSkills() {
       </aside>
     );
   };
+
   return (
     <section id="main-skills">
       <div className="margin-main">

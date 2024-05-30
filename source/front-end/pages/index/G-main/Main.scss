@@ -5584,12 +5584,13 @@ main[id*='resume'] article:first-child {
           }
         }
 
-        aside[id*='skills'] {
+        aside[id*='skills'] menu {
+          @media only screen and (max-height: 768px) {
+            grid-template: 571px 1fr / 1fr 571px 1fr;
+          }
+
           //--|🠋 Desktop (Landscape) 🠋|--//
           @media screen and (orientation: landscape) {
-            // @media only screen and (max-height: 768px) {
-            //   grid-template: 4rem 1fr 535px 1fr / 1fr 535px repeat(2, 1fr) 535px 1fr;
-            // }
           }
 
           //--|🠋 Mobile (Portrait) 🠋|--//

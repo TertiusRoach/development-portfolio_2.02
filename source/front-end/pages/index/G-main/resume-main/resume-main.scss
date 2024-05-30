@@ -137,7 +137,8 @@
     &[id*='developing'] {
       nav {
         display: inherit;
-        grid-template: 6rem / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
+        margin-top: 1rem;
+        grid-template: 5rem / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
         grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         // border: 4px dashed $orange-neon;
         // background: rgba($orange-dark, 0.5);
@@ -169,27 +170,36 @@
         }
       }
       menu {
+        display: inherit;
         grid-area: 2 / 1 / 5 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        border: 4px dashed $blue-neon;
-        background: rgba($blue-dark, 0.5);
-      }
+        // grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
 
-      span {
-        height: 100%;
-        width: 100%;
+        span {
+          z-index: 1;
+          opacity: 0;
+          // display: flex;
+          grid-area: 1 / 2 / 2 / 3;
+          transition: opacity 0.125s ease-in-out;
+          img {
+            width: 50%;
+            height: 50%;
+            cursor: pointer;
+          }
+          border: 4px dashed $green-neon;
+          background: rgba($green-dark, 0.25);
 
-        opacity: 0;
-        cursor: pointer;
-        grid-area: 3 / 2 / 4 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        border: 4px dashed $green-neon;
-        transition: opacity 0.125s ease-in-out;
-        // background: rgba(white, 0.25);
-        img {
-          width: 500px;
-          height: 500px;
+          &:hover {
+            opacity: 1;
+          }
         }
-        &:hover {
-          opacity: 1;
+
+        article {
+          z-index: 0;
+          display: inherit;
+          grid-area: 1 / 2 / 2 / 3;
+          grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
+          // border: 4px dashed $blue-neon;
+          // background: rgba($blue-dark, 0.25);
         }
       }
       details {
@@ -239,18 +249,13 @@ main[id*='resume'] {
       }
       aside[id*='skills'] {
         @include main-skills;
-        @media only screen and (max-height: 768px) {
-          // grid-template: 4rem 1fr 535px 1fr / 1fr 535px repeat(2, 1fr) 535px 1fr;
-        }
-
-        span,
-        details {
-          z-index: 1;
-        }
-        nav,
-        menu {
-          z-index: 0;
-        }
+        // details {
+        //   z-index: 1;
+        // }
+        // nav,
+        // menu {
+        //   z-index: 0;
+        // }
       }
       aside[id*='contact'] {
         @include main-contact;
