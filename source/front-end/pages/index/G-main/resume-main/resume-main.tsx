@@ -1,8 +1,8 @@
 // resume-main.tsx
-import React from 'react';
-import { useState } from 'react';
 import $ from 'jquery';
+import React from 'react';
 import Main from '../Main';
+import { useRef, useEffect, useState } from 'react';
 
 function resumeMain(pageName: string | any, blockName: string | any) {
   const page = pageName;
@@ -79,34 +79,23 @@ function MainSkills() {
   interface CarouselProps {
     jobTitle: 'developing' | 'producing' | string;
   }
+  const CarouselEvents: React.FC<CarouselProps> = ({ jobTitle }) => {
+    const articleRef = useRef<HTMLElement>(null);
+    const [articleWidth, setArticleWidth] = useState<number>(0);
 
-  const leftImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
-  const rightImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
-  const leftClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-left-click.svg`;
-  const rightClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-right-click.svg`;
-  const Carousel: React.FC<CarouselProps> = ({ jobTitle }) => {
-    $(function () {
-      $('#developing-skills menu span').on('click', () => {
-        $('#developing-skills menu span').css('display', 'none');
-        $('#developing-skills').toggleClass('collapsed expanded');
-      });
-      $('#developing-skills details').on('click', () => {
-        $('#developing-skills menu span').css('display', 'flex');
-        $('#developing-skills').toggleClass('expanded collapsed');
-      });
-    });
+    useEffect(() => {
+      if (articleRef.current) {
+        setArticleWidth(articleRef.current.offsetWidth);
+      }
+    }, []);
 
-    let capitalizedTitle: string =
-      jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1);
     return (
       <aside id={`${jobTitle}-skills`} className="collapsed">
         <nav className={`${jobTitle}-navigation`}>
           <button>
             <img src={leftImageURI} alt="Left" />
           </button>
-
-          <h4>{capitalizedTitle}</h4>
-
+          <h4>{jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1)}</h4>
           <button>
             <img src={rightImageURI} alt="Right" />
           </button>
@@ -115,7 +104,7 @@ function MainSkills() {
           <span>
             <img src={leftClick} alt="..." />
           </span>
-          <article>
+          <article ref={articleRef}>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -126,7 +115,18 @@ function MainSkills() {
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
           </article>
-          <article>
+          <article style={{ left: `${articleWidth * 1}px` }}>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            <li>{/* <img src={leftClick} alt="..." /> */}</li>
+          </article>
+          <article style={{ left: `${articleWidth * 2}px` }}>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -138,7 +138,6 @@ function MainSkills() {
             <li>{/* <img src={leftClick} alt="..." /> */}</li>
           </article>
         </menu>
-
         <details>
           <h1>Title</h1>
           <p>Description</p>
@@ -147,10 +146,15 @@ function MainSkills() {
     );
   };
 
+  let leftImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
+  let rightImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
+  let leftClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-left-click.svg`;
+  let rightClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-right-click.svg`;
+
   return (
     <section id="main-skills">
       <div className="margin-main">
-        <Carousel jobTitle="developing" />
+        <CarouselEvents jobTitle="developing" />
         {/* <Carousel jobTitle="producing" /> */}
       </div>
     </section>
@@ -167,4 +171,16 @@ function MainContact() {
     </section>
   );
 }
+
 export default resumeMain;
+
+$(function () {
+  $('#developing-skills menu span').on('click', () => {
+    $('#developing-skills menu span').css('display', 'none');
+    $('#developing-skills').toggleClass('collapsed expanded');
+  });
+  $('#developing-skills details').on('click', () => {
+    $('#developing-skills menu span').css('display', 'flex');
+    $('#developing-skills').toggleClass('expanded collapsed');
+  });
+});

@@ -171,10 +171,12 @@
       }
       menu[class*='carousel'] {
         display: grid;
+        // overflow: visible;
         grid-area: 2 / 1 / 5 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         article {
           z-index: 0;
           display: inherit;
+          position: relative;
           grid-area: 1 / 2 / 2 / 3;
           grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
           // border: 4px dashed $blue-neon;
@@ -282,7 +284,6 @@
           opacity: 1;
         }
       }
-
       details {
         grid-area: 1 / 4 / 5 / 7; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         border: 5px dashed $primary-light;
