@@ -3,11 +3,11 @@
 @mixin main-home {
   //--|🠋 01. Home <main> 🠋|--//
   @media screen and (orientation: landscape) {
-    //~~|🠊 aside[id*='home'] 🠈|~~//
+    //~~|🠉 aside[id*='home'] 🠉|~~//
     width: 100%;
     height: 100%;
     display: grid;
-    position: absolute;
+    // position: absolute;
     grid-template-columns: 3rem repeat(5, 1fr) 3rem;
     grid-template-rows: 2rem 1fr repeat(2, 0.5fr) 1fr 2rem;
     &[id*='cover'] {
@@ -129,43 +129,59 @@
 @mixin main-skills {
   //--|🠋 02. Skills <main> 🠋|--//
   @media screen and (orientation: landscape) {
-    //~~|🠊 aside[id*='skills'] 🠈|~~//
+    //~~|🠉 aside[id*='skills'] 🠉|~~//
+    width: 100%;
     display: grid;
     padding: 2rem 3rem;
     grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-    grid-template: 1fr / repeat(2, 1fr); //~~|🠊 rows / columns 🠈|~~//
-    aside[id*='developing'] {
-      header {
-        display: none;
+    grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
 
-        grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-
-        border: 4px dashed $orange-neon;
-        background: rgba($orange-dark, 0.25);
+    &[id*='developing'] {
+      menu {
+        grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        // border: 4px dashed $orange-neon;
+        background: rgba($orange-dark, 0.5);
       }
-      canvas {
-        display: none;
-
-        border: 4px dashed $green-neon;
-        background: rgba($green-dark, 0.25);
-      }
-      article {
-        display: none;
-
-        border: 4px dashed $turquoise-neon;
-        background: rgba($turquoise-dark, 0.25);
-      }
-      footer {
-        display: none;
-
+      nav {
+        grid-area: 2 / 1 / 5 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         border: 4px dashed $blue-neon;
-        background: rgba($blue-dark, 0.25);
+        background: rgba($blue-dark, 0.5);
+      }
+
+      article {
+        opacity: 0;
+        cursor: pointer;
+        grid-area: 3 / 2 / 4 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        border: 4px dashed $green-neon;
+        // background: rgba(white, 0.25);
+        img {
+          width: 500px;
+          height: 500px;
+        }
+        &:hover {
+          opacity: 1;
+        }
+        &:hover {
+          opacity: 1;
+        }
+      }
+      details {
+        grid-area: 1 / 4 / 5 / 7; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+        border: 5px dashed $primary-light;
+        background: rgba($primary-light, 0.25);
+      }
+
+      &.collapsed {
+        clip-path: inset(
+          0 50% 0 0
+        ); //~~|🠊 top / right / bottom / left 🠈|~~//
+      }
+      &.expanded {
+        clip-path: inset(
+          0 0 0 0
+        ); //~~|🠊 top / right / bottom / left 🠈|~~//
       }
     }
-    /*
-      aside[id*='producing'] {
-      }
-      */
   }
   @media screen and (orientation: portrait) {
   }
@@ -173,7 +189,7 @@
 @mixin main-contact {
   //--|🠋 03. Contact <main> 🠋|--//
   @media screen and (orientation: landscape) {
-    //~~|🠊 aside[id*='home'] 🠈|~~//
+    //~~|🠉 aside[id*='contact'] 🠉|~~//
     border: 4px dashed $orange-neon;
     background: rgba($orange-dark, 0.25);
   }
@@ -191,10 +207,23 @@ main[id*='resume'] {
       grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
       grid-area: 1 / 1 / 2 / 2; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
       aside[id*='home'] {
+        position: absolute;
         @include main-home;
       }
       aside[id*='skills'] {
         @include main-skills;
+        @media only screen and (max-height: 768px) {
+          // grid-template: 4rem 1fr 535px 1fr / 1fr 535px repeat(2, 1fr) 535px 1fr;
+        }
+
+        menu,
+        article {
+          z-index: 1;
+        }
+        details,
+        nav {
+          z-index: 0;
+        }
       }
       aside[id*='contact'] {
         @include main-contact;

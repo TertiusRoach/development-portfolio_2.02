@@ -79,40 +79,47 @@ function MainSkills() {
   interface CarouselProps {
     jobTitle: 'developing' | 'producing' | string;
   }
-  const Carousel: React.FC<CarouselProps> = ({ jobTitle }) => {
-    let capitalizedTitle: string =
-      jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1);
-
-    return (
-      <aside id={`${jobTitle}-skills`}>
-        <header>
-          <h1>Header</h1>
-          {/* <menu></menu> */}
-        </header>
-        <canvas>
-          <h1>Canvas</h1>
-        </canvas>
-        <article>
-          <h1>Article</h1>
-        </article>
-        <footer>
-          <h1>Footer</h1>
-          {/* <nav></nav> */}
-        </footer>
-      </aside>
-    );
-  };
-
   const arrowLeft: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
   const arrowRight: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
   const leftClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-left-click.svg`;
   const rightClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-right-click.svg`;
 
+  const Carousel: React.FC<CarouselProps> = ({ jobTitle }) => {
+    let capitalizedTitle: string =
+      jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1);
+
+    $(function () {
+      $('#developing-skills article').on('click', (event) => {
+        console.log('Developing Hover Works with jQuery');
+        $(event.currentTarget).css('display', 'none');
+        $(event.currentTarget).parent().toggleClass('collapsed expanded');
+      });
+    });
+
+    return (
+      <aside id={`${jobTitle}-skills`} className="collapsed">
+        <menu>
+          <h4>{capitalizedTitle}</h4>
+        </menu>
+        <nav>
+          <h1>Icons</h1>
+        </nav>
+
+        <article>
+          <img src={leftClick} alt="..." />
+        </article>
+        <details>
+          <h1>Title</h1>
+          <p>Description</p>
+        </details>
+      </aside>
+    );
+  };
   return (
     <section id="main-skills">
       <div className="margin-main">
         <Carousel jobTitle="developing" />
-        <Carousel jobTitle="producing" />
+        {/* <Carousel jobTitle="producing" /> */}
       </div>
     </section>
   );
@@ -129,28 +136,3 @@ function MainContact() {
   );
 }
 export default resumeMain;
-
-// $(function () {
-//   $('.developing-hitbox')
-//     .on('mouseenter', () => {
-//       // $('.developing-hitbox').hide();
-
-//       $('#developing-skills').css('zIndex', 5);
-
-//       console.log('Developing z-index');
-//     })
-//     .on('mouseleave', () => {
-//       // $('.developing-hitbox').show();
-//     });
-//   $('.producing-hitbox')
-//     .on('mouseenter', () => {
-//       // $('.producing-hitbox').hide();
-
-//       $('#producing-skills').css('zIndex', 5);
-
-//       console.log('Producing z-index');
-//     })
-//     .on('mouseleave', () => {
-//       // $('.producing-hitbox').show();
-//     });
-// });
