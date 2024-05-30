@@ -7,18 +7,16 @@
     width: 100%;
     height: 100%;
     display: grid;
-    // position: absolute;
     grid-template-columns: 3rem repeat(5, 1fr) 3rem;
     grid-template-rows: 2rem 1fr repeat(2, 0.5fr) 1fr 2rem;
     &[id*='cover'] {
       header[class*='header'] {
         z-index: 3;
-        margin: 2rem 0 0 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
-        grid-area: 2 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-
         display: flex;
+        margin: 2rem 0 0 3rem; //~~|🠊 top / right / bot / left 🠈|~~//
         flex-direction: column;
         justify-content: center;
+        grid-area: 2 / 2 / 3 / 5; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         h1[class='job-title'] {
           z-index: 1;
           position: relative;
@@ -135,7 +133,7 @@
     padding: 2rem 3rem;
     grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
-
+    transition: clip-path 0.125s ease-in-out;
     &[id*='developing'] {
       menu {
         grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
@@ -153,13 +151,11 @@
         cursor: pointer;
         grid-area: 3 / 2 / 4 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         border: 4px dashed $green-neon;
+        transition: opacity 0.125s ease-in-out;
         // background: rgba(white, 0.25);
         img {
           width: 500px;
           height: 500px;
-        }
-        &:hover {
-          opacity: 1;
         }
         &:hover {
           opacity: 1;

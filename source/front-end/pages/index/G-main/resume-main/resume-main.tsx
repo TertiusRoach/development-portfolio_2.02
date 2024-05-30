@@ -79,23 +79,26 @@ function MainSkills() {
   interface CarouselProps {
     jobTitle: 'developing' | 'producing' | string;
   }
+  $(function () {
+    $('#developing-skills article').on('click', () => {
+      console.log('test');
+      $('#developing-skills article').css('display', 'none');
+      $('#developing-skills').toggleClass('collapsed expanded');
+    });
+    $('#developing-skills details').on('click', () => {
+      console.log('test!!!!!');
+      $('#developing-skills article').css('display', 'flex');
+      $('#developing-skills').toggleClass('expanded collapsed');
+    });
+  });
+
   const arrowLeft: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
   const arrowRight: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
   const leftClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-left-click.svg`;
   const rightClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-right-click.svg`;
-
   const Carousel: React.FC<CarouselProps> = ({ jobTitle }) => {
     let capitalizedTitle: string =
       jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1);
-
-    $(function () {
-      $('#developing-skills article').on('click', (event) => {
-        console.log('Developing Hover Works with jQuery');
-        $(event.currentTarget).css('display', 'none');
-        $(event.currentTarget).parent().toggleClass('collapsed expanded');
-      });
-    });
-
     return (
       <aside id={`${jobTitle}-skills`} className="collapsed">
         <menu>
