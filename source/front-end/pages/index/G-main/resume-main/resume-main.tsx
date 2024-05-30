@@ -80,12 +80,12 @@ function MainSkills() {
     jobTitle: 'developing' | 'producing' | string;
   }
   $(function () {
-    $('#developing-skills article').on('click', () => {
-      $('#developing-skills article').css('display', 'none');
+    $('#developing-skills span').on('click', () => {
+      $('#developing-skills span').css('display', 'none');
       $('#developing-skills').toggleClass('collapsed expanded');
     });
     $('#developing-skills details').on('click', () => {
-      $('#developing-skills article').css('display', 'flex');
+      $('#developing-skills span').css('display', 'flex');
       $('#developing-skills').toggleClass('expanded collapsed');
     });
   });
@@ -99,16 +99,16 @@ function MainSkills() {
       jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1);
     return (
       <aside id={`${jobTitle}-skills`} className="collapsed">
-        <menu>
+        <nav id={`${jobTitle}-navigation`}>
+          <button></button>
           <h4>{capitalizedTitle}</h4>
-        </menu>
-        <nav>
-          <h1>Icons</h1>
+          <button></button>
         </nav>
+        <menu id={`${jobTitle}-carousel`}></menu>
 
-        <article>
+        <span>
           <img src={leftClick} alt="..." />
-        </article>
+        </span>
         <details>
           <h1>Title</h1>
           <p>Description</p>

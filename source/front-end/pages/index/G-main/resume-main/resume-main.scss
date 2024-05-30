@@ -135,18 +135,21 @@
     grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
     transition: clip-path 0.125s ease-in-out;
     &[id*='developing'] {
-      menu {
+      nav {
         grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         // border: 4px dashed $orange-neon;
         background: rgba($orange-dark, 0.5);
       }
-      nav {
+      menu {
         grid-area: 2 / 1 / 5 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         border: 4px dashed $blue-neon;
         background: rgba($blue-dark, 0.5);
       }
 
-      article {
+      span {
+        height: 100%;
+        width: 100%;
+
         opacity: 0;
         cursor: pointer;
         grid-area: 3 / 2 / 4 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
@@ -212,12 +215,12 @@ main[id*='resume'] {
           // grid-template: 4rem 1fr 535px 1fr / 1fr 535px repeat(2, 1fr) 535px 1fr;
         }
 
-        menu,
-        article {
+        span,
+        details {
           z-index: 1;
         }
-        details,
-        nav {
+        nav,
+        menu {
           z-index: 0;
         }
       }
