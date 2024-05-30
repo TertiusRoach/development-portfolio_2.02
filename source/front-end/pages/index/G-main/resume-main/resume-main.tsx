@@ -116,7 +116,11 @@ function MainSkills() {
           <span>
             <img src={leftClick} alt="..." />
           </span>
-          <article>{/* Code here */}</article>
+          <article>
+            <li>
+              <img src={leftClick} alt="..." />
+            </li>
+          </article>
         </menu>
 
         <details>
