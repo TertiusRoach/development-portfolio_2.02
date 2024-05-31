@@ -128,7 +128,6 @@
   z-index: 0;
   display: grid;
   transition: clip-path 0.125s ease-in-out;
-
   //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
     width: 100%;
@@ -143,6 +142,7 @@
       }
       menu {
         z-index: 2;
+        overflow: hidden;
         figure {
           z-index: 1;
           opacity: 0;
@@ -280,10 +280,10 @@
         height: 100%;
         display: flex;
         overflow: hidden;
-        align-items: center;
-        justify-content: center;
-        // position: relative;
         border-radius: 50%;
+        align-items: center;
+        // position: relative;
+        justify-content: center;
         background: rgba(0, 0, 0, 0.5);
 
         &::before {
@@ -331,8 +331,8 @@
           inset: 30px;
           /* border: 6px solid #070a1c; */
           z-index: 3;
-          border-radius: 50%;
           overflow: visible;
+          border-radius: 50%;
         }
 
         figcaption::before {
@@ -505,6 +505,7 @@ main[id*='resume'] {
     display: grid;
     grid-template: 1fr / 1fr; //~~|🠊 rows / columns 🠈|~~//
     div[class*='margin'] {
+      width: 100%;
       .expanded {
         z-index: 1;
         clip-path: inset(0 0 0 0); //~~|🠊 top / right / bottom / left 🠈|~~//
