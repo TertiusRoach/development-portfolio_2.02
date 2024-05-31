@@ -60,6 +60,8 @@ div[class='resume-body'] {
   height: 100vh;
   display: grid;
   overflow-y: hidden;
+  background: $primary-dark;
+  /*
   background: linear-gradient(
     140deg,
     rgba($primary-medium, 1) 0%,
@@ -67,6 +69,7 @@ div[class='resume-body'] {
     rgba($primary-dark, 1) 85%,
     rgba($primary-medium, 1) 100%
   );
+  */
 
   grid-template-rows: 4rem 1fr 4rem;
   grid-template-columns: 6rem 1fr 6rem;
