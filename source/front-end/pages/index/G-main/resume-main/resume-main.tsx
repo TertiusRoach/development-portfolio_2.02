@@ -1,8 +1,8 @@
 // resume-main.tsx
 import $ from 'jquery';
 import React from 'react';
-import Main from '../Main';
 import { useRef, useEffect, useState } from 'react';
+import resumeData from '../../h-data/resume-data/resume-data';
 
 function MainHome() {
   const jobTitle: Array<string> = ['Multimedia Programmer'];
@@ -59,24 +59,14 @@ interface SkillsProps {
 function MainSkills() {
   const Aside: React.FC<SkillsProps> = ({ jobTitle }) => {
     let Nav: React.FC<SkillsProps> = ({ jobTitle }) => {
-      var section: Array<string>;
-      switch (jobTitle) {
-        case 'developing':
-          section = ['languages', 'utilities', 'databases'];
-          break;
-        case 'producing':
-          section = ['design', 'editing', 'admin'];
-          break;
-      }
-      console.log(section);
-
       return (
         <nav className={`${jobTitle}-navigation`}>
           <button className={`${jobTitle}-left`}>
             <img src={leftImageURI} alt="Left" />
           </button>
-
-          <h4>{jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1)}</h4>
+          <article>
+            <h4>{jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1)}</h4>
+          </article>
 
           <button className={`${jobTitle}-right`}>
             <img src={rightImageURI} alt="Right" />
@@ -113,41 +103,112 @@ function MainSkills() {
           }
         }, []);
 
+        var section: Array<string>;
+        switch (jobTitle) {
+          case 'developing':
+            section = ['languages', 'utilities', 'databases'];
+            break;
+          case 'producing':
+            section = ['design', 'editing', 'admin'];
+            break;
+        }
+        console.log(section);
+
         return (
           <>
-            <article id="" className={`${jobTitle}-article`} style={{ right: `-${getWidth * 0}px` }} ref={selectedArticle}>
-              {/* //--| To be Continued |--// */}
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            {/* //--| To be Continued |--// */}
+            <article
+              ref={selectedArticle}
+              // The solution lies here. Maybe a for() loop?
+              id={`${section[0]}-skills`}
+              className={`${jobTitle}-article`}
+              style={{ right: `-${getWidth * 0}px` }}
+            >
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
             </article>
             <article id="" className={`${jobTitle}-article`} style={{ right: `-${getWidth * 1}px` }}>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
             </article>
             <article id="" className={`${jobTitle}-article`} style={{ right: `-${getWidth * 2}px` }}>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
-              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
+              <li>
+                <img src={leftClick} alt="..." />
+              </li>
             </article>
           </>
         );
