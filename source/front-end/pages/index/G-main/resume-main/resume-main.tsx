@@ -59,12 +59,25 @@ interface SkillsProps {
 function MainSkills() {
   const Aside: React.FC<SkillsProps> = ({ jobTitle }) => {
     let Nav: React.FC<SkillsProps> = ({ jobTitle }) => {
+      var section: Array<string>;
+      switch (jobTitle) {
+        case 'developing':
+          section = ['languages', 'utilities', 'databases'];
+          break;
+        case 'producing':
+          section = ['design', 'editing', 'admin'];
+          break;
+      }
+      console.log(section);
+
       return (
         <nav className={`${jobTitle}-navigation`}>
           <button className={`${jobTitle}-left`}>
             <img src={leftImageURI} alt="Left" />
           </button>
+
           <h4>{jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1)}</h4>
+
           <button className={`${jobTitle}-right`}>
             <img src={rightImageURI} alt="Right" />
           </button>
