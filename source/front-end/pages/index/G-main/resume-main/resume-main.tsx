@@ -158,6 +158,7 @@ function MainSkills() {
     let Details: React.FC<SkillsProps> = ({ jobTitle }) => {
       return (
         <details>
+          {/* //--| Design details tag |--// */}
           <h1>Title</h1>
           <h3>{`${jobTitle}`}</h3>
           <p>Description</p>

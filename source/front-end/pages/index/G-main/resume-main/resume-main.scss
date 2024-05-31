@@ -322,6 +322,8 @@ main[id*='resume'] {
                 grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
 
                 //--| To be Continued |--//
+                // Add Images to carousel
+                //--| Design details tag |--//
                 li {
                   display: flex;
                   align-items: center;
@@ -415,6 +417,7 @@ main[id*='resume'] {
               }
             }
           }
+          //--| Design details tag |--//
           details {
             z-index: 3;
           }
