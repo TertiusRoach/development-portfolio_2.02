@@ -71,7 +71,6 @@ function MainSkills() {
         </nav>
       );
     };
-
     let Menu: React.FC<SkillsProps> = ({ jobTitle }) => {
       //--|🠊 Separate Sections 🠈|--//
       /*
@@ -104,6 +103,7 @@ function MainSkills() {
         return (
           <>
             <article id="" className={`${jobTitle}-article`} style={{ right: `-${getWidth * 0}px` }} ref={selectedArticle}>
+              {/* //--| To be Continued |--// */}
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -155,7 +155,6 @@ function MainSkills() {
         </menu>
       );
     };
-
     let Details: React.FC<SkillsProps> = ({ jobTitle }) => {
       return (
         <details>
