@@ -4,22 +4,6 @@ import React from 'react';
 import Main from '../Main';
 import { useRef, useEffect, useState } from 'react';
 
-function resumeMain(pageName: string | any, blockName: string | any) {
-  const page = pageName;
-  const block = blockName;
-  console.log('//--|🠊 resume-main.tsx loaded 🠈|--//');
-
-  return (
-    <>
-      <article className="scalable-main">
-        <MainHome />
-        <MainSkills />
-        <MainContact />
-      </article>
-    </>
-  );
-}
-
 function MainHome() {
   const jobTitle: Array<string> = ['Multimedia Programmer'];
   const profilePicture: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/main/source/front-end/pages/index/%7Econtent/png-files/profile-picture.png`;
@@ -68,13 +52,99 @@ function MainHome() {
     </section>
   );
 }
-function MainSkills() {
-  const leftImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
-  const rightImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
-  const leftClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-left-click.svg`;
-  const rightClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-right-click.svg`;
 
-  const Aside: React.FC<SkillsProps> = ({ jobTitle }) => {
+function MainSkills() {
+  const CarouselContainer: React.FC<SkillsProps> = ({ jobTitle }) => {
+    let Nav: React.FC<SkillsProps> = ({ jobTitle }) => {
+      return (
+        <nav className={`${jobTitle}-navigation`}>
+          <button className={`${jobTitle}-left`}>
+            <img src={leftImageURI} alt="Left" />
+          </button>
+          <h4>{jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1)}</h4>
+          <button className={`${jobTitle}-right`}>
+            <img src={rightImageURI} alt="Right" />
+          </button>
+        </nav>
+      );
+    };
+    let Menu: React.FC<SkillsProps> = ({ jobTitle }) => {
+      var Article: React.FC<SkillsProps> = ({ jobTitle }) => {
+        const referenceElement = useRef<HTMLElement>(null);
+        const [getWidth, setWidth] = useState<number>(0);
+        useEffect(() => {
+          if (referenceElement.current) {
+            setWidth(referenceElement.current.offsetWidth);
+          }
+        }, []);
+        return (
+          <>
+            <article
+              id="languages-article"
+              className={`${jobTitle}-items`}
+              style={{ right: `-${getWidth * 0}px` }}
+              ref={referenceElement}
+            >
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            </article>
+            <article id="utilities-article" className={`${jobTitle}-items`} style={{ right: `-${getWidth * 1}px` }}>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            </article>
+            <article id="databases-article" className={`${jobTitle}-items`} style={{ right: `-${getWidth * 2}px` }}>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+              <li>{/* <img src={leftClick} alt="..." /> */}</li>
+            </article>
+          </>
+        );
+      };
+      var Span = () => {
+        return (
+          <span>
+            <img src={leftClick} alt="..." />
+          </span>
+        );
+      };
+
+      return (
+        <menu className={`${jobTitle}-carousel`}>
+          <Article jobTitle={`${jobTitle}`} />
+          <Span />
+        </menu>
+      );
+    };
+    let Details: React.FC<SkillsProps> = ({ jobTitle }) => {
+      return (
+        <details>
+          <h1>Title</h1>
+          <h3>{`${jobTitle}`}</h3>
+          <p>Description</p>
+        </details>
+      );
+    };
+
     return (
       <aside id={`${jobTitle}-skills`} className="collapsed">
         <Nav jobTitle={`${jobTitle}`}></Nav>
@@ -84,103 +154,21 @@ function MainSkills() {
     );
   };
 
-  const Nav: React.FC<SkillsProps> = ({ jobTitle }) => {
-    return (
-      <nav className={`${jobTitle}-navigation`}>
-        <button className={`${jobTitle}-left`}>
-          <img src={leftImageURI} alt="Left" />
-        </button>
-        <h4>{jobTitle.charAt(0).toUpperCase() + jobTitle.slice(1)}</h4>
-        <button className={`${jobTitle}-right`}>
-          <img src={rightImageURI} alt="Right" />
-        </button>
-      </nav>
-    );
-  };
-
-  const Menu: React.FC<SkillsProps> = ({ jobTitle }) => {
-    let Articles: React.FC<SkillsProps> = ({ jobTitle }) => {
-      const reference = useRef<HTMLElement>(null);
-      const [getWidth, setWidth] = useState<number>(0);
-      useEffect(() => {
-        if (reference.current) {
-          setWidth(reference.current.offsetWidth);
-        }
-      }, []);
-      return (
-        <>
-          <article ref={reference} className={`${jobTitle}-items`} id="languages-article">
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-          </article>
-          <article style={{ right: `-${getWidth * 1}px` }} className={`${jobTitle}-items`} id="utilities-article">
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-          </article>
-          <article style={{ right: `-${getWidth * 2}px` }} className={`${jobTitle}-items`} id="databases-article">
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-            <li>{/* <img src={leftClick} alt="..." /> */}</li>
-          </article>
-        </>
-      );
-    };
-
-    let Span = () => {
-      return (
-        <span>
-          <img src={leftClick} alt="..." />
-        </span>
-      );
-    };
-
-    return (
-      <menu className={`${jobTitle}-carousel`}>
-        <Articles jobTitle={`${jobTitle}`} />
-        <Span />
-      </menu>
-    );
-  };
-
-  const Details: React.FC<SkillsProps> = ({ jobTitle }) => {
-    return (
-      <details>
-        <h1>Title</h1>
-        <h3>{`${jobTitle}`}</h3>
-        <p>Description</p>
-      </details>
-    );
-  };
+  let leftImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-left.svg`;
+  let rightImageURI: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/f91bdb9647f6489681a751181c5b7faccb92d16d/source/front-end/pages/index/%7Econtent/svg-files/icon-collection/duotone/chevron-circle-right.svg`;
+  let leftClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-left-click.svg`;
+  let rightClick: string = `https://raw.githubusercontent.com/TertiusRoach/development-portfolio_4.00/b0cf5873cdcc5d0314fbd2a398a380bf170048d5/source/front-end/pages/index/~content/svg-files/icon-collection/duotone/mouse-right-click.svg`;
 
   return (
     <section id="main-skills">
       <div className="margin-main">
-        <Aside jobTitle="developing" />
-        {/* <Carousel jobTitle="producing" /> */}
+        {/* <CarouselContainer jobTitle="developing" /> */}
+        <CarouselContainer jobTitle="producing" />
       </div>
     </section>
   );
 }
+
 function MainContact() {
   return (
     <section id="main-contact">
@@ -194,11 +182,26 @@ function MainContact() {
 }
 
 interface MainProps {}
+
 interface SkillsProps {
   jobTitle: 'developing' | 'producing' | string;
 }
-interface ContactProps {}
 
+function resumeMain(pageName: string | any, blockName: string | any) {
+  const page = pageName;
+  const block = blockName;
+  console.log('//--|🠊 resume-main.tsx loaded 🠈|--//');
+
+  return (
+    <>
+      <article className="scalable-main">
+        <MainHome />
+        <MainSkills />
+        <MainContact />
+      </article>
+    </>
+  );
+}
 export default resumeMain;
 
 $(function () {
