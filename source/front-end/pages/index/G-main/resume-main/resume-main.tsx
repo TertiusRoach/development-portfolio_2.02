@@ -56,9 +56,8 @@ function MainHome() {
 interface SkillsProps {
   jobTitle: 'developing' | 'producing';
 }
-
 function MainSkills() {
-  const CarouselContainer: React.FC<SkillsProps> = ({ jobTitle }) => {
+  const Aside: React.FC<SkillsProps> = ({ jobTitle }) => {
     let Nav: React.FC<SkillsProps> = ({ jobTitle }) => {
       return (
         <nav className={`${jobTitle}-navigation`}>
@@ -184,8 +183,8 @@ function MainSkills() {
   return (
     <section id="main-skills">
       <div className="margin-main">
-        <CarouselContainer jobTitle="developing" />
-        <CarouselContainer jobTitle="producing" />
+        <Aside jobTitle="developing" />
+        <Aside jobTitle="producing" />
       </div>
     </section>
   );
@@ -223,13 +222,29 @@ function resumeMain(pageName: string | any, blockName: string | any) {
 export default resumeMain;
 
 $(function () {
-  const proCarousel = '#producing-skills .producing-carousel article';
-  const proLeftSelector = '#producing-skills .producing-navigation button[class*="left"] img';
-  const proRightSelector = '#producing-skills .producing-navigation button[class*="right"] img';
-  let $proArticle = $(proCarousel);
+  // Take this correct code...
+  const producingSpan: string = '#producing-skills menu span';
+  const producingDetails: string = '#producing-skills details';
+
+  $(producingSpan).on('click', () => {
+    $(producingSpan).css('display', 'none');
+    $('#developing-skills').css('zIndex', '-1');
+    $('#producing-skills').toggleClass('collapsed expanded');
+  });
+  $(producingDetails).on('click', () => {
+    $(producingSpan).css('display', 'flex');
+    $('#developing-skills').css('zIndex', '');
+    $('#producing-skills').toggleClass('expanded collapsed');
+  });
+
+  const producerCarousel: string = '#producing-skills .producing-carousel article';
+  const selectProducerLeft: string = '#producing-skills .producing-navigation button[class*="left"] img';
+  const selectProducerRight: string = '#producing-skills .producing-navigation button[class*="right"] img';
+
+  let $proArticle = $(producerCarousel);
   let proArticles = $proArticle.length;
-  let $proLeftButton = $(proLeftSelector).parent();
-  let $proRightButton = $(proRightSelector).parent();
+  let $proLeftButton = $(selectProducerLeft).parent();
+  let $proRightButton = $(selectProducerRight).parent();
   let producerWidth = $proArticle.first().width() || 0;
 
   $proRightButton.on('click', () => {
@@ -238,15 +253,9 @@ $(function () {
   $proLeftButton.on('click', () => {
     if (producerIndex > 0) scrollToIndex(producerIndex - 1);
   });
+
+  //--|🠋 Update the menu to display the content at the specified index. 🠋|--//
   let producerIndex = 0;
-
-  const updateNavigation = () => {
-    $proLeftButton.toggleClass('disabled', producerIndex === 0).toggleClass('enabled', producerIndex > 0);
-    $proRightButton
-      .toggleClass('disabled', producerIndex === proArticles - 1)
-      .toggleClass('enabled', producerIndex < proArticles - 1);
-  };
-
   const updateMenu = (newIndex: number) => {
     $proArticle.removeClass('visible hidden').each(function (index) {
       $(this)
@@ -254,7 +263,7 @@ $(function () {
         .toggleClass('hidden', index !== newIndex);
     });
   };
-
+  //--|🠋 Scroll to the content at the specified index. 🠋|--//
   const scrollToIndex = (newIndex: number) => {
     const direction = newIndex > producerIndex ? '+=' : '-=';
     $proArticle.animate({ right: `${direction}${producerWidth}px` }, 500);
@@ -262,70 +271,72 @@ $(function () {
     updateMenu(producerIndex);
     updateNavigation();
   };
+  //--|🠋 Update navigation buttons based on the current index. 🠋|--//
+  const updateNavigation = () => {
+    $proLeftButton.toggleClass('disabled', producerIndex === 0).toggleClass('enabled', producerIndex > 0);
+    $proRightButton
+      .toggleClass('disabled', producerIndex === proArticles - 1)
+      .toggleClass('enabled', producerIndex < proArticles - 1);
+  };
 
-  const producingDetails: string = '#producing-skills details';
-  const producingSpan: string = '#producing-skills menu span';
-  $(producingSpan).on('click', () => {
-    $(producingSpan).css('display', 'none');
-    $('#producing-skills').toggleClass('collapsed expanded');
-  });
-  $(producingDetails).on('click', () => {
-    $(producingSpan).css('display', 'flex');
-    $('#producing-skills').toggleClass('expanded collapsed');
-  });
+  // $(producingSpan).on('mouseover', () => {
+  //   // $(producingSpan).css('display', 'none');
+  //   // $('#producing-skills').toggleClass('collapsed expanded');
+  // });
 
   updateMenu(producerIndex);
   updateNavigation();
 });
-$(function () {
-  const devCarousel = '#developing-skills .developing-carousel article';
-  const devLeftSelector = '#developing-skills .developing-navigation button[class*="left"] img';
-  const devRightSelector = '#developing-skills .developing-navigation button[class*="right"] img';
-  let $devArticle = $(devCarousel);
-  let devArticles = $devArticle.length;
-  let $devLeftButton = $(devLeftSelector).parent();
-  let $devRightButton = $(devRightSelector).parent();
-  let developerWidth = $devArticle.first().width() || 0;
 
-  $devRightButton.on('click', () => {
-    if (developerIndex < devArticles - 1) scrollToIndex(developerIndex + 1);
+$(function () {
+  const developerCarousel = '#developing-skills .developing-carousel article';
+  const developerLeftSelector = '#developing-skills .developing-navigation button[class*="left"] img';
+  const developerRightSelector = '#developing-skills .developing-navigation button[class*="right"] img';
+  let $developerArticle = $(developerCarousel);
+  let developerArticles = $developerArticle.length;
+  let $developerLeftButton = $(developerLeftSelector).parent();
+  let $developerRightButton = $(developerRightSelector).parent();
+  let developerWidth = $developerArticle.first().width() || 0;
+  $developerRightButton.on('click', () => {
+    if (developerIndex < developerArticles - 1) scrollToIndex(developerIndex + 1);
   });
-  $devLeftButton.on('click', () => {
+  $developerLeftButton.on('click', () => {
     if (developerIndex > 0) scrollToIndex(developerIndex - 1);
   });
+  //--|🠋 Update the menu to display the content at the specified index. 🠋|--//
   let developerIndex = 0;
-
-  const updateNavigation = () => {
-    $devLeftButton.toggleClass('disabled', developerIndex === 0).toggleClass('enabled', developerIndex > 0);
-    $devRightButton
-      .toggleClass('disabled', developerIndex === devArticles - 1)
-      .toggleClass('enabled', developerIndex < devArticles - 1);
-  };
-
   const updateMenu = (newIndex: number) => {
-    $devArticle.removeClass('visible hidden').each(function (index) {
+    $developerArticle.removeClass('visible hidden').each(function (index) {
       $(this)
         .toggleClass('visible', index === newIndex)
         .toggleClass('hidden', index !== newIndex);
     });
   };
-
+  //--|🠋 Scroll to the content at the specified index. 🠋|--//
   const scrollToIndex = (newIndex: number) => {
     const direction = newIndex > developerIndex ? '+=' : '-=';
-    $devArticle.animate({ right: `${direction}${developerWidth}px` }, 500);
+    $developerArticle.animate({ right: `${direction}${developerWidth}px` }, 500);
     developerIndex = newIndex;
     updateMenu(developerIndex);
     updateNavigation();
   };
-
+  //--|🠋 Update navigation buttons based on the current index. 🠋|--//
+  const updateNavigation = () => {
+    $developerLeftButton.toggleClass('disabled', developerIndex === 0).toggleClass('enabled', developerIndex > 0);
+    $developerRightButton
+      .toggleClass('disabled', developerIndex === developerArticles - 1)
+      .toggleClass('enabled', developerIndex < developerArticles - 1);
+  };
   const developingDetails: string = '#developing-skills details';
   const developingSpan: string = '#developing-skills menu span';
   $(developingSpan).on('click', () => {
-    $('#developing-skills menu span').css('display', 'none');
+    $(developingSpan).css('display', 'none');
+    $('#producing-skills').css('zIndex', '-1');
     $('#developing-skills').toggleClass('collapsed expanded');
   });
   $(developingDetails).on('click', () => {
-    $('#developing-skills menu span').css('display', 'flex');
+    $(developingSpan).css('display', 'flex');
+    $('#producing-skills').css('zIndex', '');
     $('#developing-skills').toggleClass('expanded collapsed');
   });
 

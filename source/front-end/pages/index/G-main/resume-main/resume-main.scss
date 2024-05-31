@@ -127,6 +127,7 @@
 @mixin main-skills {
   //--|🠋 02. Skills <main> 🠋|--//
   @media screen and (orientation: landscape) {
+    //--|🠉 <Aside /> 🠉|--//
     z-index: 0;
     width: 100%;
     display: grid;
@@ -134,8 +135,13 @@
     grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
     transition: clip-path 0.125s ease-in-out;
+
     //--|🠋 <Aside jobTitle="developing" /> 🠋|--//
     &[id*='developing'] {
+      &.collapsed {
+        clip-path: inset(0 50% 0 0); //~~|🠊 top / right / bottom / left 🠈|~~//
+      }
+
       nav {
         display: inherit;
         margin-top: 1rem;
@@ -309,13 +315,14 @@
         border: 5px dashed $primary-light;
         background: rgba($primary-light, 0.25);
       }
-      &.collapsed {
-        clip-path: inset(0 50% 0 0); //~~|🠊 top / right / bottom / left 🠈|~~//
-      }
     }
     //--|🠉 <Aside jobTitle="developing" /> 🠉|--//
     //--|🠋 <Aside jobTitle="producing" /> 🠋|--//
     &[id*='producing'] {
+      &.collapsed {
+        clip-path: inset(0 0 0 50%); //~~|🠊 top / right / bottom / left 🠈|~~//
+      }
+
       nav {
         display: inherit;
         margin-top: 1rem;
@@ -362,7 +369,6 @@
           filter: drop-shadow(0 0 4px black);
         }
       }
-
       menu[class*='carousel'] {
         display: grid;
         // overflow: hidden;
@@ -471,32 +477,38 @@
         border: 5px dashed $primary-light;
         background: rgba($primary-light, 0.25);
       }
-
-      &.collapsed {
-        clip-path: inset(0 0 0 25%); //~~|🠊 top / right / bottom / left 🠈|~~//
-      }
     }
     //--|🠉 <Aside jobTitle="producing" /> 🠉|--//
 
-    &[id*='skills'] menu span {
-      z-index: 1;
-      opacity: 0;
-      grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-      border: 4px dashed $green-neon;
-      background: rgba($green-dark, 0.25);
-      transition: opacity 0.125s ease-in-out;
-
-      img {
-        width: 50%;
-        height: 50%;
-        cursor: pointer;
+    &[id*='skills'] {
+      details {
+        z-index: 3;
       }
+      menu {
+        z-index: 2;
+        span {
+          z-index: 1;
+          opacity: 0;
+          grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+          border: 4px dashed $green-neon;
+          background: rgba($green-dark, 0.25);
+          transition: opacity 0.125s ease-in-out;
+          img {
+            width: 50%;
+            height: 50%;
+            cursor: pointer;
+          }
 
-      &:hover {
-        opacity: 1;
+          &:hover {
+            opacity: 1;
+          }
+        }
       }
-      &.expanded {
-        clip-path: inset(0 0 0 0); //~~|🠊 top / right / bottom / left 🠈|~~//
+      nav {
+        z-index: 1;
+      }
+      &[class='collapsed'] {
+        z-index: 0;
       }
     }
   }
@@ -532,6 +544,10 @@ main[id*='resume'] {
       }
       aside[id*='contact'] {
         @include main-contact;
+      }
+      .expanded {
+        z-index: 1;
+        clip-path: inset(0 0 0 0); //~~|🠊 top / right / bottom / left 🠈|~~//
       }
     }
   }
