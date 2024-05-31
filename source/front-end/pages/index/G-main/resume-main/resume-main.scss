@@ -125,25 +125,36 @@
   }
 }
 @mixin main-skills {
-  //--|🠋 02. Skills <main> 🠋|--//
+  z-index: 0;
+  display: grid;
+  transition: clip-path 0.125s ease-in-out;
+
+  //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
-    //--|🠉 <Aside /> 🠉|--//
+    width: 100%;
+    padding: 2rem 3rem;
+    grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+    grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
+
     &[id*='skills'] {
+      //--|🠉 <Aside /> 🠉|--//
       nav {
         z-index: 1;
       }
       menu {
         z-index: 2;
-        span {
+        figure {
           z-index: 1;
           opacity: 0;
+
           grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-          border: 4px dashed $green-neon;
-          background: rgba($green-dark, 0.25);
+          backdrop-filter: blur(1rem);
+          background: rgba(red, 0.25);
+          -webkit-backdrop-filter: blur(1rem);
           transition: opacity 0.125s ease-in-out;
           img {
-            width: 50%;
-            height: 50%;
+            width: 25%;
+            height: 25%;
             cursor: pointer;
           }
 
@@ -151,121 +162,206 @@
             opacity: 1;
           }
         }
-        &[class='collapsed'] {
-          z-index: 0;
-        }
-        &[class*='carousel'] {
-          display: grid;
-          article {
-            z-index: 0;
-            display: inherit;
-            position: relative;
-            grid-area: 1 / 2 / 2 / 3;
-            transition: opacity 0.25s ease-in-out;
-            grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
-
-            //--| To be Continued |--//
-            //--| Add Images to carousel |--//
-            li {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              img {
-                width: 50px;
-                height: 50px;
-              }
-
-              &:nth-child(1) {
-                // border: 4px dashed $green-neon;
-                background: rgba($green-dark, 1);
-              }
-              &:nth-child(2) {
-                // border: 4px dashed $pink-neon;
-                background: rgba($pink-dark, 1);
-              }
-              &:nth-child(3) {
-                // border: 4px dashed $yellow-neon;
-                background: rgba($yellow-dark, 1);
-              }
-              &:nth-child(4) {
-                // border: 4px dashed $orange-neon;
-                background: rgba($orange-dark, 1);
-              }
-              &:nth-child(5) {
-                // border: 4px dashed $blue-neon;
-                background: rgba($blue-dark, 1);
-              }
-              &:nth-child(6) {
-                // border: 4px dashed $purple-neon;
-                background: rgba($purple-dark, 1);
-              }
-              &:nth-child(7) {
-                // border: 4px dashed $red-neon;
-                background: rgba($red-dark, 1);
-              }
-              &:nth-child(8) {
-                // border: 4px dashed $brown-neon;
-                background: rgba($brown-dark, 1);
-              }
-              &:nth-child(9) {
-                // border: 4px dashed $grey-neon;
-                background: rgba($grey-dark, 1);
-              }
-              /*
-              &:nth-child(1) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(2) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(3) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(4) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(5) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(6) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(7) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(8) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(9) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              */
-            }
-          }
-          .visible {
-            opacity: 1;
-          }
-          .hidden {
-            opacity: 0;
-          }
-        }
       }
       details {
         z-index: 3;
+        display: grid;
         backdrop-filter: blur(1rem);
         -webkit-backdrop-filter: blur(1rem);
+        grid-template: 6rem / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
+      }
+
+      menu[class*='carousel'] {
+        display: grid;
+        article {
+          z-index: 0;
+          display: inherit;
+          position: relative;
+          grid-area: 1 / 2 / 2 / 3;
+          transition: opacity 0.25s ease-in-out;
+          grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
+
+          //--| To be Continued |--//
+          //--| Add Images to carousel |--//
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              width: 50px;
+              height: 50px;
+            }
+
+            &:nth-child(1) {
+              // border: 4px dashed $green-neon;
+              background: rgba($green-dark, 1);
+            }
+            &:nth-child(2) {
+              // border: 4px dashed $pink-neon;
+              background: rgba($pink-dark, 1);
+            }
+            &:nth-child(3) {
+              // border: 4px dashed $yellow-neon;
+              background: rgba($yellow-dark, 1);
+            }
+            &:nth-child(4) {
+              // border: 4px dashed $orange-neon;
+              background: rgba($orange-dark, 1);
+            }
+            &:nth-child(5) {
+              // border: 4px dashed $blue-neon;
+              background: rgba($blue-dark, 1);
+            }
+            &:nth-child(6) {
+              // border: 4px dashed $purple-neon;
+              background: rgba($purple-dark, 1);
+            }
+            &:nth-child(7) {
+              // border: 4px dashed $red-neon;
+              background: rgba($red-dark, 1);
+            }
+            &:nth-child(8) {
+              // border: 4px dashed $brown-neon;
+              background: rgba($brown-dark, 1);
+            }
+            &:nth-child(9) {
+              // border: 4px dashed $grey-neon;
+              background: rgba($grey-dark, 1);
+            }
+            /*
+            &:nth-child(1) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            &:nth-child(2) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            &:nth-child(3) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            &:nth-child(4) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            &:nth-child(5) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            &:nth-child(6) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            &:nth-child(7) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            &:nth-child(8) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            &:nth-child(9) {
+              border: 4px dashed $red-neon;
+              background: rgba($red-dark, 0.25);
+            }
+            */
+          }
+        }
+        .visible {
+          opacity: 1;
+        }
+        .hidden {
+          opacity: 0;
+        }
+      }
+      figure[class*='tutorial'] {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        // position: relative;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.5);
+
+        &::before {
+          content: '';
+          transition: 0.5s;
+          position: absolute;
+          inset: -10px 140px;
+          animation: clockwise 90s linear infinite;
+          background: linear-gradient(315deg, #00ccff, #d400d4);
+        }
+
+        // &:hover::before {
+        //   inset: -20px 0px;
+        // }
+
+        @keyframes clockwise {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes anti-clockwise {
+          0% {
+            transform: rotate(360deg);
+          }
+          100% {
+            transform: rotate(0deg);
+          }
+        }
+
+        &::after {
+          z-index: 1;
+          inset: 6px;
+          content: '';
+          border-radius: 50%;
+          position: absolute;
+          background: $primary-dark;
+        }
+
+        figcaption {
+          position: absolute;
+          inset: 30px;
+          /* border: 6px solid #070a1c; */
+          z-index: 3;
+          border-radius: 50%;
+          overflow: visible;
+        }
+
+        figcaption::before {
+          animation: clockwise 4s linear infinite;
+        }
+
+        figcaption img {
+          z-index: 2;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: -1rem;
+          left: 0;
+          object-fit: cover;
+          transition: 0.5s;
+          pointer-events: none;
+        }
+
+        figcaption:hover .content img {
+          /* height: 150%;
+          width: 150%;
+          transform: translate(-25%, -25%); Center the image using translate */
+          /* opacity: 0; */
+        }
       }
     }
-
+    &.collapsed {
+      z-index: 0;
+    }
     //--|🠋 <aside id="developing-skills"> 🠋|--//
     &[id*='developing'] {
       nav {
@@ -391,13 +487,6 @@
         background: linear-gradient(270deg, rgba(black, 0) 0%, rgba($primary-dark, 1) 100%);
       }
     }
-    z-index: 0;
-    width: 100%;
-    display: grid;
-    padding: 2rem 3rem;
-    grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-    grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
-    transition: clip-path 0.125s ease-in-out;
   }
   @media screen and (orientation: portrait) {
   }
@@ -427,6 +516,7 @@ main[id*='resume'] {
         @include main-home;
       }
       aside[id*='skills'] {
+        position: sticky;
         @include main-skills;
       }
       aside[id*='contact'] {

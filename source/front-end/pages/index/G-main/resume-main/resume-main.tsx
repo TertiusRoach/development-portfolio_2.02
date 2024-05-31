@@ -23,19 +23,19 @@ export default resumeMain;
 
 $(function () {
   // Take this correct code...
-  const producingSpan: string = '#producing-skills menu span';
   const producingDetails: string = '#producing-skills details';
+  const producingFigure: string = '#producing-skills menu figure';
   const producerCarousel: string = '#producing-skills .producing-carousel article';
   const selectProducerLeft: string = '#producing-skills .producing-navigation button[class*="left"] img';
   const selectProducerRight: string = '#producing-skills .producing-navigation button[class*="right"] img';
 
-  $(producingSpan).on('click', () => {
-    $(producingSpan).css('display', 'none');
+  $(producingFigure).on('click', () => {
+    $(producingFigure).css('display', 'none');
     $('#developing-skills').css('zIndex', '-1');
     $('#producing-skills').toggleClass('collapsed expanded');
   });
   $(producingDetails).on('click', () => {
-    $(producingSpan).css('display', 'flex');
+    $(producingFigure).css('display', 'flex');
     $('#developing-skills').css('zIndex', '');
     $('#producing-skills').toggleClass('expanded collapsed');
   });
@@ -82,19 +82,19 @@ $(function () {
 });
 
 $(function () {
-  const developingSpan: string = '#developing-skills menu span';
   const developingDetails: string = '#developing-skills details';
+  const developingFigure: string = '#developing-skills menu figure';
   const developerCarousel = '#developing-skills .developing-carousel article';
   const developerLeftSelector = '#developing-skills .developing-navigation button[class*="left"] img';
   const developerRightSelector = '#developing-skills .developing-navigation button[class*="right"] img';
-  $(developingSpan).on('click', () => {
-    $(developingSpan).css('display', 'none');
+  $(developingFigure).on('click', () => {
     $('#producing-skills').css('zIndex', '-1');
+    $(developingFigure).css('display', 'none');
     $('#developing-skills').toggleClass('collapsed expanded');
   });
   $(developingDetails).on('click', () => {
-    $(developingSpan).css('display', 'flex');
     $('#producing-skills').css('zIndex', '');
+    $(developingFigure).css('display', 'flex');
     $('#developing-skills').toggleClass('expanded collapsed');
   });
 
