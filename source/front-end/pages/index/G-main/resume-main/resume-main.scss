@@ -145,17 +145,21 @@
           background: none;
           align-items: center;
           transition: opacity 1s ease-in-out;
-          &.hidden {
-            // opacity: 0;
-            // display: none;
-          }
-          &.visible {
-            opacity: 1;
-          }
           img {
             height: 75%;
-            cursor: pointer;
           }
+          &.disabled {
+            opacity: 0;
+            cursor: default;
+            // display: none;
+          }
+          &.enabled {
+            opacity: 1;
+            img {
+              cursor: pointer;
+            }
+          }
+
           &:nth-child(1) {
             padding-right: 1rem;
             justify-content: right;
