@@ -135,139 +135,6 @@
     grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
     transition: clip-path 0.125s ease-in-out;
-    &[id*='skills'] {
-      nav {
-        z-index: 1;
-      }
-      menu {
-        z-index: 2;
-        span {
-          z-index: 1;
-          opacity: 0;
-          grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-          border: 4px dashed $green-neon;
-          background: rgba($green-dark, 0.25);
-          transition: opacity 0.125s ease-in-out;
-          img {
-            width: 50%;
-            height: 50%;
-            cursor: pointer;
-          }
-
-          &:hover {
-            opacity: 1;
-          }
-        }
-        &[class='collapsed'] {
-          z-index: 0;
-        }
-        &[class*='carousel'] {
-          display: grid;
-          article {
-            z-index: 0;
-            display: inherit;
-            position: relative;
-            grid-area: 1 / 2 / 2 / 3;
-            transition: opacity 0.25s ease-in-out;
-            grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
-            li {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              img {
-                width: 50px;
-                height: 50px;
-              }
-
-              &:nth-child(1) {
-                border: 4px dashed $green-neon;
-                background: rgba($green-dark, 0.25);
-              }
-              &:nth-child(2) {
-                border: 4px dashed $pink-neon;
-                background: rgba($pink-dark, 0.25);
-              }
-              &:nth-child(3) {
-                border: 4px dashed $yellow-neon;
-                background: rgba($yellow-dark, 0.25);
-              }
-              &:nth-child(4) {
-                border: 4px dashed $orange-neon;
-                background: rgba($orange-dark, 0.25);
-              }
-              &:nth-child(5) {
-                border: 4px dashed $blue-neon;
-                background: rgba($blue-dark, 0.25);
-              }
-              &:nth-child(6) {
-                border: 4px dashed $purple-neon;
-                background: rgba($purple-dark, 0.25);
-              }
-              &:nth-child(7) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(8) {
-                border: 4px dashed $brown-neon;
-                background: rgba($brown-dark, 0.25);
-              }
-              &:nth-child(9) {
-                border: 4px dashed $grey-neon;
-                background: rgba($grey-dark, 0.25);
-              }
-              /*
-              &:nth-child(1) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(2) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(3) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(4) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(5) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(6) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(7) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(8) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              &:nth-child(9) {
-                border: 4px dashed $red-neon;
-                background: rgba($red-dark, 0.25);
-              }
-              */
-            }
-          }
-          .visible {
-            opacity: 1;
-          }
-          .hidden {
-            opacity: 0;
-          }
-        }
-      }
-      details {
-        z-index: 3;
-      }
-    }
-
     //--|🠋 <Aside jobTitle="developing" /> 🠋|--//
     &[id*='developing'] {
       &.collapsed {
@@ -418,6 +285,140 @@ main[id*='resume'] {
       }
       aside[id*='skills'] {
         @include main-skills;
+        &[id*='skills'] {
+          nav {
+            z-index: 1;
+          }
+          menu {
+            z-index: 2;
+            span {
+              z-index: 1;
+              opacity: 0;
+              grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+              border: 4px dashed $green-neon;
+              background: rgba($green-dark, 0.25);
+              transition: opacity 0.125s ease-in-out;
+              img {
+                width: 50%;
+                height: 50%;
+                cursor: pointer;
+              }
+
+              &:hover {
+                opacity: 1;
+              }
+            }
+            &[class='collapsed'] {
+              z-index: 0;
+            }
+            &[class*='carousel'] {
+              display: grid;
+              article {
+                z-index: 0;
+                display: inherit;
+                position: relative;
+                grid-area: 1 / 2 / 2 / 3;
+                transition: opacity 0.25s ease-in-out;
+                grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
+
+                //--| To be Continued |--//
+                li {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  img {
+                    width: 50px;
+                    height: 50px;
+                  }
+
+                  &:nth-child(1) {
+                    // border: 4px dashed $green-neon;
+                    background: rgba($green-dark, 1);
+                  }
+                  &:nth-child(2) {
+                    // border: 4px dashed $pink-neon;
+                    background: rgba($pink-dark, 1);
+                  }
+                  &:nth-child(3) {
+                    // border: 4px dashed $yellow-neon;
+                    background: rgba($yellow-dark, 1);
+                  }
+                  &:nth-child(4) {
+                    // border: 4px dashed $orange-neon;
+                    background: rgba($orange-dark, 1);
+                  }
+                  &:nth-child(5) {
+                    // border: 4px dashed $blue-neon;
+                    background: rgba($blue-dark, 1);
+                  }
+                  &:nth-child(6) {
+                    // border: 4px dashed $purple-neon;
+                    background: rgba($purple-dark, 1);
+                  }
+                  &:nth-child(7) {
+                    // border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 1);
+                  }
+                  &:nth-child(8) {
+                    // border: 4px dashed $brown-neon;
+                    background: rgba($brown-dark, 1);
+                  }
+                  &:nth-child(9) {
+                    // border: 4px dashed $grey-neon;
+                    background: rgba($grey-dark, 1);
+                  }
+                  /*
+                  &:nth-child(1) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  &:nth-child(2) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  &:nth-child(3) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  &:nth-child(4) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  &:nth-child(5) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  &:nth-child(6) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  &:nth-child(7) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  &:nth-child(8) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  &:nth-child(9) {
+                    border: 4px dashed $red-neon;
+                    background: rgba($red-dark, 0.25);
+                  }
+                  */
+                }
+              }
+              .visible {
+                opacity: 1;
+              }
+              .hidden {
+                opacity: 0;
+              }
+            }
+          }
+          details {
+            z-index: 3;
+          }
+        }
       }
       aside[id*='contact'] {
         @include main-contact;
