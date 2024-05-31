@@ -94,22 +94,17 @@ function MainSkills() {
 
       //--|🠋 Separate Developer and Producer: Switch Cases? 🠋|--//
       var Article: React.FC<SkillsProps> = ({ jobTitle }) => {
-        const referenceElement = useRef<HTMLElement>(null);
+        const selectedArticle = useRef<HTMLElement>(null);
         const [getWidth, setWidth] = useState<number>(0);
         useEffect(() => {
-          if (referenceElement.current) {
-            setWidth(referenceElement.current.offsetWidth);
+          if (selectedArticle.current) {
+            setWidth(selectedArticle.current.offsetWidth);
           }
         }, []);
 
         return (
           <>
-            <article
-              id="languages-article"
-              className={`${jobTitle}-items`}
-              style={{ right: `-${getWidth * 0}px` }}
-              ref={referenceElement}
-            >
+            <article id="" className={`${jobTitle}-article`} style={{ right: `-${getWidth * 0}px` }} ref={selectedArticle}>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -120,7 +115,7 @@ function MainSkills() {
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
             </article>
-            <article id="utilities-article" className={`${jobTitle}-items`} style={{ right: `-${getWidth * 1}px` }}>
+            <article id="" className={`${jobTitle}-article`} style={{ right: `-${getWidth * 1}px` }}>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -131,7 +126,7 @@ function MainSkills() {
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
             </article>
-            <article id="databases-article" className={`${jobTitle}-items`} style={{ right: `-${getWidth * 2}px` }}>
+            <article id="" className={`${jobTitle}-article`} style={{ right: `-${getWidth * 2}px` }}>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
               <li>{/* <img src={leftClick} alt="..." /> */}</li>
@@ -156,7 +151,6 @@ function MainSkills() {
 
       return (
         <menu className={`${jobTitle}-carousel`}>
-          {/* Property 'skillSection' is missing in type '{ jobTitle: string; }' but required in type 'SkillsProps'.  */}
           <Article jobTitle={`${jobTitle}`} />
           <Span />
         </menu>
@@ -190,7 +184,7 @@ function MainSkills() {
   return (
     <section id="main-skills">
       <div className="margin-main">
-        {/* <CarouselContainer jobTitle="developing" /> */}
+        <CarouselContainer jobTitle="developing" />
         <CarouselContainer jobTitle="producing" />
       </div>
     </section>
@@ -229,37 +223,32 @@ function resumeMain(pageName: string | any, blockName: string | any) {
 export default resumeMain;
 
 $(function () {
-  const carouselSelector = '#developing-skills .developing-carousel article';
-  const devLeftSelector = '#developing-skills .developing-navigation button[class*="left"] img';
-  const devRightSelector = '#developing-skills .developing-navigation button[class*="right"] img';
+  const proCarousel = '#producing-skills .producing-carousel article';
+  const proLeftSelector = '#producing-skills .producing-navigation button[class*="left"] img';
+  const proRightSelector = '#producing-skills .producing-navigation button[class*="right"] img';
+  let $proArticle = $(proCarousel);
+  let proArticles = $proArticle.length;
+  let $proLeftButton = $(proLeftSelector).parent();
+  let $proRightButton = $(proRightSelector).parent();
+  let producerWidth = $proArticle.first().width() || 0;
 
-  const $carouselItems = $(carouselSelector);
-
-  const $devLeftButton = $(devLeftSelector).parent();
-  const $devRightButton = $(devRightSelector).parent();
-
-  const totalItems = $carouselItems.length;
-  const itemWidth = $carouselItems.first().width() || 0;
-
-  $devRightButton.on('click', () => {
-    if (currentIndex < totalItems - 1) scrollToIndex(currentIndex + 1);
+  $proRightButton.on('click', () => {
+    if (producerIndex < proArticles - 1) scrollToIndex(producerIndex + 1);
   });
-
-  $devLeftButton.on('click', () => {
-    if (currentIndex > 0) scrollToIndex(currentIndex - 1);
+  $proLeftButton.on('click', () => {
+    if (producerIndex > 0) scrollToIndex(producerIndex - 1);
   });
-
-  let currentIndex = 0;
+  let producerIndex = 0;
 
   const updateNavigation = () => {
-    $devLeftButton.toggleClass('disabled', currentIndex === 0).toggleClass('enabled', currentIndex > 0);
-    $devRightButton
-      .toggleClass('disabled', currentIndex === totalItems - 1)
-      .toggleClass('enabled', currentIndex < totalItems - 1);
+    $proLeftButton.toggleClass('disabled', producerIndex === 0).toggleClass('enabled', producerIndex > 0);
+    $proRightButton
+      .toggleClass('disabled', producerIndex === proArticles - 1)
+      .toggleClass('enabled', producerIndex < proArticles - 1);
   };
 
   const updateMenu = (newIndex: number) => {
-    $carouselItems.removeClass('visible hidden').each(function (index) {
+    $proArticle.removeClass('visible hidden').each(function (index) {
       $(this)
         .toggleClass('visible', index === newIndex)
         .toggleClass('hidden', index !== newIndex);
@@ -267,24 +256,79 @@ $(function () {
   };
 
   const scrollToIndex = (newIndex: number) => {
-    const direction = newIndex > currentIndex ? '+=' : '-=';
-    $carouselItems.animate({ right: `${direction}${itemWidth}px` }, 500);
-    currentIndex = newIndex;
-    updateMenu(currentIndex);
+    const direction = newIndex > producerIndex ? '+=' : '-=';
+    $proArticle.animate({ right: `${direction}${producerWidth}px` }, 500);
+    producerIndex = newIndex;
+    updateMenu(producerIndex);
     updateNavigation();
   };
 
-  const skillDetails: string = '#developing-skills details';
-  const tutorialSpan: string = '#developing-skills menu span';
-  $(tutorialSpan).on('click', () => {
+  const producingDetails: string = '#producing-skills details';
+  const producingSpan: string = '#producing-skills menu span';
+  $(producingSpan).on('click', () => {
+    $(producingSpan).css('display', 'none');
+    $('#producing-skills').toggleClass('collapsed expanded');
+  });
+  $(producingDetails).on('click', () => {
+    $(producingSpan).css('display', 'flex');
+    $('#producing-skills').toggleClass('expanded collapsed');
+  });
+
+  updateMenu(producerIndex);
+  updateNavigation();
+});
+$(function () {
+  const devCarousel = '#developing-skills .developing-carousel article';
+  const devLeftSelector = '#developing-skills .developing-navigation button[class*="left"] img';
+  const devRightSelector = '#developing-skills .developing-navigation button[class*="right"] img';
+  let $devArticle = $(devCarousel);
+  let devArticles = $devArticle.length;
+  let $devLeftButton = $(devLeftSelector).parent();
+  let $devRightButton = $(devRightSelector).parent();
+  let developerWidth = $devArticle.first().width() || 0;
+
+  $devRightButton.on('click', () => {
+    if (developerIndex < devArticles - 1) scrollToIndex(developerIndex + 1);
+  });
+  $devLeftButton.on('click', () => {
+    if (developerIndex > 0) scrollToIndex(developerIndex - 1);
+  });
+  let developerIndex = 0;
+
+  const updateNavigation = () => {
+    $devLeftButton.toggleClass('disabled', developerIndex === 0).toggleClass('enabled', developerIndex > 0);
+    $devRightButton
+      .toggleClass('disabled', developerIndex === devArticles - 1)
+      .toggleClass('enabled', developerIndex < devArticles - 1);
+  };
+
+  const updateMenu = (newIndex: number) => {
+    $devArticle.removeClass('visible hidden').each(function (index) {
+      $(this)
+        .toggleClass('visible', index === newIndex)
+        .toggleClass('hidden', index !== newIndex);
+    });
+  };
+
+  const scrollToIndex = (newIndex: number) => {
+    const direction = newIndex > developerIndex ? '+=' : '-=';
+    $devArticle.animate({ right: `${direction}${developerWidth}px` }, 500);
+    developerIndex = newIndex;
+    updateMenu(developerIndex);
+    updateNavigation();
+  };
+
+  const developingDetails: string = '#developing-skills details';
+  const developingSpan: string = '#developing-skills menu span';
+  $(developingSpan).on('click', () => {
     $('#developing-skills menu span').css('display', 'none');
     $('#developing-skills').toggleClass('collapsed expanded');
   });
-  $(skillDetails).on('click', () => {
+  $(developingDetails).on('click', () => {
     $('#developing-skills menu span').css('display', 'flex');
     $('#developing-skills').toggleClass('expanded collapsed');
   });
 
-  updateMenu(currentIndex);
+  updateMenu(developerIndex);
   updateNavigation();
 });
