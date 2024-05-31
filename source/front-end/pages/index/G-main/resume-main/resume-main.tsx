@@ -53,6 +53,10 @@ function MainHome() {
   );
 }
 
+interface SkillsProps {
+  jobTitle: 'developing' | 'producing';
+}
+
 function MainSkills() {
   const CarouselContainer: React.FC<SkillsProps> = ({ jobTitle }) => {
     let Nav: React.FC<SkillsProps> = ({ jobTitle }) => {
@@ -68,7 +72,27 @@ function MainSkills() {
         </nav>
       );
     };
+
     let Menu: React.FC<SkillsProps> = ({ jobTitle }) => {
+      //--|🠊 Separate Sections 🠈|--//
+      /*
+      let skillSection: Array<string>;
+      try {
+        // Set skillSection based on jobTitle
+        if (jobTitle === 'developing') {
+          skillSection = ['languages', 'utilities', 'databases'];
+        } else if (jobTitle === 'producing') {
+          skillSection = ['design', 'editing', 'admin']; // Add other sections as needed
+        } else {
+          throw new Error('//--|🠊 Broken! resume-main.tsx 🠈|--//');
+        }
+      } catch (error) {
+        console.log('//--|🠊 Broken! resume-main.tsx 🠈|--//');
+        // Handle error or log it
+      }
+      */
+
+      //--|🠋 Separate Developer and Producer: Switch Cases? 🠋|--//
       var Article: React.FC<SkillsProps> = ({ jobTitle }) => {
         const referenceElement = useRef<HTMLElement>(null);
         const [getWidth, setWidth] = useState<number>(0);
@@ -77,6 +101,7 @@ function MainSkills() {
             setWidth(referenceElement.current.offsetWidth);
           }
         }, []);
+
         return (
           <>
             <article
@@ -120,6 +145,7 @@ function MainSkills() {
           </>
         );
       };
+      //--|🠉 Separate Developer and Producer: Switch Cases? 🠉|--//
       var Span = () => {
         return (
           <span>
@@ -130,11 +156,13 @@ function MainSkills() {
 
       return (
         <menu className={`${jobTitle}-carousel`}>
+          {/* Property 'skillSection' is missing in type '{ jobTitle: string; }' but required in type 'SkillsProps'.  */}
           <Article jobTitle={`${jobTitle}`} />
           <Span />
         </menu>
       );
     };
+
     let Details: React.FC<SkillsProps> = ({ jobTitle }) => {
       return (
         <details>
@@ -147,7 +175,7 @@ function MainSkills() {
 
     return (
       <aside id={`${jobTitle}-skills`} className="collapsed">
-        <Nav jobTitle={`${jobTitle}`}></Nav>
+        <Nav jobTitle={`${jobTitle}`} />
         <Menu jobTitle={`${jobTitle}`} />
         <Details jobTitle={`${jobTitle}`} />
       </aside>
@@ -182,10 +210,6 @@ function MainContact() {
 }
 
 interface MainProps {}
-
-interface SkillsProps {
-  jobTitle: 'developing' | 'producing' | string;
-}
 
 function resumeMain(pageName: string | any, blockName: string | any) {
   const page = pageName;
