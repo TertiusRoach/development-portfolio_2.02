@@ -134,7 +134,6 @@
     padding: 2rem 3rem;
     grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
-
     &[id*='skills'] {
       //--|🠉 <Aside /> 🠉|--//
       nav {
@@ -155,20 +154,21 @@
       }
       menu {
         z-index: 2;
+        overflow-x: hidden;
+        position: relative; //~~|🠊 Anchor Point 🠈|~~//
 
-        position: relative; /* The anchor point */
+        // position: absolute;
+        // top: -1rem; /* Extend 1rem beyond the top of the parent */
+        // right: -1rem; /* Extend 1rem beyond the right of the parent */
+        // bottom: -1rem; /* Extend 1rem beyond the bottom of the parent */
+        // left: -1rem; /* Extend 1rem beyond the left of the parent */
+        // position: relative;
+        // z-index: 1;
+        // margin-top: 8px;
+        // border: 8px solid red;
+        // outline: 8px solid red;
+
         figure {
-          position: absolute;
-          top: -1rem; /* Extend 1rem beyond the top of the parent */
-          right: -1rem; /* Extend 1rem beyond the right of the parent */
-          bottom: -1rem; /* Extend 1rem beyond the bottom of the parent */
-          left: -1rem; /* Extend 1rem beyond the left of the parent */
-          // position: relative;
-          z-index: 1;
-          margin-top: 8px;
-          border: 8px solid red;
-          outline: 8px solid red;
-
           grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           backdrop-filter: blur(1rem);
           -webkit-backdrop-filter: blur(1rem);
@@ -284,7 +284,7 @@
           }
         }
         article {
-          overflow-x: hidden;
+          // overflow-x: hidden;
         }
       }
       details {

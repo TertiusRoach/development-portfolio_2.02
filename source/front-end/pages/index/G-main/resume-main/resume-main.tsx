@@ -37,10 +37,10 @@ $(function () {
   const proRightSelector: string = '#producing-skills .producing-navigation button[class*="right"] img';
 
   // Common variables
-  let $devArticle = $(devCarousel);
-  let $proArticle = $(proCarousel);
   let devIndex = 0;
   let proIndex = 0;
+  let $devArticle = $(devCarousel);
+  let $proArticle = $(proCarousel);
   let devArticles = $devArticle.length;
   let proArticles = $proArticle.length;
   let devWidth = $devArticle.first().width() || 0;
