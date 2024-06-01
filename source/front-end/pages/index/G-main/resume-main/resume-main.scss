@@ -146,9 +146,11 @@
           align-items: center;
           justify-content: center;
           filter: drop-shadow(0 0 4px black);
+          /*
           h4 {
             // To be continued
           }
+          */
         }
       }
       menu {
@@ -361,13 +363,15 @@
           transition: 0.5s;
           pointer-events: none;
         }
-
+        /*
         figcaption:hover .content img {
-          /* height: 150%;
+          
+          height: 150%;
           width: 150%;
-          transform: translate(-25%, -25%); Center the image using translate */
-          /* opacity: 0; */
+          transform: translate(-25%, -25%); Center the image using translate
+          opacity: 0 
         }
+        */
       }
     }
 

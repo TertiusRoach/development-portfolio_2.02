@@ -21,34 +21,7 @@ function MainSkills() {
 interface SkillsProps {
   jobTitle: 'developing' | 'producing';
 }
-function Menu({ jobTitle }: SkillsProps) {
-  return (
-    <menu className={`${jobTitle}-carousel`}>
-      <Article jobTitle={`${jobTitle}`} />
-      <Figure jobTitle={`${jobTitle}`} />
-    </menu>
-  );
-}
-function Details({ jobTitle }: SkillsProps) {
-  return (
-    <details>
-      {/* //--| Design details tag |--// */}
-      <h1>Title</h1>
-      <h3>{`${jobTitle}`}</h3>
-      <p>Description</p>
-    </details>
-  );
-}
-function Aside({ jobTitle }: SkillsProps) {
-  return (
-    <aside id={`${jobTitle}-skills`} className="collapsed">
-      <Nav jobTitle={`${jobTitle}`} />
-      <Menu jobTitle={`${jobTitle}`} />
-      <Details jobTitle={`${jobTitle}`} />
-    </aside>
-  );
-}
-
+//--|🠋 Header 🠋|--//
 function Nav({ jobTitle }: SkillsProps) {
   return (
     <nav className={`${jobTitle}-navigation`}>
@@ -65,6 +38,26 @@ function Nav({ jobTitle }: SkillsProps) {
     </nav>
   );
 }
+//--|🠋 Carousel 🠋|--//
+function Menu({ jobTitle }: SkillsProps) {
+  return (
+    <menu className={`${jobTitle}-carousel`}>
+      <Article jobTitle={`${jobTitle}`} />
+      <Figure jobTitle={`${jobTitle}`} />
+    </menu>
+  );
+}
+//--|🠋 Container 🠋|--//
+function Aside({ jobTitle }: SkillsProps) {
+  return (
+    <aside id={`${jobTitle}-skills`} className="collapsed">
+      <Nav jobTitle={`${jobTitle}`} />
+      <Menu jobTitle={`${jobTitle}`} />
+      <Details jobTitle={`${jobTitle}`} />
+    </aside>
+  );
+}
+//--|🠋 Tutorial 🠋|--//
 function Figure({ jobTitle }: SkillsProps) {
   return (
     <figure className={`${jobTitle}-tutorial`}>
@@ -74,6 +67,18 @@ function Figure({ jobTitle }: SkillsProps) {
     </figure>
   );
 }
+//--|🠋 Information 🠋|--//
+function Details({ jobTitle }: SkillsProps) {
+  return (
+    <details>
+      {/* //--| Design details tag |--// */}
+      <h1>Title</h1>
+      <h3>{`${jobTitle}`}</h3>
+      <p>Description</p>
+    </details>
+  );
+}
+//--|🠋 Icons & Items 🠋|--//
 function Article({ jobTitle }: SkillsProps) {
   const selectedArticle = useRef<HTMLElement>(null);
   const [getWidth, setWidth] = useState<number>(0);
@@ -92,7 +97,7 @@ function Article({ jobTitle }: SkillsProps) {
       section = ['design', 'editing', 'admin'];
       break;
   }
-  console.log(section);
+  // console.log(section);
 
   return (
     <>
