@@ -145,8 +145,8 @@
         display: grid;
         overflow-x: hidden;
         figure {
-          opacity: 0;
           z-index: 0;
+          opacity: 0;
           width: 100%;
           height: 100%;
           overflow: visible;
@@ -154,91 +154,8 @@
           backdrop-filter: blur(1rem);
           -webkit-backdrop-filter: blur(1rem);
           transition: opacity 0.5s ease-in-out;
-          figcaption {
-            display: flex;
-            overflow: hidden;
-            border-radius: 50%;
-            justify-content: center;
-            span {
-              width: 99%;
-              height: 100%;
-              transition: 0.5s;
-              object-fit: cover;
-              border-radius: 50%;
-              pointer-events: none;
-            }
-
-            &:nth-child(3) {
-              z-index: 3;
-              width: 75%;
-              height: 75%;
-              margin-top: 12.5%;
-              margin-left: 12.5%;
-              box-shadow: inset 0 0 4rem rgba($primary-medium, 0.25);
-              span {
-                width: 99%;
-                height: 100%;
-                background: $primary-dark;
-              }
-              &::before {
-                animation: clockwise 60s linear infinite;
-                background: linear-gradient(90deg, $primary-medium, $primary-light);
-              }
-            }
-            &:nth-child(2) {
-              z-index: 2;
-              width: 88.5%;
-              height: 88.5%;
-              margin-top: 5.75%;
-              margin-left: 5.75%;
-              box-shadow: inset 0 0 2rem rgba($primary-medium, 0.5);
-              span {
-                background: $primary-dark;
-              }
-              &::before {
-                animation: anti-clockwise 120s linear infinite;
-                background: linear-gradient(315deg, $primary-medium, $primary-light);
-              }
-            }
-            &:nth-child(1) {
-              z-index: 1;
-              width: 100%;
-              height: 100%;
-              span {
-                background: $primary-dark;
-              }
-              &::before {
-                animation: clockwise 240s linear infinite;
-                background: linear-gradient(315deg, $primary-medium, $primary-light);
-              }
-            }
-            @keyframes clockwise {
-              0% {
-                transform: rotate(0deg);
-              }
-              100% {
-                transform: rotate(360deg);
-              }
-            }
-            @keyframes anti-clockwise {
-              0% {
-                transform: rotate(360deg);
-              }
-              100% {
-                transform: rotate(0deg);
-              }
-            }
-
-            &::before {
-              content: '';
-              transition: 0.5s;
-              inset: -10px 140px;
-            }
-            &::after {
-              inset: 6px;
-              content: '';
-              border-radius: 50%;
-            }
+          &:hover {
+            opacity: 1;
           }
           div[class*='icon'] {
             z-index: 4;
@@ -258,20 +175,105 @@
               width: 70%;
               height: 70%;
             }
+
+            // div[class*='icon'] img:hover ~ figcaption:nth-child(3):before {
+            //   inset: -20px 0px;
+            // }
           }
-          // outline: 2rem solid $green-neon;
-          // border-top: 2rem solid $green-neon;
-          figcaption,
-          figcaption span,
-          figcaption::before {
-            position: absolute;
-            &figure {
-              position: relative; //~~|🠊 Anchor Point 🠈|~~//
+          div[class*='cosmetics'] {
+            figcaption {
+              display: flex;
+              overflow: hidden;
+              border-radius: 50%;
+              justify-content: center;
+              span {
+                width: 99%;
+                height: 100%;
+                transition: 0.5s;
+                object-fit: cover;
+                border-radius: 50%;
+                pointer-events: none;
+              }
+              &,
+              & span,
+              &::before {
+                position: absolute;
+                &figure {
+                  position: relative; //~~|🠊 Anchor Point 🠈|~~//
+                }
+              }
+              &::before {
+                content: '';
+                transition: 0.5s;
+                inset: -10px 140px;
+              }
+              &::after {
+                inset: 6px;
+                content: '';
+                border-radius: 50%;
+              }
+              &:nth-child(3) {
+                z-index: 3;
+                width: 75%;
+                height: 75%;
+                margin-top: 12.5%;
+                margin-left: 12.5%;
+                box-shadow: inset 0 0 4rem rgba($primary-medium, 0.25);
+                span {
+                  width: 99%;
+                  height: 100%;
+                  background: $primary-dark;
+                }
+                &::before {
+                  animation: clockwise 60s linear infinite;
+                  background: linear-gradient(90deg, $primary-medium, $primary-light);
+                }
+              }
+              &:nth-child(2) {
+                z-index: 2;
+                width: 88.5%;
+                height: 88.5%;
+                margin-top: 5.75%;
+                margin-left: 5.75%;
+                box-shadow: inset 0 0 2rem rgba($primary-medium, 0.5);
+                span {
+                  background: $primary-dark;
+                }
+                &::before {
+                  animation: anti-clockwise 120s linear infinite;
+                  background: linear-gradient(315deg, $primary-medium, $primary-light);
+                }
+              }
+              &:nth-child(1) {
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                span {
+                  background: $primary-dark;
+                }
+                &::before {
+                  animation: clockwise 240s linear infinite;
+                  background: linear-gradient(315deg, $primary-medium, $primary-light);
+                }
+              }
+              @keyframes clockwise {
+                0% {
+                  transform: rotate(0deg);
+                }
+                100% {
+                  transform: rotate(360deg);
+                }
+              }
+              @keyframes anti-clockwise {
+                0% {
+                  transform: rotate(360deg);
+                }
+                100% {
+                  transform: rotate(0deg);
+                }
+              }
             }
           }
-        }
-        figure:hover {
-          opacity: 1;
         }
 
         article {
@@ -283,8 +285,8 @@
           filter: drop-shadow(0 0.25rem 0.5rem rgba(black, 0.75));
           grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
 
-          //--| To be Continued |--//
           //--| Add Images to carousel |--//
+          //--| To be Continued |--//
           li {
             display: flex;
             align-items: center;
@@ -340,7 +342,6 @@
           opacity: 0;
         }
       }
-
       details {
         z-index: 3;
         display: grid;
@@ -360,11 +361,6 @@
           align-items: center;
           justify-content: center;
           filter: drop-shadow(0 0 4px black);
-          /*
-          h4 {
-            // To be continued
-          }
-          */
         }
       }
     }

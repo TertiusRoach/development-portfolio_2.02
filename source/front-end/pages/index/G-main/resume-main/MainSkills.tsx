@@ -65,20 +65,24 @@ function Aside({ jobTitle }: SkillsProps) {
 function Figure({ jobTitle }: SkillsProps) {
   return (
     <figure className={`${jobTitle}-tutorial`}>
-      <figcaption className="foreground">
-        <span></span>
-      </figcaption>
-
-      <figcaption className="midground">
-        <span></span>
-      </figcaption>
-
-      <figcaption className="background">
-        <span></span>
-      </figcaption>
-
       <div className={`${jobTitle}-icon`}>
+        <header>
+          <h1>Header</h1>
+        </header>
         <img src={leftClick} alt="..." />
+        <footer></footer>
+      </div>
+
+      <div className="background-cosmetics">
+        <figcaption className="foreground-cosmetics">
+          <span></span>
+        </figcaption>
+        <figcaption className="midground-cosmetics">
+          <span></span>
+        </figcaption>
+        <figcaption className="background-cosmetics">
+          <span></span>
+        </figcaption>
       </div>
     </figure>
   );
