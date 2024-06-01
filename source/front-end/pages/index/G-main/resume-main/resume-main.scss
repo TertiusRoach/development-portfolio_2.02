@@ -171,11 +171,11 @@
               width: 25%;
               height: 25%;
               cursor: pointer;
-              transition: 5s ease-in-out;
+              transition: 30s ease-in-out;
             }
             img:hover {
-              width: 70%;
-              height: 70%;
+              width: 50%;
+              height: 50%;
             }
 
             // div[class*='icon'] img:hover ~ figcaption:nth-child(3):before {
