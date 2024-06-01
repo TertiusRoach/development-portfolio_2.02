@@ -61,9 +61,10 @@ function Aside({ jobTitle }: SkillsProps) {
 function Figure({ jobTitle }: SkillsProps) {
   return (
     <figure className={`${jobTitle}-tutorial`}>
-      <figcaption className="">{/* <img src={leftClick} alt={`${jobTitle}`} /> */}</figcaption>
       {/* //--| Design span tag |--// */}
-      {/* <span className="content"></span> */}
+      <span>
+        <figcaption className="">{/* <img src={leftClick} alt={`${jobTitle}`} /> */}</figcaption>
+      </span>
     </figure>
   );
 }

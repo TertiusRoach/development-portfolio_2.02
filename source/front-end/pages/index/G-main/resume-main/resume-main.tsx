@@ -22,118 +22,116 @@ function resumeMain(pageName: string | any, blockName: string | any) {
 export default resumeMain;
 
 $(function () {
-  // Take this correct code...
-  const producingDetails: string = '#producing-skills details';
-  const producingFigure: string = '#producing-skills menu figure';
-  const producerCarousel: string = '#producing-skills .producing-carousel article';
-  const selectProducerLeft: string = '#producing-skills .producing-navigation button[class*="left"] img';
-  const selectProducerRight: string = '#producing-skills .producing-navigation button[class*="right"] img';
+  //--|🠋 Developer 🠋|--//
+  const devDetails: string = '#developing-skills details';
+  const devFigure: string = '#developing-skills menu figure';
+  const devCarousel: string = '#developing-skills .developing-carousel article';
+  const devLeftSelector: string = '#developing-skills .developing-navigation button[class*="left"] img';
+  const devRightSelector: string = '#developing-skills .developing-navigation button[class*="right"] img';
 
-  $(producingFigure).on('click', () => {
-    $(producingFigure).css('display', 'none');
+  //--|🠋 Producer 🠋|--//
+  const proDetails: string = '#producing-skills details';
+  const proFigure: string = '#producing-skills menu figure';
+  const proCarousel: string = '#producing-skills .producing-carousel article';
+  const proLeftSelector: string = '#producing-skills .producing-navigation button[class*="left"] img';
+  const proRightSelector: string = '#producing-skills .producing-navigation button[class*="right"] img';
+
+  // Common variables
+  let $devArticle = $(devCarousel);
+  let $proArticle = $(proCarousel);
+  let devIndex = 0;
+  let proIndex = 0;
+  let devArticles = $devArticle.length;
+  let proArticles = $proArticle.length;
+  let devWidth = $devArticle.first().width() || 0;
+  let proWidth = $proArticle.first().width() || 0;
+
+  // Developer Events
+  $(devFigure).on('click', () => {
+    $('#producing-skills').css('zIndex', '-1');
+    $(devFigure).css('display', 'none');
+    $('#developing-skills').toggleClass('collapsed expanded');
+  });
+  $(devDetails).on('click', () => {
+    $('#producing-skills').css('zIndex', '');
+    $(devFigure).css('display', 'flex');
+    $('#developing-skills').toggleClass('expanded collapsed');
+  });
+
+  // Producer Events
+  $(proFigure).on('click', () => {
+    $(proFigure).css('display', 'none');
     $('#developing-skills').css('zIndex', '-1');
     $('#producing-skills').toggleClass('collapsed expanded');
   });
-  $(producingDetails).on('click', () => {
-    $(producingFigure).css('display', 'flex');
+  $(proDetails).on('click', () => {
+    $(proFigure).css('display', 'flex');
     $('#developing-skills').css('zIndex', '');
     $('#producing-skills').toggleClass('expanded collapsed');
   });
 
-  let $proArticle = $(producerCarousel);
-  let proArticles = $proArticle.length;
-  let $proLeftButton = $(selectProducerLeft).parent();
-  let $proRightButton = $(selectProducerRight).parent();
-  let producerWidth = $proArticle.first().width() || 0;
-  $proRightButton.on('click', () => {
-    if (producerIndex < proArticles - 1) scrollToIndex(producerIndex + 1);
-  });
-  $proLeftButton.on('click', () => {
-    if (producerIndex > 0) scrollToIndex(producerIndex - 1);
-  });
+  // Developer Navigation
+  const developerNavigation = (newIndex: number) => {
+    const direction = newIndex > devIndex ? '+=' : '-=';
+    $devArticle.animate({ right: `${direction}${devWidth}px` }, 500);
+    devIndex = newIndex;
+    updateMenu(devIndex, $devArticle);
+    updateNavigation();
+  };
 
-  //--|🠋 Update the menu to display the content at the specified index. 🠋|--//
-  let producerIndex = 0;
-  const updateMenu = (newIndex: number) => {
-    $proArticle.removeClass('visible hidden').each(function (index) {
+  // Producer Navigation
+  const producerNavigation = (newIndex: number) => {
+    const direction = newIndex > proIndex ? '+=' : '-=';
+    $proArticle.animate({ right: `${direction}${proWidth}px` }, 500);
+    proIndex = newIndex;
+    updateMenu(proIndex, $proArticle);
+    updateNavigation();
+  };
+
+  // Update Menu
+  const updateMenu = (newIndex: number, $article: JQuery<HTMLElement>) => {
+    $article.removeClass('visible hidden').each(function (index) {
       $(this)
         .toggleClass('visible', index === newIndex)
         .toggleClass('hidden', index !== newIndex);
     });
   };
-  //--|🠋 Scroll to the content at the specified index. 🠋|--//
-  const scrollToIndex = (newIndex: number) => {
-    const direction = newIndex > producerIndex ? '+=' : '-=';
-    $proArticle.animate({ right: `${direction}${producerWidth}px` }, 500);
-    producerIndex = newIndex;
-    updateMenu(producerIndex);
-    updateNavigation();
-  };
-  //--|🠋 Update navigation buttons based on the current index. 🠋|--//
+
+  // Update Navigation
   const updateNavigation = () => {
-    $proLeftButton.toggleClass('disabled', producerIndex === 0).toggleClass('enabled', producerIndex > 0);
-    $proRightButton
-      .toggleClass('disabled', producerIndex === proArticles - 1)
-      .toggleClass('enabled', producerIndex < proArticles - 1);
+    // Developer navigation
+    $developerLeftButton.toggleClass('disabled', devIndex === 0).toggleClass('enabled', devIndex > 0);
+    $developerRightButton
+      .toggleClass('disabled', devIndex === devArticles - 1)
+      .toggleClass('enabled', devIndex < devArticles - 1);
+
+    // Producer navigation
+    $proLeftButton.toggleClass('disabled', proIndex === 0).toggleClass('enabled', proIndex > 0);
+    $proRightButton.toggleClass('disabled', proIndex === proArticles - 1).toggleClass('enabled', proIndex < proArticles - 1);
   };
 
-  updateNavigation();
-  updateMenu(producerIndex);
-});
-
-$(function () {
-  const developingDetails: string = '#developing-skills details';
-  const developingFigure: string = '#developing-skills menu figure';
-  const developerCarousel = '#developing-skills .developing-carousel article';
-  const developerLeftSelector = '#developing-skills .developing-navigation button[class*="left"] img';
-  const developerRightSelector = '#developing-skills .developing-navigation button[class*="right"] img';
-  $(developingFigure).on('click', () => {
-    $('#producing-skills').css('zIndex', '-1');
-    $(developingFigure).css('display', 'none');
-    $('#developing-skills').toggleClass('collapsed expanded');
-  });
-  $(developingDetails).on('click', () => {
-    $('#producing-skills').css('zIndex', '');
-    $(developingFigure).css('display', 'flex');
-    $('#developing-skills').toggleClass('expanded collapsed');
-  });
-
-  let $developerArticle = $(developerCarousel);
-  let developerArticles = $developerArticle.length;
-  let $developerLeftButton = $(developerLeftSelector).parent();
-  let $developerRightButton = $(developerRightSelector).parent();
-  let developerWidth = $developerArticle.first().width() || 0;
+  // Developer Navigation Buttons
+  let $developerLeftButton = $(devLeftSelector).parent();
+  let $developerRightButton = $(devRightSelector).parent();
   $developerRightButton.on('click', () => {
-    if (developerIndex < developerArticles - 1) scrollToIndex(developerIndex + 1);
+    if (devIndex < devArticles - 1) developerNavigation(devIndex + 1);
   });
   $developerLeftButton.on('click', () => {
-    if (developerIndex > 0) scrollToIndex(developerIndex - 1);
+    if (devIndex > 0) developerNavigation(devIndex - 1);
   });
 
-  //--|🠋 Update the menu to display the content at the specified index. 🠋|--//
-  let developerIndex = 0;
-  const updateMenu = (newIndex: number) => {
-    $developerArticle.removeClass('visible hidden').each(function (index) {
-      $(this)
-        .toggleClass('visible', index === newIndex)
-        .toggleClass('hidden', index !== newIndex);
-    });
-  };
-  //--|🠋 Scroll to the content at the specified index. 🠋|--//
-  const scrollToIndex = (newIndex: number) => {
-    const direction = newIndex > developerIndex ? '+=' : '-=';
-    $developerArticle.animate({ right: `${direction}${developerWidth}px` }, 500);
-    developerIndex = newIndex;
-    updateMenu(developerIndex);
-    updateNavigation();
-  };
-  //--|🠋 Update navigation buttons based on the current index. 🠋|--//
-  const updateNavigation = () => {
-    $developerLeftButton.toggleClass('disabled', developerIndex === 0).toggleClass('enabled', developerIndex > 0);
-    $developerRightButton
-      .toggleClass('disabled', developerIndex === developerArticles - 1)
-      .toggleClass('enabled', developerIndex < developerArticles - 1);
-  };
+  // Producer Navigation Buttons
+  let $proLeftButton = $(proLeftSelector).parent();
+  let $proRightButton = $(proRightSelector).parent();
+  $proRightButton.on('click', () => {
+    if (proIndex < proArticles - 1) producerNavigation(proIndex + 1);
+  });
+  $proLeftButton.on('click', () => {
+    if (proIndex > 0) producerNavigation(proIndex - 1);
+  });
+
+  // Initial update
   updateNavigation();
-  updateMenu(developerIndex);
+  updateMenu(devIndex, $devArticle);
+  updateMenu(proIndex, $proArticle);
 });
