@@ -66,9 +66,9 @@ function Figure({ jobTitle }: SkillsProps) {
   return (
     <figure className={`${jobTitle}-tutorial`}>
       <div className={`${jobTitle}-icon`}>
-        <header>
+        {/* <header>
           <h1>Header</h1>
-        </header>
+        </header> */}
         <img src={leftClick} alt="..." />
         <footer></footer>
       </div>
