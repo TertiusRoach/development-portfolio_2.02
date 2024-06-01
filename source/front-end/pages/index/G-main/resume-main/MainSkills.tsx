@@ -66,19 +66,18 @@ function Figure({ jobTitle }: SkillsProps) {
   return (
     <figure className={`${jobTitle}-tutorial`}>
       <figcaption className="foreground">
-        <span>
-          <div></div>
-        </span>
+        <span></span>
       </figcaption>
 
-      {/* <figcaption className="midground">
-        <span>
-          <div></div>
-        </span>
-      </figcaption> */}
+      <figcaption className="midground">
+        <span></span>
+      </figcaption>
 
-      {/* <figcaption className="background"></figcaption> */}
-      <div>
+      <figcaption className="background">
+        <span></span>
+      </figcaption>
+
+      <div className={`${jobTitle}-icon`}>
         <img src={leftClick} alt="..." />
       </div>
     </figure>
