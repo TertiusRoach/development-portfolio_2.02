@@ -119,6 +119,9 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      img {
+        margin: 2rem 6rem 2rem 0; //~~|🠊 top / right / bot / left 🠈|~~//
+      }
     }
   }
   @media screen and (orientation: portrait) {
@@ -136,8 +139,11 @@
     grid-template: 6rem 2rem 1fr 2rem / 3rem 1fr repeat(2, 3rem) 1fr 3rem; //~~|🠊 rows / columns 🠈|~~//
     &[id*='skills'] {
       //--|🠉 <Aside /> 🠉|--//
-      nav {
+      nav[class*='navigation'] {
         z-index: 1;
+        display: inherit; //~~|🠊 display: grid; 🠈|~~//
+        margin-top: 1rem;
+        grid-template: 5rem / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
         article {
           display: flex;
           color: white;
@@ -152,34 +158,28 @@
           */
         }
       }
-      menu {
+
+      menu[class*='carousel'] {
         z-index: 2;
+        display: grid;
         overflow-x: hidden;
         position: relative; //~~|🠊 Anchor Point 🠈|~~//
-
-        // position: absolute;
-        // top: -1rem; /* Extend 1rem beyond the top of the parent */
-        // right: -1rem; /* Extend 1rem beyond the right of the parent */
-        // bottom: -1rem; /* Extend 1rem beyond the bottom of the parent */
-        // left: -1rem; /* Extend 1rem beyond the left of the parent */
-        // position: relative;
-        // z-index: 1;
-        // margin-top: 8px;
-        // border: 8px solid red;
-        // outline: 8px solid red;
-
         figure {
+          margin: 2rem;
+          padding: 2rem;
           grid-area: 1 / 2 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
           backdrop-filter: blur(1rem);
+          outline: 2rem solid $green-neon;
+          // border-top: 2rem solid $green-neon;
+
           -webkit-backdrop-filter: blur(1rem);
-          background: rgba($primary-dark, 0.5);
+          transition: opacity 0.125s ease-in-out;
           img {
             width: 25%;
             height: 25%;
             cursor: pointer;
           }
 
-          transition: opacity 0.125s ease-in-out;
           & {
             opacity: 0;
             overflow: visible;
@@ -188,9 +188,6 @@
             opacity: 1;
           }
 
-          // background: red;
-
-          // filter: drop-shadow(0 0 1rem red);
           span {
             position: absolute;
             // background: rgba(/* $primary-dark */ blue, 0.75);
@@ -200,112 +197,96 @@
             // left: -1rem; /* Move the child 1rem to the left */
 
             /*
-        width: 100%;
-        height: 100%;
-        display: flex;
-        overflow: hidden;
-        border-radius: 50%;
-        align-items: center;
-        // position: relative;
-        justify-content: center;
-        
+                                        width: 100%;
+                                        height: 100%;
+                                        display: flex;
+                                        overflow: hidden;
+                                        border-radius: 50%;
+                                        align-items: center;
+                                        // position: relative;
+                                        justify-content: center;
+                                        
 
-        &::before {
-          content: '';
-          transition: 0.5s;
-          position: absolute;
-          inset: -10px 140px;
-          animation: clockwise 90s linear infinite;
-          background: linear-gradient(315deg, #00ccff, #d400d4);
-        }
+                                        &::before {
+                                          content: '';
+                                          transition: 0.5s;
+                                          position: absolute;
+                                          inset: -10px 140px;
+                                          animation: clockwise 90s linear infinite;
+                                          background: linear-gradient(315deg, #00ccff, #d400d4);
+                                        }
 
-        // &:hover::before {
-        //   inset: -20px 0px;
-        // }
+                                        // &:hover::before {
+                                        //   inset: -20px 0px;
+                                        // }
 
-        @keyframes clockwise {
-          0% {
-            transform: rotate(0deg);
+                                        @keyframes clockwise {
+                                          0% {
+                                            transform: rotate(0deg);
+                                          }
+                                          100% {
+                                            transform: rotate(360deg);
+                                          }
+                                        }
+                                        @keyframes anti-clockwise {
+                                          0% {
+                                            transform: rotate(360deg);
+                                          }
+                                          100% {
+                                            transform: rotate(0deg);
+                                          }
+                                        }
+
+                                        &::after {
+                                          z-index: 1;
+                                          inset: 6px;
+                                          content: '';
+                                          border-radius: 50%;
+                                          position: absolute;
+                                          background: $primary-dark;
+                                        }
+                                        figcaption {
+                                          position: absolute;
+                                          inset: 30px;
+                                        //  border: 6px solid #070a1c;
+                                          z-index: 3;
+                                          overflow: visible;
+                                          border-radius: 50%;
+                                        }
+
+                                        figcaption::before {
+                                          animation: clockwise 4s linear infinite;
+                                        }
+                                        figcaption img {
+                                          z-index: 2;
+                                          height: 100%;
+                                          width: 100%;
+                                          position: absolute;
+                                          top: -1rem;
+                                          left: 0;
+                                          object-fit: cover;
+                                          transition: 0.5s;
+                                          pointer-events: none;
+                                        }
+
+                                        
+                                        // figcaption:hover .content img {
+                                          
+                                        //   height: 150%;
+                                        //   width: 150%;
+                                        //   transform: translate(-25%, -25%); Center the image using translate
+                                        //   opacity: 0 
+                                        // }
+            */
           }
-          100% {
-            transform: rotate(360deg);
-          }
         }
-        @keyframes anti-clockwise {
-          0% {
-            transform: rotate(360deg);
-          }
-          100% {
-            transform: rotate(0deg);
-          }
-        }
-
-        &::after {
-          z-index: 1;
-          inset: 6px;
-          content: '';
-          border-radius: 50%;
-          position: absolute;
-          background: $primary-dark;
-        }
-        figcaption {
-          position: absolute;
-          inset: 30px;
-        //  border: 6px solid #070a1c;
-          z-index: 3;
-          overflow: visible;
-          border-radius: 50%;
-        }
-
-        figcaption::before {
-          animation: clockwise 4s linear infinite;
-        }
-        figcaption img {
-          z-index: 2;
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          top: -1rem;
-          left: 0;
-          object-fit: cover;
-          transition: 0.5s;
-          pointer-events: none;
-        }
-
-        
-        // figcaption:hover .content img {
-          
-        //   height: 150%;
-        //   width: 150%;
-        //   transform: translate(-25%, -25%); Center the image using translate
-        //   opacity: 0 
-        // }
-        */
-          }
-        }
-        article {
-          // overflow-x: hidden;
-        }
-      }
-      details {
-        z-index: 3;
-        display: grid;
-        backdrop-filter: blur(1rem);
-        -webkit-backdrop-filter: blur(1rem);
-        grid-template: 6rem / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
-      }
-
-      menu[class*='carousel'] {
-        display: grid;
         article {
           z-index: 0;
-          display: inherit;
-          position: relative;
-          /*
-          Position: Relative allows an element to be moved slightly from its original spot while still maintaining its place in the overall layout. Think of it as nudging an item on your desk a bit to the side without moving the desk itself, keeping everything else in place.
-          */
+          display: grid;
+          position: relative; //~~|🠊 Slide Effect 🠈|~~//
           grid-area: 1 / 2 / 2 / 3;
           transition: opacity 0.25s ease-in-out;
+          filter: drop-shadow(0 0.25rem 0.5rem rgba(black, 0.75));
           grid-template: repeat(3, 1fr) / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
 
           //--| To be Continued |--//
@@ -357,6 +338,7 @@
             }
           }
         }
+
         .visible {
           opacity: 1;
         }
@@ -364,17 +346,20 @@
           opacity: 0;
         }
       }
-      figure[class*='tutorial'] {
+
+      details {
+        z-index: 3;
+        display: grid;
+        backdrop-filter: blur(1rem);
+        -webkit-backdrop-filter: blur(1rem);
+        grid-template: 6rem / repeat(3, 1fr); //~~|🠊 rows / columns 🠈|~~//
       }
     }
 
-    //--|🠋 <aside id="developing-skills"> 🠋|--//
+    //--|🠋 Developing 🠋|--//
     &[id*='developing'] {
       nav {
-        display: inherit;
-        margin-top: 1rem;
         grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-        grid-template: 5rem / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
         button {
           display: flex;
           background: none;
@@ -423,11 +408,9 @@
         clip-path: inset(0 50% 0 0); //~~|🠊 top / right / bottom / left 🠈|~~//
       }
     }
-    //--|🠋 <aside id="producing-skills"> 🠋|--//
+    //--|🠋 Producing 🠋|--//
     &[id*='producing'] {
       nav {
-        display: inherit;
-        margin-top: 1rem;
         grid-area: 1 / 4 / 2 / 7; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
         grid-template: 5rem / 1fr auto 1fr; //~~|🠊 rows / columns 🠈|~~//
         button {
