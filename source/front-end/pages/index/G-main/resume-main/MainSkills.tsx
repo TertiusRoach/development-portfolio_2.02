@@ -21,6 +21,7 @@ function MainSkills() {
 interface SkillsProps {
   jobTitle: 'developing' | 'producing';
 }
+
 //--|🠋 Header 🠋|--//
 function Nav({ jobTitle }: SkillsProps) {
   return (
@@ -38,6 +39,7 @@ function Nav({ jobTitle }: SkillsProps) {
     </nav>
   );
 }
+
 //--|🠋 Carousel 🠋|--//
 function Menu({ jobTitle }: SkillsProps) {
   return (
@@ -47,6 +49,7 @@ function Menu({ jobTitle }: SkillsProps) {
     </menu>
   );
 }
+
 //--|🠋 Container 🠋|--//
 function Aside({ jobTitle }: SkillsProps) {
   return (
@@ -57,17 +60,31 @@ function Aside({ jobTitle }: SkillsProps) {
     </aside>
   );
 }
+
 //--|🠋 Tutorial 🠋|--//
 function Figure({ jobTitle }: SkillsProps) {
   return (
     <figure className={`${jobTitle}-tutorial`}>
-      {/* //--| Design span tag |--// */}
-      <span>
-        <figcaption className="">{/* <img src={leftClick} alt={`${jobTitle}`} /> */}</figcaption>
-      </span>
+      <figcaption className="foreground">
+        <span>
+          <div></div>
+        </span>
+      </figcaption>
+
+      {/* <figcaption className="midground">
+        <span>
+          <div></div>
+        </span>
+      </figcaption> */}
+
+      {/* <figcaption className="background"></figcaption> */}
+      <div>
+        <img src={leftClick} alt="..." />
+      </div>
     </figure>
   );
 }
+
 //--|🠋 Information 🠋|--//
 function Details({ jobTitle }: SkillsProps) {
   return (
@@ -79,6 +96,7 @@ function Details({ jobTitle }: SkillsProps) {
     </details>
   );
 }
+
 //--|🠋 Icons & Items 🠋|--//
 function Article({ jobTitle }: SkillsProps) {
   const selectedArticle = useRef<HTMLElement>(null);
