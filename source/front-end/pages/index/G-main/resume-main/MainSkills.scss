@@ -3,8 +3,8 @@
   z-index: 0;
   display: grid;
   transition: clip-path 0.125s ease-in-out;
+  //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
-    //--|🠋 Desktop (Landscape) 🠋|--//
     width: 100%;
     padding: 2rem 3rem;
     grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
@@ -345,8 +345,11 @@
       }
     }
   }
+  //--|🠋 Tablet (Square) 🠋|--//
+  @media screen and (max-aspect-ratio: 16/9) {
+  }
+  //--|🠋 Mobile (Portrait) 🠋|--//
   @media screen and (orientation: portrait) {
-    //--|🠋 Mobile (Portrait) 🠋|--//
   }
 }
 main[id*='resume'] {

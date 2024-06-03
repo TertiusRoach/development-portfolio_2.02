@@ -21,9 +21,9 @@ function MainHome() {
                 <h6>My Career</h6>
               </a>
             </button>
-            <button className="contact-me">
-              <a href="#main-contact">
-                <h6>Contact Me</h6>
+            <button className="my-projects">
+              <a>
+                <h6>My Projects</h6>
               </a>
             </button>
           </menu>

@@ -1,15 +1,19 @@
 @import '../../a-body/resume-body/resume-body.scss';
+
 @mixin main-contact {
-  //--|🠋 03. Contact <main> 🠋|--//
+  //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
     //--|🠉 aside[id*='contact'] 🠉|--//
     border: 4px dashed $orange-neon;
     background: rgba($orange-dark, 0.25);
   }
+
+  //--|🠋 Mobile (Portrait) 🠋|--//
   @media screen and (orientation: portrait) {
   }
 }
 
+//--|🠋 03. Contact <main> 🠋|--//
 main[id*='resume'] {
   section[id*='main'] {
     div[class*='margin'] {
