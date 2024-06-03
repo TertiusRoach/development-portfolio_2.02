@@ -2,13 +2,24 @@
 @import '../../a-body/resume-body/resume-body.scss';
 
 header[id*='resume'] {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
   //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     grid-template: 4rem / repeat(5, 1fr); //~~|🠊 rows / columns 🠈|~~//
+    #header-aside {
+      width: 100%;
+      height: 100%;
+      grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+      img {
+        width: 75%;
+        height: 100%;
+        padding-left: 3rem;
+        filter: drop-shadow(0 0 4px black);
+      }
+    }
     #header-menu {
       width: 100%;
       height: 4rem;
@@ -38,48 +49,50 @@ header[id*='resume'] {
             transition: color 0.25s ease-in-out;
           }
         }
-      }
-      .highlight {
-        a {
-          h4 {
-            cursor: default;
-            color: $primary-light;
-            filter: drop-shadow(0 0 4px rgba(white, 0.25));
-          }
-        }
-      }
-
-      .downplay {
-        a {
-          h4 {
-            cursor: pointer;
-            color: $primary-medium;
-            filter: drop-shadow(0 0 4px rgba(black, 0.25));
-          }
-          &:hover {
+        &.highlight {
+          a {
             h4 {
-              color: $primary-light; // Change color within the hover state
+              cursor: default;
+              color: $primary-light;
+              filter: drop-shadow(0 0 4px rgba(white, 0.25));
             }
           }
         }
-      }
-    }
-
-    #header-aside {
-      width: 100%;
-      height: 100%;
-      grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
-      img {
-        width: 75%;
-        height: 100%;
-        padding-left: 3rem;
-        filter: drop-shadow(0 0 4px black);
+        &.downplay {
+          a {
+            h4 {
+              cursor: pointer;
+              color: $primary-medium;
+              filter: drop-shadow(0 0 4px rgba(black, 0.25));
+            }
+            &:hover {
+              h4 {
+                color: $primary-light; // Change color within the hover state
+              }
+            }
+          }
+        }
       }
     }
   }
 
   //--|🠋 Mobile (Portrait) 🠋|--//
   @media screen and (orientation: portrait) {
+    grid-template: 6rem / 1fr; //~~|🠊 rows / columns 🠈|~~//
+    #header-aside {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+      img {
+        width: 100%;
+        height: 50%;
+        filter: drop-shadow(0 0 8px black);
+      }
+    }
+    #header-menu {
+      display: none;
+    }
   }
 
   //--|🠋 Tablet (Rectangle) 🠋|--//

@@ -19,6 +19,8 @@ main[id*='resume'] {
     div[class*='margin'] {
       aside[id*='contact'] {
         @include main-contact;
+        border: 4px dashed $blue-neon;
+        background: rgba($blue-dark, 0.25);
       }
     }
   }

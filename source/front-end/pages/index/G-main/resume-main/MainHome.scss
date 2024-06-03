@@ -1,12 +1,23 @@
 @import '../../a-body/resume-body/resume-body.scss';
 
 @mixin main-home {
-  //--|🠋 01. Home <main> 🠋|--//
+  width: 100%;
+  height: 100%;
+  display: grid;
+
+  @media screen and (orientation: portrait) {
+    border: 4px dashed $green-neon;
+    background: rgba($green-dark, 0.25);
+
+    &[id*='cover'] {
+      display: none;
+    }
+    &[id*='profile'] {
+      display: none;
+    }
+  }
+
   @media screen and (orientation: landscape) {
-    //~~|🠉 aside[id*='home'] 🠉|~~//
-    width: 100%;
-    height: 100%;
-    display: grid;
     grid-template-columns: 3rem repeat(5, 1fr) 3rem;
     grid-template-rows: 2rem 1fr repeat(2, 0.5fr) 1fr 2rem;
     &[id*='cover'] {
@@ -124,8 +135,6 @@
       }
     }
   }
-  @media screen and (orientation: portrait) {
-  }
 }
 
 main[id*='resume'] {
@@ -133,10 +142,7 @@ main[id*='resume'] {
     div[class*='margin'] {
       aside[id*='home'] {
         @include main-home;
-        position: absolute;
-        /*
-        Position: Absolute enables an element to break free from its usual position and be placed exactly where you want it in relation to a nearby anchor point. It's like sticking a note to a specific spot on a wall, independent of the desk and other items around it.
-        */
+        position: absolute; //~~|🠊 Absolute lets an element be precisely placed in relation to an anchor point. 🠈|~~//
       }
     }
   }

@@ -355,6 +355,18 @@
   }
   //--|🠋 Mobile (Portrait) 🠋|--//
   @media screen and (orientation: portrait) {
+    &[id*='skills'] {
+      menu[class*='carousel'] {
+        article {
+          display: none;
+          & {
+            figure {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
 }
 main[id*='resume'] {
@@ -362,6 +374,8 @@ main[id*='resume'] {
     div[class*='margin'] {
       aside[id*='skills'] {
         @include main-skills;
+        // border: 4px dashed $red-neon;
+        // background: rgba($red-dark, 0.25);
       }
     }
   }
