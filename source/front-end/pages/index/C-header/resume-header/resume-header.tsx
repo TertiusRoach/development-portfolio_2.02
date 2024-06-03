@@ -20,31 +20,29 @@ function resumeHeader(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 resume-header.tsx loaded 🠈|--//');
   return (
     <>
-      <aside>
+      <aside id="resume-logo">
         <img src={logoAdjacent} alt="Résumé Logo" />
       </aside>
-      <aside>
-        <menu>
-          <button>
-            <a className="highlight" href="#main-home" id="header-home">
-              <img src={homeHeader} alt="..." />
-              <h4>Home</h4>
-            </a>
-          </button>
-          <button>
-            <a className="downplay" href="#main-skills" id="header-skills">
-              <img src={skillsHeader} alt="..." />
-              <h4>Skills</h4>
-            </a>
-          </button>
-          <button>
-            <a className="downplay" href="#main-contact" id="header-contact">
-              <img src={contactHeader.desktop} alt="..." />
-              <h4>Contact</h4>
-            </a>
-          </button>
-        </menu>
-      </aside>
+      <menu>
+        <button>
+          <a className="highlight" href="#main-home" id="header-home">
+            <img src={homeHeader} alt="..." />
+            <h4>Home</h4>
+          </a>
+        </button>
+        <button>
+          <a className="downplay" href="#main-skills" id="header-skills">
+            <img src={skillsHeader} alt="..." />
+            <h4>Skills</h4>
+          </a>
+        </button>
+        <button>
+          <a className="downplay" href="#main-contact" id="header-contact">
+            <img src={contactHeader.desktop} alt="..." />
+            <h4>Contact</h4>
+          </a>
+        </button>
+      </menu>
     </>
   );
 }
