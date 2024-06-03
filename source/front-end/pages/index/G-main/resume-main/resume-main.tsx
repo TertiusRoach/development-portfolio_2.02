@@ -36,7 +36,7 @@ $(function () {
   const proLeftSelector: string = '#producing-skills .producing-navigation button[class*="left"] img';
   const proRightSelector: string = '#producing-skills .producing-navigation button[class*="right"] img';
 
-  // Common variables
+  //--|🠋 Common Variables 🠋|--//
   let devIndex = 0;
   let proIndex = 0;
   let $devArticle = $(devCarousel);
@@ -46,7 +46,7 @@ $(function () {
   let devWidth = $devArticle.first().width() || 0;
   let proWidth = $proArticle.first().width() || 0;
 
-  // Developer Events
+  //--|🠋 Developer Events 🠋|--//
   $(devFigure).on('click', () => {
     $('#producing-skills').css('zIndex', '-1');
     $(devFigure).css('display', 'none');
@@ -58,7 +58,7 @@ $(function () {
     $('#developing-skills').toggleClass('expanded collapsed');
   });
 
-  // Producer Events
+  //--|🠋 Producer Events 🠋|--//
   $(proFigure).on('click', () => {
     $(proFigure).css('display', 'none');
     $('#developing-skills').css('zIndex', '-1');
@@ -70,7 +70,7 @@ $(function () {
     $('#producing-skills').toggleClass('expanded collapsed');
   });
 
-  // Developer Navigation
+  //--|🠋 Developer Navigation 🠋|--//
   const developerNavigation = (newIndex: number) => {
     const direction = newIndex > devIndex ? '+=' : '-=';
     $devArticle.animate({ right: `${direction}${devWidth}px` }, 500);
@@ -78,8 +78,7 @@ $(function () {
     updateMenu(devIndex, $devArticle);
     updateNavigation();
   };
-
-  // Producer Navigation
+  //--|🠋 Producer Navigation 🠋|--//
   const producerNavigation = (newIndex: number) => {
     const direction = newIndex > proIndex ? '+=' : '-=';
     $proArticle.animate({ right: `${direction}${proWidth}px` }, 500);
@@ -87,17 +86,7 @@ $(function () {
     updateMenu(proIndex, $proArticle);
     updateNavigation();
   };
-
-  // Update Menu
-  const updateMenu = (newIndex: number, $article: JQuery<HTMLElement>) => {
-    $article.removeClass('visible hidden').each(function (index) {
-      $(this)
-        .toggleClass('visible', index === newIndex)
-        .toggleClass('hidden', index !== newIndex);
-    });
-  };
-
-  // Update Navigation
+  //--|🠋 Update Navigation 🠋|--//
   const updateNavigation = () => {
     // Developer navigation
     $developerLeftButton.toggleClass('disabled', devIndex === 0).toggleClass('enabled', devIndex > 0);
@@ -106,11 +95,21 @@ $(function () {
       .toggleClass('enabled', devIndex < devArticles - 1);
 
     // Producer navigation
-    $proLeftButton.toggleClass('disabled', proIndex === 0).toggleClass('enabled', proIndex > 0);
-    $proRightButton.toggleClass('disabled', proIndex === proArticles - 1).toggleClass('enabled', proIndex < proArticles - 1);
+    $producerLeftButton.toggleClass('disabled', proIndex === 0).toggleClass('enabled', proIndex > 0);
+    $producerRightButton
+      .toggleClass('disabled', proIndex === proArticles - 1)
+      .toggleClass('enabled', proIndex < proArticles - 1);
+  };
+  //--|🠋 Update Menu 🠋|--//
+  const updateMenu = (newIndex: number, $article: JQuery<HTMLElement>) => {
+    $article.removeClass('visible hidden').each(function (index) {
+      $(this)
+        .toggleClass('visible', index === newIndex)
+        .toggleClass('hidden', index !== newIndex);
+    });
   };
 
-  // Developer Navigation Buttons
+  //--|🠋 Developer Navigation Buttons 🠋|--//
   let $developerLeftButton = $(devLeftSelector).parent();
   let $developerRightButton = $(devRightSelector).parent();
   $developerRightButton.on('click', () => {
@@ -119,18 +118,16 @@ $(function () {
   $developerLeftButton.on('click', () => {
     if (devIndex > 0) developerNavigation(devIndex - 1);
   });
-
-  // Producer Navigation Buttons
-  let $proLeftButton = $(proLeftSelector).parent();
-  let $proRightButton = $(proRightSelector).parent();
-  $proRightButton.on('click', () => {
+  //--|🠋 Producer Navigation Buttons 🠋|--//
+  let $producerLeftButton = $(proLeftSelector).parent();
+  let $producerRightButton = $(proRightSelector).parent();
+  $producerRightButton.on('click', () => {
     if (proIndex < proArticles - 1) producerNavigation(proIndex + 1);
   });
-  $proLeftButton.on('click', () => {
+  $producerLeftButton.on('click', () => {
     if (proIndex > 0) producerNavigation(proIndex - 1);
   });
-
-  // Initial update
+  //--|🠋 Initial update 🠋|--//
   updateNavigation();
   updateMenu(devIndex, $devArticle);
   updateMenu(proIndex, $proArticle);

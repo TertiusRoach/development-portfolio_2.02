@@ -9,7 +9,7 @@ header[id*='resume'] {
     display: grid;
     grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
     grid-template: 4rem / repeat(5, 1fr); //~~|🠊 rows / columns 🠈|~~//
-    menu {
+    #header-menu {
       width: 100%;
       height: 4rem;
       display: flex;
@@ -38,16 +38,19 @@ header[id*='resume'] {
             transition: color 0.25s ease-in-out;
           }
         }
-
-        .highlight {
+      }
+      .highlight {
+        a {
           h4 {
             cursor: default;
             color: $primary-light;
             filter: drop-shadow(0 0 4px rgba(white, 0.25));
           }
         }
+      }
 
-        .downplay {
+      .downplay {
+        a {
           h4 {
             cursor: pointer;
             color: $primary-medium;
@@ -62,7 +65,7 @@ header[id*='resume'] {
       }
     }
 
-    #resume-logo {
+    #header-aside {
       width: 100%;
       height: 100%;
       grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//

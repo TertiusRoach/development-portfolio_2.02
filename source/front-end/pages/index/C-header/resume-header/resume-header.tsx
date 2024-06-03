@@ -1,4 +1,5 @@
 // resume-header.tsx
+import $ from 'jquery';
 import React from 'react';
 
 function resumeHeader(pageName: string | any, blockName: string | any) {
@@ -20,24 +21,24 @@ function resumeHeader(pageName: string | any, blockName: string | any) {
   console.log('//--|🠊 resume-header.tsx loaded 🠈|--//');
   return (
     <>
-      <aside id="resume-logo">
+      <aside id="header-aside">
         <img src={logoAdjacent} alt="Résumé Logo" />
       </aside>
-      <menu>
-        <button>
-          <a className="highlight" href="#main-home" id="header-home">
+      <menu id="header-menu">
+        <button id="header-home" className="highlight">
+          <a href="#main-home">
             <img src={homeHeader} alt="..." />
             <h4>Home</h4>
           </a>
         </button>
-        <button>
-          <a className="downplay" href="#main-skills" id="header-skills">
+        <button id="header-skills" className="downplay">
+          <a href="#main-skills">
             <img src={skillsHeader} alt="..." />
             <h4>Skills</h4>
           </a>
         </button>
-        <button>
-          <a className="downplay" href="#main-contact" id="header-contact">
+        <button id="header-contact" className="downplay">
+          <a href="#main-contact">
             <img src={contactHeader.desktop} alt="..." />
             <h4>Contact</h4>
           </a>
@@ -47,3 +48,25 @@ function resumeHeader(pageName: string | any, blockName: string | any) {
   );
 }
 export default resumeHeader;
+
+$(function () {
+  const headerButtons: string = '#header-menu button';
+  $(headerButtons).on('click', (event) => {
+    let target = event.currentTarget as HTMLButtonElement; //--|🠊 Extract the clicked button element 🠈|--//
+    let retrieve = {
+      //--|🠋 Define an object to hold related elements and their properties 🠋|--//
+      element: target, //--|🠊 Reference to the clicked button element 🠈|--//
+      get parent() {
+        return $(target).parent()[0] as HTMLElement; //--|🠊 Get the parent element of the clicked button 🠈|--//
+      },
+      get children() {
+        return $(target).parent().children().toArray() as HTMLButtonElement[]; //--|🠊 Get an array of children elements of the parent 🠈|--//
+      },
+      get siblings() {
+        return $(target).siblings().toArray() as HTMLButtonElement[]; //--|🠊 Get an array of sibling elements of the clicked button 🠈|--//
+      },
+    };
+    $(retrieve.siblings).removeClass().addClass('downplay'); //--|🠊 Apply the 'downplay' class to all sibling elements 🠈|--//
+    $(retrieve.element).removeClass('downplay').addClass('highlight'); //--|🠊 Apply the 'highlight' class to the clicked button element 🠈|--//
+  });
+});
