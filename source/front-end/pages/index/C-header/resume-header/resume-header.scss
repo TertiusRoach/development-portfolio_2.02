@@ -6,12 +6,14 @@ header[id*='resume'] {
   height: 100%;
   display: grid;
   grid-area: 1 / 1 / 2 / 4; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
+  #header-aside {
+    display: flex;
+    align-items: center;
+  }
   //--|🠋 Desktop (Landscape) 🠋|--//
   @media screen and (orientation: landscape) {
     grid-template: 4rem / repeat(5, 1fr); //~~|🠊 rows / columns 🠈|~~//
     #header-aside {
-      width: 100%;
-      height: 100%;
       grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
       img {
         width: 75%;
@@ -80,9 +82,6 @@ header[id*='resume'] {
   @media screen and (orientation: portrait) {
     grid-template: 6rem / 1fr; //~~|🠊 rows / columns 🠈|~~//
     #header-aside {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       grid-area: 1 / 1 / 2 / 3; //~~|🠊 row-start / col-start / row-end / col-end 🠈|~~//
       img {
         width: 100%;
