@@ -43,9 +43,9 @@ function MainHome() {
           <div className="mid-ground"></div>
         </aside>
 
-        {/* <aside id="home-profile">
+        <aside id="home-profile">
           <img src={profilePicture} alt="Profile Picture" />
-        </aside> */}
+        </aside>
       </div>
     </section>
   );
