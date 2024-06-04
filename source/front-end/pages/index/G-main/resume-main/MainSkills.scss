@@ -350,9 +350,6 @@
     }
   }
 
-  //--|🠋 Tablet (Square) 🠋|--//
-  @media screen and (max-aspect-ratio: 16/9) {
-  }
   //--|🠋 Mobile (Portrait) 🠋|--//
   @media screen and (orientation: portrait) {
     &[id*='skills'] {
@@ -367,6 +364,10 @@
         }
       }
     }
+  }
+
+  //--|🠋 Tablet (Square) 🠋|--//
+  @media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 16/9) {
   }
 }
 main[id*='resume'] {

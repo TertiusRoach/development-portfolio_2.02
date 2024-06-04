@@ -40,7 +40,8 @@ function MainHome() {
             journey, my arsenal of skills can deliver exceptional results to anyone seeking my services, whether permanent or
             contract-based.
           </p>
-          <div className="mid-ground"></div>
+
+          <div className="midground-cosmetics"></div>
         </aside>
 
         <aside id="home-profile">
